@@ -6,7 +6,7 @@ Requirements for Building the Core:
 =========================
 <ul>
 <li>A valid Star Wars Galaxies Installation</li>
-<li>netbeans ide</li>
+<li>NetBeans IDE 6.9.1 or higher</li>
 <li>java programming</li>
 <lijavascript programming</li>
 <li>jdk 1.6 or higher</li>
