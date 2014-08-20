@@ -1,0 +1,62 @@
+Persistent Worlds SWG Emulator
+(C) 2005 - 2009 Persistent Worlds Development Team all rights reserved.
+-----------------------------------------------------------------------
+vBulletin Integration Documentation
+
+In order to integrate with vBulletin we need to interconnect the User Database on the Server
+with the database on vBulletin.
+
+In order to do so several steps are required.
+
+A) Verify passwords on vBulletin database to the user database on the Emulator Database.
+
+	vBulletin stores passwords as an MD5 Hash.
+	The process vBulletin uses is the following.
+	
+	1- Receive clear unencrypted password from the user at login.
+	2- Retrieve the 'salt' valu from the vBulletin user table.
+	3- Hash the password as an MD5 string.
+	4- Concatenate the MD5'd password with the 'salt' value and MD5 it again.
+	5- Compare the password stored in vBulletin with the newly hashed password.
+	
+	Notes: The 'salt' value is determined by vBulletin at time of the account being created.
+		all passwords will be encrypted using this 'salt' value.
+	
+	The query commands to store our MD5'd password is the following.
+
+	SELECT md5(CONCAT(md5('{clear password}') , '{salt}'));
+
+	The 'salt' value is in the user table of the vBulletin site.
+	The table is users, but this can be prefixed with a chosen value at the intall time of the vBulletin Software.
+	
+	 
+The way we will integrate is the follwoing.
+
+The System will have a table called `loginintegration`
+This table will contain by default one record with a login type of 0 and all other fields set to null.
+
+Login type 0 is internal user authentication and will make the system work just as it alsways has till today.
+
+Login type 1 will be for vBulletin. When type is set to 1 all fields will be populated with data as follows:
+	
+	`logintype` = 1
+	`tableprefix` varchar(45) 	= This will be the Table Prefix chosen at the time of installation of the vBulletin CMS Software.
+	`tablename` varchar(45) 	= This will be the name of the table containing the user database in vBulletin.
+	`usernamefield` varchar(45) 	= This will be the name of the column containing the user name.
+	`passwordfield` varchar(45) 	= This is the name of the password column containing the password.
+	`keyfield` varchar(45) 		= This is the name of the column containing the 'salt' value for the vBulletin user.
+	`encryptiontype` int(10) 	= This will be set to 1, this means MD5 Checksum.
+	`hostname` varchar(45) 		= This is the host name for the vBulletin MySQL Database Server.
+	`schema` varchar(45) 		= This is the name of the database or schema that contains the vBulleting Database to be accessed. 
+	`username` varchar(45) 		= This is the MySQL user name used to login to MySQL to access the Database.
+	`password` varchar(45) 		= This is the MySQL password to access the MySQL Database.
+	`port` int(10) 			= This is the MySQL Database port to be used when connecting to the MySQL Database.
+	`devusergroupid` int(10) 	= This defines what group in the vBulletin Server makes a user a Developer.
+	`csrusergroupid` int(10) 	= This defines what group in the vBulletin Server makes a user a CSR or Game Dev. 
+	`devcsrgroupid` int(10) 	= This defines what group in the vBulletin Server makes a user be banned. 
+
+Additional Login Types are reserved for future use.
+
+Turning the Login Type on the loginintegration table to 0 disables the feature and allows for all accounts stored locally to login.
+If is recommended that when vBLink is active, the server has automatic account registration off.
+	

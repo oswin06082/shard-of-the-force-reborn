@@ -1,0 +1,20 @@
+= Player =
+addItemToInventory()
+removeItemFromInventory()
+addWaypoint()
+deleteWaypoint()
+
+getOnlineStatus()
+getStatus()
+isMounted()
+setSkill()
+hasSkill()
+addState()  //Don't know how I'm going to handle this.
+removeState()  //Don't know how I'm going to handle this.
+hasState()  //Don't know how I'm going to handle this.
+getStance() //Dont know how I'm going to handle this.
+setStance() //Don't know how I'm going to handle this.
+applyBuff() //applyBuff is for medical buffs.
+	    //applyBuff should only be called if someone is buffing a ham stat.
+addBuffEffect() //addBuffEffect is for "everything" -- medical buffs, poisons, diseases, cure states, etc. etc.
+removeBuffEffect()

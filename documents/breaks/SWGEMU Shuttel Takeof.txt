@@ -1,0 +1,100 @@
+PLAYER ID:  67 00 00 00 15   /// 15 00 00 00 67 00 00 00
+SHUTTLE ID: 5C 83 00 2A			//2A 00 83 5C 00 00 00 00 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packet: 128  Time: 50 s
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+66.90.104.117:44463 -> 10.10.10.122:2231(Server -> Client)
+Enc: T   Comp: T    Seed: 0x38B25489    Length: 100
+
+00 09 00 2B 00 19 
+
+37 
+
+05 00 
+46 5E CE 80 
+0B 00 00 00 
+47 01 00 00 
+15 00 00 00 67 00 00 00 
+00 00 00 00 
+2A 00 83 5C 00 00 00 00 
+15 00 00 00 67 00 00 00 
+01 00 00 00 
+01 00 07 03 00 00 00 00 08 
+
+23 
+
+05 00 
+53 21 86 12 //0x12862153 DeltasMessage
+15 00 00 00 67 00 00 00 //player id
+4F 45 52 43 06 
+0C 00 00 00 
+01 00 
+09 00 
+2A 00 83 5C 00 00 00 00 //shuttle id
+
+AE EB                                            ....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Packet: 130  Time: 60 s
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+66.90.104.117:44463 -> 10.10.10.122:2231(Server -> Client)
+Enc: T   Comp: T    Seed: 0x38B25489    Length: 129
+
+00 09 00 2C 00 19 
+
+1C 
+
+05 00 
+46 5E CE 80 //objcontrollermsg
+1B 00 00 00 //ObjectActionEnqueue
+31 01 00 00 //PlayerPostureChange
+2A 00 83 5C 00 00 00 00 //shuttle id
+00 00 00 00 //?
+02 //?
+01 //?
+
+1C 
+
+05 00 
+53 21 86 12 //0x12862153 DeltasMessage
+2A 00 83 5C 00 00 00 00 //shuttle id
+4F 45 52 43 03 //creo 3
+05 00 00 00 //int 5
+01 00 //short
+0B 00 //short
+02       //byte
+
+3E 
+
+05 00 
+46 5E CE 80 //objcontrollermsg
+1B 00 00 00 //ObjectActionEnqueue
+CC 00 00 00 //CombatAction
+2A 00 83 5C 00 00 00 00 //shuttle id
+00 00 00 00 //spacer
+45 02 29 AB //0xAB290245 //shuttle move ? fly out ....?????possibly means theres a fly in
+2A 00 83 5C 00 00 00 00 //shuttle id
+00 00 00 00 00 00 00 00 //
+02 //byte 
+FF FF 01 00 //?????
+2A 00 83 5C 00 00 00 00 //shuttle id
+02 00 //short
+00 //byte
+
+56 0E                                                     .
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,2657 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;\red0\green128\blue0;}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\pard\cf1\f0\fs20 SWGPre-CU\par
+Repository Address:  https://opensvn.csie.org/SWGPreCU\par
+Packet Documentation\par
+\par
+Disclaimer:  Nearly ALL of the packets contained within were originally reversed by SWGEMU.  Those packets, having been included in source code that was released as open source, are now considered freely modifiable and copyable, provided that the original source is credited.\par
+\par
+Those packets are free software; you can redistribute it and/or modify\par
+it under the terms of the GNU General Public License as published by\par
+the Free Software Foundation; either version 2 of the License, or\par
+(at your option) any later version.\par
+\par
+This program is distributed in the hope that it will be useful,\par
+but WITHOUT ANY WARRANTY; without even the implied warranty of\par
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\par
+GNU General Public License for more details.\par
+\par
+You should have received a copy of the GNU General Public License\par
+along with this program; if not, write to the Free Software\par
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\par
+\par
+All known opcodes:\par
+SOE Opcodes:\par
+\par
+    SOE_SESSION_REQUEST          = 0x0100,\par
+    SOE_SESSION_RESPONSE         = 0x0200,\par
+    SOE_MULTI_PKT                = 0x0300,\par
+    SOE_NOT_USED                 = 0x0400,\par
+    SOE_DISCONNECT               = 0x0500,\par
+    SOE_PING                     = 0x0600,\par
+    SOE_NET_STATUS_REQ           = 0x0700,\par
+    SOE_NET_STATUS_RES           = 0x0800,\par
+    SOE_CHL_DATA_A               = 0x0900,\par
+    SOE_CHL_DATA_B               = 0x0A00,\par
+    SOE_CHL_DATA_C               = 0x0B00,\par
+    SOE_CHL_DATA_D               = 0x0C00,\par
+    SOE_DATA_FRAG_A              = 0x0D00,\par
+    SOE_DATA_FRAG_B              = 0x0E00,\par
+    SOE_DATA_FRAG_C              = 0x0F00,\par
+    SOE_DATA_FRAG_D              = 0x1000,\par
+    SOE_OUT_ORDER_PKT_A          = 0x1100,\par
+    SOE_OUT_ORDER_PKT_B          = 0x1200,\par
+    SOE_OUT_ORDER_PKT_C          = 0x1300,\par
+    SOE_OUT_ORDER_PKT_D          = 0x1400,\par
+    SOE_ACK_A                    = 0x1500,\par
+    SOE_ACK_B                    = 0x1600,\par
+    SOE_ACK_C                    = 0x1700,\par
+    SOE_ACK_D                    = 0x1800,\par
+    SOE_FATAL_ERR                = 0x1D00,\par
+    SOE_FATAL_ERR_REP            = 0x1E00,\par
+\par
+Login Opcodes:\par
+    SMSG_LS_STRING               = 0x0E20D7E9,\par
+    SMSG_LS_NUM                  = 0x58C07F21,\par
+    SMSG_SERVER_NAMES            = 0xC11C63B9,\par
+    SMSG_SERVER_ADDR             = 0x3436AEB6,\par
+    SMSG_CHAR_LIST               = 0x65EA4574,\par
+    SMSG_CHAR_DEL                = 0x989B0002,\par
+    CMSG_CHAR_DEL                = 0xE87AD031,\par
+    CMSG_ACCT_VERSION            = 0x41131F96,\par
+    SMSG_STATION_SESSION         = 0xAAB296C6,\par
+\par
+Zone Opcodes:\par
+\par
+    SMSG_CS_STRING                = 0x0E20D7E9,\par
+    SMSG_CS_NUM                   = 0x58C07F21,\par
+    CMSG_NOTIFY_SESSION           = 0x31805EE0,\par
+    CMSG_DATA_SES_VER             = 0xD5899226,\par
+    SMSG_OK_PACKET                = 0xA16CF9AF,\par
+    SMSG_CHAR_OPTS                = 0xE00730E5,\par
+    CMSG_GEN_CHAR_NAME            = 0xD6D1B6D1,\par
+    CMSG_CHECK_CHAR_NAME          = 0x9EB04B9F,\par
+    SMSG_APPROVE_NAME             = 0xE85FB868,\par
+    CMSG_CREATE_CHAR              = 0xB97F3074,\par
+    SMSG_ASSIGN_CHAR_ID           = 0x1DB575CC,\par
+    CMSG_LOGIN_CHAR               = 0xB5098D76,\par
+    SMSG_SETTING_UNK1             = 0x7102B15F,\par
+    SMSG_UNK_INT900               = 0x487652DA,\par
+    SMSG_NEW_MAIL                 = 0xD72FE9BE,\par
+    SMSG_LOAD_TERRN               = 0x3AE6DFAE,\par
+    CMSG_OBJ_PRELOAD              = 0x2E365218, \par
+    SMSG_OBJ_PRELOAD              = 0x08A1C126,\par
+    SMSG_OBJ_INIT                 = 0xFE89DDEA,\par
+    SMSG_OBJ_UPDATE               = 0x68A75F0C,\par
+    SMSG_OBJ_FINISH               = 0x2C436037,\par
+    SMSG_OBJ_PREFINISH            = 0x0BDE6B41,\par
+    SMSG_OBJ_LINK                 = 0x56CBDE9E,\par
+    CMSG_LOAD_READY               = 0x43FD1C22,\par
+    SMSG_LOAD_READY               = 0x43FD1C22,\par
+    SMSG_POS_UPDATE               = 0x1B24F808,\par
+    CMSG_POS_UPDATE               = 0x3F360154,\par
+    SMSG_FACTION_STATE            = 0x08A1C126,\par
+    AMSG_INT_PACKET               = 0x80CE5E46,\par
+    AMSG_TEL_PACKET               = 0x84BB21F7,\par
+    AMSG_CT_PACKET                = 0x3C565CED,\par
+    AMSG_CTF_PACKET               = 0x88DBB381,\par
+    SMSG_SYSMSG_PACKET            = 0x6D2A6413,\par
+    SMSG_SEND_EFFECT\tab\tab     = 0x8855434A,\par
+    SMSG_CELL_POS_UPDATE\tab     = 0xC867AB5A,\par
+    MMSG_DELTA\tab\tab\tab     = 0x12862153,\par
+    MMSG_TIME\tab\tab\tab     = 0x2EBC3BD9,\par
+\par
+// General packet format:  ALL packets start out with 3 uint16.  They are, in order:\par
+0x09 \endash  Opcode.  In this case, SOE_CHL_DATA_A -- This was originally handled by the ByteBuffer constructor in nearly all cases.\par
+0x?? \endash  Indicates the server sequence of this object.\par
+0x?? \endash  Indicates the operand this packet is intended to modify.\par
+\page\par
+Incoming packet -- SOE SESSION REQUEST:\par
+\par
+0x00 0x01 // SOE_SESSION_REQUEST\par
+0x00 0x00 // Sequence\par
+0x00 0x02 // World Update\par
+0x?? 0x?? 0x?? 0x?? // Connection ID - int\par
+0x00 0x00 0x01 0xF0 // Default max packet size.  Or, possibly, max packet size from last session.\par
+\par
+To be sent when receiving a packet with opcode 1 from the client. In order.  LOGIN SERVER SPECIFIC\par
+SOE Session Response Packet.\par
+\par
+0x00 0x02 // SOE_SESSION_RESPONSE\par
+0x?? 0x?? 0x?? 0x??  // The connection ID we received from the client in it's SOE_SESSION_REQUEST packet.\par
+0x?? 0x?? 0x?? 0x??  // INT -- CRC seed for this session.\par
+0x02 0x01 0x04 // Unknown data.\par
+0x00 0x00 // Unknown short.\par
+INT max packet size.\par
+0x00 0x00 0x00 // Compression + CRC flags.\par
+\par
+SOE Login Server Packet.\par
+0x00, 0x09 // SOE packet\par
+0x00, 0x00 // Server sequence\par
+0x00, 0x19, // DATA_A_MULTI_PKT\par
+0x19, // First packet size\par
+0x02, 0x00, // Opcode: World Update\par
+0xE9, 0xD7, 0x20, 0x0E, // Packet CRC: LoginServerString\par
+0x11, 0x00, // Length of string\par
+0x4C, 0x6F, 0x67, 0x69, 0x6E, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x3A, 0x32, 0x39, 0x34, 0x31, 0x31,\par
+// Login_erver:29411\par
+\par
+0x0A, // Next packet size.  \par
+0x02, 0x00, // World update\par
+0x21, 0x7F, 0xC0, 0x58, // CRC: LoginServerID\par
+0xE3, 0x72, 0x00, 0x00, // INT port value.  72E3 = 29411\par
+0x00, 0x00, 0x00 // Footer.  Compression + crc.\par
+\page PacketBuildObjInit \endash  Initialization of a mobile object.\par
+\{\par
+Opcode:  SOE_CHL_DATA_A;\tab\tab Short\par
+Must have a sequence.  \tab\tab\tab Short\par
+Operand: Object Update  \tab\tab Short\par
+Packet CRC: SceneCreateObjectByCRC\tab Int\par
+Object ID.\tab\tab\tab\tab\tab Long\par
+Orientation data:\par
+North\tab\tab\tab\tab\tab\tab Float\par
+South\tab\tab\tab\tab\tab\tab Float\par
+East\tab\tab\tab\tab\tab\tab Float\par
+West\tab\tab\tab\tab\tab\tab Float\par
+Position data:\par
+X\tab\tab\tab\tab\tab\tab Float\par
+Z\tab\tab\tab\tab\tab\tab Float\par
+Y\tab\tab\tab\tab\tab\tab Float\par
+Object CRC\tab\tab\tab\tab\tab Int\par
+Unknown\tab\tab\tab\tab\tab Byte\par
+\}\par
+\cf2\par
+\cf0 The format below belongs to ALL Creo and Play packets.\par
+This can be defined as the "header" of these packets.\par
+NOTE:  This "header" is defined as what it is, BEFORE any modifications are added in due to fragmenting / multipacketing.\par
+\par
+Opcode: SOE_CHL_DATA_A\tab\tab\tab Short\par
+Sequence\tab\tab\tab\tab\tab Short\par
+\cf1 Object Update\tab\tab\tab\tab Short\par
+Packet CRC:  Baselines Message\tab Int\par
+\cf0 Object ID\tab\tab\tab\tab\tab Long\par
+Packet Name\tab\tab\tab\tab\tab byte array -- reversed.\par
+Packet subtype (3, 6, 8, 9, etc)\tab byte\par
+Packet size (hex)\tab\tab\tab\tab Int\par
+Object Operand Count.  \tab\tab\tab Short\par
+\par
+Every initializing Creo, Play, RCNO, IHNO, WEAO, etc. etc. packet has this header.\par
+\page CREO1 SPECIFIC \endash  Has 4 variables, Operand count of 4.\par
+\par
+Variable 1:  Bank Credits\tab\tab Int\par
+Variable 2:  Inventory Credits\tab Int\par
+Variable 3:  HAM\par
+Format:\tab\tab\tab\tab\tab Int "9"\par
+\tab\tab\tab\tab\tab\tab Int "9"\par
+\tab\tab\tab\tab\tab\tab 9 ints -- represent each HAM's max value.\par
+\par
+Variable 4:  Skill list.\par
+Format:  Similar to the HAM.\tab\tab Int Size of the skill list.\par
+\tab\tab\tab\tab\tab\tab Int Number of skills we are sending.\par
+\tab\tab\tab\tab\tab\tab Loop through the list:  UTF string of each skill name.\par
+Comp + CRC\par
+\page\par
+CREO3 SPECIFIC.  Has Operand count of 12 (in hex, == 18), 18 variables. \par
+\par
+Variable 1:  Unknown.  Hardcoded to uint32 with value 16256 (0x9AFF)\par
+Variable 2:  String containing either \ldblquote species\rdblquote  or \ldblquote mob/creature_name\rdblquote   Format:  uint16 containing length of the string, followed by ascii string.\par
+\par
+4 bytes of unknown data.  Probably spacing which follows the string.\par
+\par
+Variable 3:  Race / Species name.  Format:  uint16 of the length of the string, followed by the string.  If there is no CRC, this is used.  Otherwise, a uint16 value of 0 is put in the packet.\par
+\par
+Variable 4:  Name of the player.  Format:  uint32 of the length of the character\rquote s FULL name, followed by unicode string of the character\rquote s full name.\par
+\par
+Variable 5:  Appearance data.  Also a string, which is encoded.  (See Core 1 for details on appearance data encoding.)  Format:  uint16 containing the length of the appearance data string, followed by ascii formatted appearance data.\par
+\par
+Variable 6: Unknown uint32.  Core 1 hardcoded 1.\par
+Variable 7: Unknown uint32.  Core 1 hardcoded 0.\par
+Variable 8: Unknown uint32.  Core 1 hardcoded 0.\par
+Variable 9: Unknown uint32.  Core 1 hardcoded 128.\par
+Variable 10:  Unknown uint32.  Core 1 hardcoded 0.\par
+Variable 11:  Unknown uint32.  Core 1 hardcoded 0.\par
+Variable 12:  Unknown uint32.  Core 1 hardcoded 3000.\par
+Following this is a byte flag.  Core 1 hardcoded to \ldblquote true\rdblquote .\par
+Variable 13:  Posture.  Format:  uint8 byte for the posture, uint8 0 value spacer.\par
+Variable 14:  Target.  Uint64 character ID.  For the creation Creo3, this will always be 0, as the object we\rquote re creating cannot already have a target.\par
+Variable 15:  Height of the object.  Floating point variable.\par
+Variable 16:  uint32 containing current value of the player\rquote s Battle Fatigue.\par
+Variable 17:  uint64 containing the current bitmask of the player\rquote s State (or States).\par
+Variable 18:  HAM wounds.  Format:  2 uint8\rquote s, both hardcoded to 9.  (Probably, as in the creo1:  9 ham bars, updating all 9.)\par
+For each Ham bar, send a uint32 containing the number of wounds for \ldblquote that\rdblquote  ham bar.\par
+Packet footer:  Append 8 bit compression flag, and 16 bit CRC.\par
+\page CREO 4 specific.  Operand count = 14. If in hex, == 20.\par
+\par
+Variable 1:  Unknown float.\par
+Variable 2:  Unknown float.\par
+Variable 3:  HAM encumberances.  Format:  Send 2 uint32 counters indicating the number of encumberances we\rquote re setting.  (Core 1 had 3 and 3.)\par
+For each encumberance, send a uint32 indicating the encumberance value we\rquote re setting on that ham bar.  TOFIX \endash  Encumberances existed on all 9 ham bars, not just 3, didn\rquote t they?\par
+\par
+Variable 4:  Skill mods.  Format:  uint32 containing the size of the skill mod list.  (A.K.A. The number of skill mods we\rquote re sending.)  Next, an unknown uint32, hardcoded to 0 in Core 1.  Next, for each skill mod in the list, send:  a uint8 hardcoded to 0, a uint16 specifying the length of the skill mod string, the ascii skillmod string, a uint64 indicating the skillmod \ldblquote value\rdblquote .\par
+\par
+Variable 5:  Unknown float.  Hardcoded to 1.0 in Core 1.\par
+Variable 6:  Player\rquote s normal acceleration rate.  Hardcoded to 1.0 in Core 1.\par
+Variable 7:  Unknown uint64 / float.  Hardcoded to 0 in Core 1.\par
+Variable 8:  Player\rquote s normal running speed (float).  Hardcoded to 5.376 in Core 1.\par
+Variable 9:  Unknown float.  Hardcoded to 0.453786 in Core 1.\par
+Variable 10:  Unknown float.  Hardcoded to 0.0125 in Core 1.\par
+Variable 11:  Unknown float.  Hardcoded to 1.0 in Core 1.\par
+Variable 12:  Unknown float.  Hardcoded to 1.549 in Core 1.\par
+Variable 13:  Unknown float.  Hardcoded to 0.75 in Core 1.\par
+Variable 14:  Unknown uint64 / float.  Hardcoded to 0 in Core 1.\par
+\par
+Packet footer:  uint8 compression flag, uint16 CRC.\par
+\page CREO 6 SPECIFIC.  Operand count: 24.  If in hex, == 36.\par
+\par
+Variable 1:  Current Defender (Current target?)  Includes a counter for updates to this.  Format:  uint32 update counter, followed by uint64 player/object ID.\par
+\par
+Variable 2: uint16.  Consider level of this object.\par
+Variable 3:  Music or Dance type string currently being performed.  Format:  uint16 size of the string, followed by ascii name of the song/dance skill being performed.\par
+\par
+Variable 4:  Mood string of the character.  Format:  uint16 string size, unicode? Mood string.\par
+\par
+Variable 5:  uint64 WEAO ID.  (ID of the currently equipped weapon?)  Hardcoded in Core 1 as Player ID + 5.\par
+\par
+Variable 6:  uint64 Unknown (possibly Group ID).  Hardcoded 0.\par
+Variable 7:  uint64 Unknown.  Hardcoded 0.\par
+Variable 8:  uint64 Unknown.  Hardcoded 0.\par
+Variable 9:  uint32 Unknown.  Hardcoded 0.\par
+Variable 10:  uint64 Unknown.  Hardcoded 0.\par
+Variable 11:  uint8 Mood ID\par
+Variable 12:  uint32 Unknown.  Guild ID?  Hardcoded 0.\par
+Variable 13:  uint32 Unknown.  Guild ID?  Hardcoded 0.\par
+Variable 14:  Current HAM.  Format:  uint32 Number of Ham Bars in the update (9).  Uint32 Update counter (9 in the original Creo 6).  For each ham bar, send uint32 current HAM.\par
+Variable 15:  Max HAM.  Same format as above.\par
+Variable 16:  \ldblquote Equipment\rdblquote  list.  Format:  uint32 number of Equipment objects sending.  Uint32 Update counter for the Equipment list.\par
+For each Equipment item, send:  uint16 spacer (0), uint32 unknown, hardcoded 4.  uint64 Equipment item ID (calculated as player ID + an offset), uint32 item CRC.\par
+6 items in Variable 16 in Core 1 Creo 6 code.  In order:\par
+Weapon:  Offset:  +5. \tab\tab CRC: 0x70B79711\par
+Datapad:  Offset: +3.  \tab\tab CRC: 0x73BA5001\par
+Inventory: Offset: +1. \tab\tab CRC: 0x3969E83B\par
+Player Bank: Offset: +4.  \tab CRC: 0x70FD1394\par
+Player Missions: Offset: +2.\tab CRC: 0x3D7F6F9F\par
+Player Hair:  Offset: +8.\tab CRC: 0x???????  Calculated based on what hair the player is wearing.\par
+\par
+Next:  a final uint16 spacer.\par
+Packet footer:  uint8 compression, uint16 CRC.\par
+\page PLAY 3 SPECIFIC: Operands:  B (translates to 11 in decimal).\par
+\par
+Variable 1:  uint32 unknown.  Hardcoded as 0x3F800000 in Core 1.\par
+Variable 2:  String ID table string.  Format:  uint16 string size, unicode \ldblquote string_id_table\rdblquote\par
+Next several paramaters unknown.\par
+\par
+Variable 3:  Unknown uint64.  Hardcoded 0.\par
+Variable 4:  Unknown uint64.  Hardcoded 0.\par
+Variable 5:  Unknown uint16.  Hardcoded 0.\par
+Variable 6:  Unknown uint32.  Hardcoded 4.\par
+Variable 7:  Unknown uint32.  Hardcoded 0.\par
+Variable 8:  Unknown uint64.  Hardcoded 0.\par
+Variable 9:  Unknown uint32.  Hardcoded 0x80000000\par
+Variable 10: Unknown uint32.  Hardcoded 4.\par
+Variable 11: Unknown uint64.  Hardcoded 0.\par
+Variable 12: Unknown uint64.  Hardcoded 0.\par
+\par
+Variable 13:  Player\rquote s title.  Format:  uint16 string length, unicode title string.\par
+\par
+Variable 14:  Unknown uint32.  Hardcoded 0x0000059B\par
+Variable 15:  Unknown uint32.  Hardcoded 0x001FEFD2\par
+Variable 16:  Unknown uint32.  Hardcoded 0x0000001E (== 30.  Unit type???)\par
+\par
+Packet footer:  uint8 compression, uint16 crc.\par
+\page PLAY 6 SPECIFIC:  Packet is almost totally unknown.\par
+Operand count:  2.\par
+\par
+Variable 1:  Unknown uint32.  Hardcoded 61.\par
+Variable 2:  Unknown uint8.  Hardcoded 0.\par
+Packet Footer:  uint8 compression, uint16 crc.\par
+\page PLAY 8 SPECIFIC: Operands:  7\par
+\par
+Variable 1:  Skill experience levels.\par
+Format:  uint64 number of experience values.\par
+For each experience value, append:  uint8 spacer (0), uint16 experience string length, ascii experience string, uint32 experience value.\par
+\par
+Variable 2:  Waypoints.  (Does not appear to work in Core 1.)\par
+Format:  uint64 number of waypoints.\par
+For each waypoint, append:  uint8 spacer, uint64 ID of the character owning the waypoint, uint32 unknown value (0), float waypoint x, float waypoint z, float waypoint y, uint32 unknown (0), uint32 unknown (0), uint32 planetCRC, uint32 length of waypoint name, unicode waypoint name, uint64 waypoint object ID, uint8 always on flag, uint8 active flag.\par
+\par
+Variable 3: Current Force.  Uint32.  No update counter on this object.\par
+Variable 4: Max Force.  Uint32.\tab No update counter on this object.\par
+Several unknown paramaters follow:\par
+Uint32 hardcoded at 5.\par
+Uint64 hardcoded at 14.\par
+Uint8 spacer / flag / who knows, hardcoded 0.\par
+Uint32 hardcoded at 5.\par
+Uint64 hardcoded at 14.\par
+\par
+Uint8 spacer / flag / who knows, hardcoded 0.\par
+\par
+Variable 5:  Quest list.  Format:  uint64 number of quests.\par
+For each quest:  uint8 spacer, uint32 quest CRC, uint32 quest status.\par
+\par
+Variable 6:  Unknown uint32, hardcoded 0.\par
+Variable 7:  \cf2 // Unk, maybe a list?\par
+\cf0\tab packet << (uint8)1 << (uint32)0 << (uint8)0x64 << (uint8)0xEA << (uint16)0;\par
+\par
+Packet footer:  uint8 compression, uint16 crc.\par
+\page PLAY 9 SPECIFIC:  Operands:  19.  If Hex, == 25.\par
+\par
+Variable 1:  Skill Ability List.  \par
+Format:  uint64 number of skill abilities.  For each skill ability, append to packet uint16 skillAbility string length, unicode skillAbility\par
+\par
+Variable 2:  Unknown uint32.  Hardcoded 0.\par
+Variable 3:  Unknown uint32.  Hardcoded 0.\par
+Variable 4:  Unknown uint64.  Hardcoded 0.\par
+Variable 5:  Schematics.  Maybe.  Format:  uint32 number of schematics.  Uint32 schematic counter.  For each schematic, send uint8 schematic string length, unicode schematic string.\par
+\par
+Variable 6:  Unknown uint32.  Hardcoded 0.\par
+Variable 7:  Unknown uint32.  Hardcoded 0.\par
+Variable 8:  Unknown uint64.  Hardcoded 0.  Commented as \ldblquote unknown list\rdblquote .\par
+Variable 9:  Unknown uint64.  Hardcoded 0.  Commented as \ldblquote unknown list\rdblquote .\par
+Variable 10:  Food fullness.  Format:  uint32 current food fullness, uint32 max food fullness (always 100).\par
+Variable 11:  Drink fullness.  Format:  uint32 current drink fullness, uint32 max drink fullness (always 100).\par
+Variable 12:  Unknown.  Pair of uint32\rquote s, First hardcoded 0, second hardcoded 64.\par
+Variable 13:  Unknown uint64. Hardcoded 0.\par
+Variable 14:  unknown uint32. Hardcoded 64.\par
+Variable 14:  uint32 Jedi flag.  0x00 = Not a Jedi, 0x02 = Jedi.\par
+Packet Footer:  uint8 compression, uint16 crc.\par
+\page\ldblquote The Delta Packet\rdblquote .\par
+\par
+Usage:  The Delta Packet tells the client \ldblquote Hey, change XX value to be YYY\rdblquote .\par
+\par
+General format of a Delta packet:\par
+Operand count (almost always 5).\par
+Opcode2 == MMSG_DELTA (0x12862153) uint32\par
+Uint32 ID of the Object we are updating.  For Creo, this is the Player ID.  For Play, this is the Player ID + a pre-determined Player Offset.  Etc, etc for weapons, hair, datapad, etc.\par
+\par
+\par
+Uint64 ID of the Packet structure being updated. Example:  PLAY\par
+Uint8 Packet ID of the above packet. Example:  8\par
+\par
+Uint32 Size of this packet in hex bytes.\par
+Uint16 Number of updates to the above packet structure contained in this packet.\par
+\par
+For each update:\par
+Uint16 The variable ID we are changing.\par
+If the variable we are changing is a list, we need uint32 number of updates to this list.\par
+If the variable has an update counter, we need a uint32 Update counter.\par
+If the variable is a list, we need uint8 size of the sub-variable to update.\par
+If need a sub variable:  send it as a uint16.  (EG:  Ham does.)\par
+Variable format (depending on what we\rquote re updating) the new value to put in that variable.\par
+End looping through number of updates.\par
+\par
+Packet footer: uint8 compression, uint16 crc.  (May or may not be here.)\par
+\page Play Object Initialization Packet.  This \ldblquote creates\rdblquote  the Player object.\par
+\par
+packet.opcode(SOE_CHL_DATA_A);\par
+    packet.sequence(sequence);\par
+    packet << (uint16)5;\par
+    packet.opcode2(SMSG_OBJ_INIT);\par
+\par
+    // CharID (UINT64)\par
+    packet << (ObjID+ a pre-determined PLAYER_OFFSET);\par
+\par
+    // Orientation (FLOAT)\par
+    packet << (float)0;\par
+    packet << (float)0;\par
+    packet << (float)0;\par
+\par
+    // UNK\par
+    packet << (uint16)0x00 << (uint8)0x80 << (uint8)0x3F;\par
+\par
+    // Player Position (FLOAT)\par
+    packet << (float)0;\par
+    packet << (float)0;\par
+    packet << (float)0;\par
+\par
+    // Object CRC\par
+    packet << (uint32)0x619BAE21;\par
+\par
+    packet << (uint8)0x00; //byte flag, affects unknown.\par
+\par
+    //packet << (uint8)0x00 << (uint16)0x00; Compression + CRC\par
+\page Play Link State Packet:  This packet defines the link state of another object on the Player.  Needs to be sent whenever the player wants to equip or unequip an item, at least.\par
+\par
+\par
+    packet.opcode(SOE_CHL_DATA_A);\par
+    packet.sequence(sequence);\par
+    packet << (uint16)4; // Opcount\par
+    packet.opcode2(SMSG_OBJ_LINK);\par
+    packet << itemId; // The id of this particular object.\par
+    packet << parentId; // The id of the player we\rquote re linking it to.\par
+    packet << (uint32)linkState; // Appears to generally be either Equip or Unequip.\par
+\par
+    //packet << (uint8)0x00 << (uint16)0x00; // comp + crc\par
+\page Play \endash  BuildPlayClose packet.  Indicates that we are done \ldblquote creating\rdblquote  the Player object for the client.\par
+\par
+    packet.opcode(SOE_CHL_DATA_A);\par
+    packet.sequence(sequence);\par
+    packet << (uint16)2; // Operand\par
+    packet.opcode2(SMSG_OBJ_FINISH);  // We\rquote re done creating this:\par
+    packet << (ObjID+PLAYER_OFFSET);  // uint64 \endash  Player ID + predetermined offset.\par
+\par
+    \cf2 //packet << (uint8)0x00 << (uint16)0x00; // comp + crc\par
+\cf0\page Packet opcode strings version 1.  Original source:  Nelk.\par
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\par
+PlaybackActionTemplate    139876588\par
+WatcherActionTemplate    1686940613\par
+TimerPlaybackActionTemplate    623643172\par
+StopActionTemplate    145371025\par
+BaseWatcher    840681348\par
+PlaybackAction    596321956\par
+WatcherAction    3679226022\par
+TimerPlaybackAction    1216529927\par
+PassthroughPlaybackAction    941345063\par
+Sound2    3820199393\par
+Sound2d    1965101472\par
+Sound3d    2805518460\par
+SoundTemplate    2493183880\par
+Sound2dTemplate    1898437093\par
+Sound3dTemplate    4055333250\par
+ForceFeedbackEffectTemplate    1288241258\par
+Object    3474813746\par
+TangibleObject    3335659148\par
+Scene    1139941813\par
+GroundScene    1259779807\par
+NetworkScene    2284437457\par
+CreatureObject    29990564\par
+Extent    2739451456\par
+BoxExtent    3899581653\par
+DetailAppearance    424199883\par
+Appearance    3256884407\par
+SkeletalAppearance2    3941279143\par
+CallbackReceiver    987893283\par
+ClientObject    2407789610\par
+Controller    1451889799\par
+CreatureController    1499990732\par
+Dynamics    1835664709\par
+VehicleHoverDynamics    3699261360\par
+WeaponObject    2910350101\par
+PlayerObject    594400956\par
+ObjectTemplate    1870174545\par
+SharedWeaponObjectTemplate    2798305519\par
+RemoteCreatureController    3830678839\par
+HardpointObject    564322160\par
+SharedCreatureObjectTemplate    3866549535\par
+exception    4045779873\par
+Connection    2416448046\par
+GameNetworkConnection    1297731955\par
+ClientController    2735280162\par
+NetworkController    22899554\par
+ClientMissionObject    1992566760\par
+ClientWaypointObject    713236611\par
+PlayerCreatureController    674200725\par
+PlayerShipController    2918802218\par
+ShipObject    2034796776\par
+SpatialSubdivisionHandle    1340820507\par
+Shader    2019187662\par
+StaticShader    1132035340\par
+SpriteAppearance    3709342970\par
+ProceduralTerrainAppearance    2881412759\par
+IoWin    2942732079\par
+TestIoWin    130534768\par
+SplitMeshTest    2485901590\par
+WaterTest    3627690255\par
+SetTextureTest    1382945457\par
+LodShaderTest    1293789161\par
+JgrillsTest    2624482906\par
+TimeOfDayTest    3136865979\par
+DynamicNormalMapTest    1103873009\par
+VertexBufferBaseIterator    4146809550\par
+VertexBufferWriteIterator    1789880168\par
+ShadowVolumeTest    1521561510\par
+SceneEndBaselines    742613047\par
+SharedShipObjectTemplate    1254837833\par
+IntangibleObject    3178238000\par
+CellObject    1920583358\par
+GameNetworkMessage    3613824909\par
+ClientSpaceTerrainAppearance    191602705\par
+Camera    620007738\par
+GameCamera    819912248\par
+ShipWeaponBarrelDynamics    3689334577\par
+ShipController    1978616160\par
+RemoteShipController    2765407559\par
+WingDynamics    155792569\par
+FlyByCamera    231571900\par
+SharedObjectTemplateClientData    669832051\par
+ClientDataFile    3872981711\par
+SharedObjectTemplate    1668953787\par
+ObjectNotification    3232980169\par
+ClientProceduralTerrainAppearance    576664228\par
+TextAppearance    3174635074\par
+FadingTextAppearance    1519281825\par
+CockpitStage    1489152900\par
+CockpitLeaveStage    291307884\par
+ThirdPersonStage    3013039880\par
+HyperspaceIoWin    2267327401\par
+CustomizationVariable    449983579\par
+RangedIntCustomizationVariable    963439677\par
+ZoneMapObject    840805598\par
+RenderWorldCamera    4107966096\par
+CockpitCamera    2029851017\par
+AppearanceTemplate    3850726572\par
+SpaceTerrainAppearanceTemplate    4171874190\par
+ShaderPrimitive    3227788656\par
+DustAppearance    1344696814\par
+SpaceDeath    2249770526\par
+SimpleDynamics    3641531793\par
+ProjectileDynamics    3442052311\par
+SlotRule    537187478\par
+SlotCustomizationVariable    1787741266\par
+Universe    48711458\par
+ClientUniverse    3710562554\par
+PaletteColorCustomizationVariable    928172890\par
+StartTrailsAction    350781712\par
+NetworkHandler    1336419109\par
+ClientEffect    3313029782\par
+PositionClientEffect    3863890021\par
+ObjectClientEffect    30278535\par
+UseLightningAction    2354736098\par
+UseLightningActionTemplate    2786725501\par
+ThrowSwordAction    1597828105\par
+ThrowSwordActionTemplate    2911430889\par
+TemporaryAttachedObjectAction    1325066436\par
+TemporaryAttachedObjectActionTemplate    175454911\par
+StopTrailsActionTemplate    2906908262\par
+StartTrailsActionTemplate    3498643148\par
+PlaySkeletalAnimationAction    2634159989\par
+PlaySkeletalAnimationActionTemplate    2674077031\par
+PlayParticleSystemActionTemplate    979857281\par
+PlayParticleSystemAction    765978853\par
+HomingTargetActionTemplate    2968804358\par
+HardpointTargetAction    4159533970\par
+HardpointTargetActionTemplate    3500385529\par
+GrenadeLobActionTemplate    1646786389\par
+TurretObject    628943437\par
+InstallationObject    3858591664\par
+FireTurretActionTemplate    2703641680\par
+FireProjectileAction    442062533\par
+FireProjectileActionTemplate    4134775216\par
+ClientWeaponObjectTemplate    2538656534\par
+WaitForBoltActionTemplate    307395062\par
+FireSetupActionTemplate    422876763\par
+FaceTargetActionTemplate    3625594629\par
+CloneWeaponActionTemplate    3979943831\par
+ChangeScaleActionTemplate    4144671035\par
+ChangePostureActionTemplate    3439397905\par
+ArcTargetActionTemplate    1393295015\par
+AlignToHardpointActionTemplate    4071998252\par
+Projectile    2694958268\par
+ShipProjectile    2210697563\par
+NonTrackingProjectile    777788417\par
+SharedTangibleObjectTemplate    80162764\par
+TerrainObject    2246239193\par
+TrackingProjectile    2011575541\par
+DataResource    3409355402\par
+Property    958110025\par
+StateDynamics    524553442\par
+SunTrackingObject    4241772427\par
+SharedIntangibleObjectTemplate    3736768433\par
+SharedManufactureSchematicObjectTemplate    2709254731\par
+ClientManufactureSchematicObjectTemplate    4117531031\par
+ClientIntangibleObjectTemplate    709427540\par
+SharedWaypointObjectTemplate    2914100980\par
+ClientWaypointObjectTemplate    1446258517\par
+SharedVehicleObjectTemplate    3314082652\par
+ClientVehicleObjectTemplate    2405984891\par
+SharedUniverseObjectTemplate    2656762411\par
+ClientUniverseObjectTemplate    1709144970\par
+ClientTangibleObjectTemplate    4282560109\par
+SharedStaticObjectTemplate    890548695\par
+ClientStaticObjectTemplate    76456494\par
+ClientShipObjectTemplate    3401635348\par
+SharedResourceContainerObjectTemplate    974929744\par
+ClientResourceContainerObjectTemplate    3517750755\par
+SharedPlayerObjectTemplate    2515529786\par
+ClientPlayerObjectTemplate    2759189443\par
+SharedMissionObjectTemplate    323120507\par
+ClientMissionObjectTemplate    1503847516\par
+SharedInstallationObjectTemplate    800521100\par
+ClientInstallationObjectTemplate    2478053396\par
+SharedGuildObjectTemplate    2029533449\par
+ClientGuildObjectTemplate    443319527\par
+SharedGroupObjectTemplate    3206232612\par
+ClientGroupObjectTemplate    3717171146\par
+SharedFactoryObjectTemplate    1904224185\par
+ClientFactoryObjectTemplate    996191902\par
+ClientCreatureObjectTemplate    502488254\par
+SharedConstructionContractObjectTemplate    1532124886\par
+ClientConstructionContractObjectTemplate    256189706\par
+ClientObjectTerrainModificationNotification    2580756382\par
+SharedBuildingObjectTemplate    1643792076\par
+ClientBuildingObjectTemplate    2592065389\par
+SharedBattlefieldMarkerObjectTemplate    558969982\par
+ClientBattlefieldMarkerObjectTemplate    3403781837\par
+DynamicDebrisObject    2063775932\par
+ShipObjectDestruction    2545602015\par
+PlayerShipTurretController    3719834903\par
+MessageQueueShipHit    2259491664\par
+NoBuildNotification    1775158186\par
+ClientNoBuildNotification    3271785850\par
+WanderController    2848134528\par
+DynamicMeshAppearance    3542931616\par
+ClientPathObjectNotification    701441168\par
+ClientPathObject    2818677898\par
+ClientBattlefieldMarkerOutlineObjectNotification    1361519442\par
+ClientBattlefieldMarkerOutlineObject    1829099829\par
+ClientStructureFootprintObjectNotification    132704285\par
+ClientStructureFootprintObject    3982198387\par
+MessageQueueResourceWeights    2826284905\par
+MessageQueueDraftSlotsQueryResponse    903599514\par
+MessageQueueObjectMenuRequest    378514195\par
+MessageQueueStringList    2744945116\par
+MessageQueueNpcConversationMessage    4107377721\par
+MessageQueueStopNpcConversation    1243325355\par
+MessageQueueStartNpcConversation    2507923975\par
+MessageQueueSocial    2732575264\par
+MessageQueueSpatialChat    3824677583\par
+MessageQueueCombatSpam    1269080413\par
+MessageQueueSecureTrade    82346135\par
+MessageQueueNetworkId    2200477005\par
+MessageQueueMissionGenericResponse    2362881377\par
+MessageQueueMissionDetailsResponse    612281975\par
+MessageQueueHarvesterResourceData    1043099458\par
+ManufactureSchematicObject    2304620222\par
+ClientSynchronizedUi    4275896099\par
+SkeletalAppearanceTemplate    3393629354\par
+LightsaberAppearance    614456479\par
+CustomizationDataProperty    1846590708\par
+LightsaberAppearanceTemplate    252224159\par
+CollisionProperty    3438652739\par
+ClientCollisionProperty    1776314696\par
+SharedCellObjectTemplate    2003275122\par
+ClientCellObjectTemplate    4151055663\par
+ClientObjectTemplate    3893961532\par
+TransformModifier    3217473203\par
+AlignmentTransformModifier    2183525787\par
+RiderSpineTransformModifier    3247732033\par
+UniverseObject    4288733515\par
+GroupObject    1552788934\par
+ClientEffectTemplate    3732150589\par
+TaskConnection    3809369056\par
+ConnectionServerConnection    2827870631\par
+LoginConnection    2294802292\par
+SharedDraftSchematicObjectTemplate    3804534123\par
+WaterTestAppearance    926033302\par
+VertexBufferReadWriteIterator    4064735714\par
+StructurePlacementCamera    209769410\par
+FreeChaseCamera    1957407439\par
+ShipTurretCamera    2052770892\par
+DebugPortalCamera    1226505821\par
+FreeCamera    1850170273\par
+Light    2439877399\par
+GameLight    3323947427\par
+MessageQueueGenericResponse    278093382\par
+MessageQueueGenericIntResponse    4043525335\par
+MessageQueueDraftSlots    3278498762\par
+MessageQueueDraftSchematics    834656099\par
+NebulaShellShaderPrimitive    3087719658\par
+ParticleEffectAppearance    3616346480\par
+GlowAppearance    3422709010\par
+ClientClearCollidableFloraNotification    3960987185\par
+SharedObjectTemplateInterface    2916970231\par
+ClientSharedObjectTemplateInterface    1515917103\par
+AsteroidDynamics    4059297941\par
+Missile    857185398\par
+Countermeasure    2418093769\par
+HomingTargetAction    4287010299\par
+GrenadeLobAction    2838371733\par
+WaitForBoltAction    3836172897\par
+FaceTargetAction    1379251689\par
+ChangeScaleAction    1715070169\par
+ArcTargetAction    2940240228\par
+AlignToHardpointAction    4278050075\par
+ClearNonCollidableFloraNotification    2631316795\par
+MessageQueueCraftFillSlot    3677571789\par
+VehicleObject    407091182\par
+StaticObject    4097725936\par
+ResourceContainerObject    3204553555\par
+LotManagerNotification    836037122\par
+ClientLotManagerNotification    1693204179\par
+GuildObject    178765840\par
+FactoryObject    2618463670\par
+BuildingObject    3291165931\par
+BattlefieldMarkerObject    1198395282\par
+ShipObjectInterface    46153894\par
+ClientShipObjectInterface    2819489398\par
+VehicleHoverDynamicsClient    3308362739\par
+DeadReckoningModel    3908928212\par
+DeadReckoningModelOmniDirectional    2783584196\par
+BannerController    1153421068\par
+FlagController    2455319194\par
+ClientManufactureSchematicSynchronizedUi    3819525512\par
+ClientInstallationSynchronizedUi    2238825483\par
+ShipComponentData    80108987\par
+ClientShipComponentData    2714999216\par
+ShipComponentDataTargetingStation    385047787\par
+ShipComponentDataHangar    4242684431\par
+ShipComponentDataBridge    3797734037\par
+ShipComponentDataDroidInterface    2268675684\par
+ShipComponentDataBooster    2519389458\par
+ShipComponentDataCapacitor    552052009\par
+ShipComponentDataWeapon    430272375\par
+ShipComponentDataArmor    1227147534\par
+ShipComponentDataShield    3803086459\par
+ShipComponentDataEngine    677412495\par
+ShipComponentDataReactor    2984372367\par
+ShaderImplementationGraphicsData    2211958820\par
+ShaderImplementationPassVertexShaderGraphicsData    3785786259\par
+ShaderImplementationPassPixelShaderProgramGraphicsData    3009596788\par
+TextureGraphicsData    2864264658\par
+ShaderTemplate    1164944061\par
+StaticShaderGraphicsData    3855341165\par
+DynamicVertexBufferGraphicsData    4161529890\par
+VertexBuffer    1240287969\par
+HardwareVertexBuffer    2051345447\par
+DynamicVertexBuffer    3017258628\par
+VertexBufferReadIterator    3142999832\par
+StaticVertexBufferGraphicsData    1850296655\par
+StaticVertexBuffer    141477148\par
+DynamicIndexBufferGraphicsData    3943205368\par
+HardwareIndexBuffer    4103129750\par
+DynamicIndexBuffer    3911484529\par
+SystemVertexBuffer    1608665583\par
+CustomizableShaderTemplate    838008279\par
+SwitchTextureShaderTemplate    1550710722\par
+SwitchShaderTemplate    2360309397\par
+StaticShaderTemplate    1031981338\par
+RenderWorldCommander    2641866784\par
+RenderWorldServices    1973083681\par
+StaticIndexBufferGraphicsData    388136767\par
+StaticIndexBuffer    2148618548\par
+CustomizableShader    3904283410\par
+SwitchTextureShader    3396854534\par
+SwitchShader    2613262866\par
+SimpleAppearance    3746356769\par
+PortalBarrierAppearance    878976425\par
+Tweakable    2851923169\par
+ForceFieldAppearance    2469473165\par
+DynamicColorPolyPrimitive    2286677054\par
+ShadowBlobObject    522108537\par
+TimerObject    2658903742\par
+MeshAppearance    225683290\par
+ProxyLocalShaderPrimitive    1922555216\par
+ObjectListCamera    3386992115\par
+ShaderAppearance    1232830110\par
+CameraController    21359434\par
+RibbonAppearance    2744121232\par
+BeamAppearance    2325206831\par
+RibbonTrailAppearance    489066307\par
+TrailAppearance    1112268031\par
+MeshAppearanceTemplate    2090147588\par
+MarkerAppearanceTemplate    2177729834\par
+MarkerAppearance    1631831852\par
+BeamAppearanceTemplate    718512393\par
+ComponentAppearanceTemplate    2598008669\par
+DetailAppearanceTemplate    1396303944\par
+SpriteAppearanceTemplate    2961238027\par
+ComponentAppearance    4260495987\par
+ParticleGenerator    17102642\par
+ParticleEmitter    1587435402\par
+LightningAppearance    2749026272\par
+SwooshAppearanceTemplate    2066450113\par
+SwooshAppearance    1845297546\par
+LightningAppearanceTemplate    3047238966\par
+ParticleAttachment    4106772577\par
+Particle    1285874935\par
+ParticleQuad    761094786\par
+ParticleMesh    3346255142\par
+ParticleEmitterGroup    2911572180\par
+ParticleEffectAppearanceTemplate    3351885522\par
+ParticleDescription    1900209241\par
+ParticleDescriptionQuad    29927646\par
+ParticleDescriptionMesh    3957720954\par
+ParticleAttachmentDescription    2988990723\par
+ParticleEmitterShapeCircle    3797628730\par
+ParticleEmitterShapeSphere    383025679\par
+ParticleEmitterShapeRectangle    1440817206\par
+ParticleEmitterShapeCube    404020478\par
+ParticleEmitterShapeLine    641582640\par
+ParticleEmitterShape    2058805103\par
+ParticleEmitterShapeX    2525602501\par
+TransformAnimationController    1031869009\par
+StateHierarchyAnimationController    1104935121\par
+LookAtTransformModifier    2196903500\par
+TargetPitchTransformModifier    2126598406\par
+ZeroTranslationTransformModifier    2576387167\par
+MeshGeneratorTemplate    1098073958\par
+SkeletalAnimationTemplate    2335833760\par
+AnimationStateHierarchyTemplate    816529885\par
+AnimationNotification    1468693071\par
+CallbackAnimationNotification    2125689463\par
+SkeletalAnimation    1000692051\par
+SkeletalAppearanceBatchRenderer    2721723485\par
+FullGeometrySkeletalAppearanceBatchRenderer    2210231598\par
+OwnerProxyShader    1762481479\par
+OwnerProxyShaderTemplate    2940858558\par
+EditableAnimationStateHierarchyTemplate    1297660056\par
+AnimationState    3866811580\par
+EditableAnimationState    622912438\par
+AnimationAction    348950621\par
+EditableAnimationAction    507128861\par
+AnimationStateLink    867640332\par
+EditableAnimationStateLink    3760171367\par
+EditableMovementAnimationAction    1433297181\par
+EditableBasicAnimationAction    3665946783\par
+ShowAttachedObjectActionTemplate    3583618343\par
+ShowAttachedObjectAction    1421180748\par
+AnimationMessageActionTemplate    81809658\par
+LodMeshGeneratorTemplate    1005138787\par
+BasicMeshGeneratorTemplate    2983854689\par
+SkeletalMeshGeneratorTemplate    2600701877\par
+FatalException    2268358801\par
+MeshGenerator    3141731342\par
+SkeletalMeshGenerator    1549460262\par
+SoftwareBlendSkeletalShaderPrimitive    1549564743\par
+YawSkeletalAnimationTemplate    2152918863\par
+ActionGeneratorSkeletalAnimationTemplate    2887809168\par
+TimeScaleSkeletalAnimation    2528161983\par
+TimeScaleSkeletalAnimationTemplate    1859777087\par
+StringSelectorSkeletalAnimationTemplate    992278267\par
+SpeedSkeletalAnimationTemplate    1316368830\par
+SinglePrioritySkeletalAnimation    2002391609\par
+BasePriorityBlendAnimation    3093347436\par
+PriorityBlendAnimation    2762665683\par
+PriorityBlendAnimationTemplate    2702309736\par
+DirectionSkeletalAnimation    3580987184\par
+DirectionSkeletalAnimationTemplate    3801155478\par
+ProxySkeletalAnimationTemplate    1100331027\par
+KeyframeSkeletalAnimation    1331999207\par
+KeyframeSkeletalAnimationTemplate    849608686\par
+CompressedKeyframeAnimation    25779508\par
+CompressedKeyframeAnimationTemplate    171132895\par
+SkeletonTemplate    3849589758\par
+LodSkeletonTemplate    859146007\par
+BasicSkeletonTemplate    1462793477\par
+TrackAnimationController    3013158316\par
+TransformNameMap    2163165914\par
+SkeletonTransformNameMap    2733499431\par
+AnimationActionGroup    2576169681\par
+EditableAnimationActionGroup    1655828851\par
+AnimationMessageAction    155331149\par
+YawSkeletalAnimation    64373729\par
+ActionGeneratorSkeletalAnimation    607690661\par
+StringSelectorSkeletalAnimation    2869567696\par
+SpeedSkeletalAnimation    2501017271\par
+ControlledBlendSkeletalAnimation    1248944558\par
+MaskedPrioritySkeletalAnimation    998703499\par
+SkeletonTemplateTransformNameMap    1091048231\par
+TimedBlendSkeletalAnimation    912822604\par
+FloraManager    4190700327\par
+ClientRadialFloraManager    572027610\par
+ClientStaticRadialFloraManager    3687479379\par
+CelestialObject    1328751011\par
+SkyBoxAppearance    1996645956\par
+WaterManager    1931663261\par
+GradientSkyAppearance    1057170869\par
+TerrainAppearance    2647690207\par
+Thread    3163225479\par
+PlanetAppearance    3529139803\par
+SpaceTerrainAppearance    1582527680\par
+StarAppearance    1796609457\par
+PlanetAppearanceTemplate    2544123149\par
+CloudLayerAppearance    1413968356\par
+ClientSpaceTerrainAppearanceTemplate    3912747650\par
+ClientLocalWaterManager2    989729392\par
+ClientGlobalWaterManager2    3506662451\par
+ClientDynamicRadialFloraManager    1719796072\par
+ProceduralTerrainAppearanceTemplate    3572147867\par
+ClientProceduralTerrainAppearanceTemplate    4020250178\par
+CelestialAppearance    2247913753\par
+EnvironmentBlockManager    3929110961\par
+ClientLocalWaterManager    1182316857\par
+ClientGlobalWaterManager    2071378860\par
+SkyBox6SidedAppearance    1799474571\par
+TextureRendererTemplate    3695216757\par
+TextureRenderer    1837060239\par
+TextureRendererShaderPrimitive    2272686487\par
+BlueprintTextureRendererTemplate    1720417500\par
+BlueprintSharedTextureRenderer    2856739471\par
+BlueprintTextureRenderer    1008010382\par
+UIIMEManager    3375397988\par
+UINullIMEManager    554042214\par
+UIBaseObject    1533750410\par
+UICanvas    2769184410\par
+UIScriptEngine    4009014248\par
+UICanvasFactory    1711958936\par
+UIEventCallback    3262277239\par
+CuiMessageBox    47565071\par
+UIRunner    4192975884\par
+UIScrollbar    2198796817\par
+UIText    3286070813\par
+UIButton    3189211972\par
+UIComposite    1720441583\par
+UIPage    1565321464\par
+CuiAction    2968886316\par
+OutOfBandBase    2098687333\par
+AbstractFileFactory    3189322355\par
+StdioFileFactory    3811302231\par
+UIActionListener    4111112956\par
+CuiConsoleHelperParserStrategy    4034981193\par
+CuiConsoleHelper    1722275632\par
+CuiAliasHandler    2219714125\par
+CuiIoWin    1707774925\par
+UIWidget    1019689923\par
+MessageQueueCraftCustomization    677240739\par
+MessageQueueCraftExperiment    1083525521\par
+UISoundCanvas    3173295286\par
+UILocalizedStringFactory    3671658871\par
+UILoaderExtension    4032878363\par
+UILoader    1948757932\par
+UICursorInterface    1846789409\par
+CuiIMEManager    782491449\par
+CuiMediator    4235273297\par
+UIData    2803055426\par
+UITextbox    2902636208\par
+CuiWorkspaceGlassPane    1758338738\par
+UINotification    4112937882\par
+CuiWorkspace    8140792\par
+CuiWorkspaceIcon    1055889808\par
+CuiPopupHelp    2727567745\par
+CuiDeleteSkillConfirmation    356376109\par
+CuiWidget3dObjectListViewer    3081162709\par
+CuiWidget3dObjectViewer    2992556726\par
+CuiSocialsParser    1165974623\par
+CommandParser    3319026196\par
+CuiConsent    3457835610\par
+CuiGenericRenderer    1702065988\par
+CuiObjectDataSourceCallback    4029172071\par
+CuiWidgetGroundRadar    1472808331\par
+UINotificationServer    3832370939\par
+CuiWidget3dPaperdoll    2696341195\par
+UICursor    432467297\par
+CuiDataDrivenPage    812143113\par
+CuiDataDrivenPageListener    898434912\par
+Compressor    2122676596\par
+ZlibCompressor    3605399759\par
+AbstractFile    1680939178\par
+ZlibFile    1529464597\par
+MemoryFile    459357750\par
+FileStreamerFile    2215435971\par
+CrcString    333028601\par
+PersistentCrcString    2921562283\par
+CrcLowerString    2163474825\par
+TemporaryCrcString    2366040014\par
+ConstCharCrcLowerString    1196901541\par
+ConstCharCrcString    391632168\par
+BitArray    2148255216\par
+ImageFormat    1319371561\par
+TargaFormat    33921963\par
+ParametersMessage    1215714010\par
+ErrorMessage    3047946522\par
+ObjControllerMessage    2161008198\par
+CmdSceneReady    1140661282\par
+CmdStartScene    988209070\par
+LoginClientId    1091772310\par
+LoginClientToken    2863830726\par
+MessageQueueSitOnObject    693476418\par
+AddMapLocationMessage    2871096502\par
+GetMapLocationsMessage    444250169\par
+GetMapLocationsResponseMessage    2675983948\par
+GetAuctionDetails    3547265764\par
+AuctionQueryHeadersMessage    1738411264\par
+BidAuctionMessage    2433897555\par
+CreateAuctionMessage    2907111965\par
+CreateImmediateAuctionMessage    513598216\par
+CancelLiveAuctionMessage    914859218\par
+RetrieveAuctionItemMessage    313578569\par
+AttributeListMessage    4092669738\par
+NewbieTutorialResponse    3397974957\par
+DestroyShipMessage    1550321796\par
+DestroyShipComponentMessage    946984836\par
+CreateNebulaLightningMessage    1710389639\par
+UpdatePvpStatusMessage    144818470\par
+DestroyClientPathMessage    2807989739\par
+CreateClientPathMessage    1905620520\par
+NewbieTutorialRequest    2430427567\par
+ServerWeatherMessage    1214469866\par
+MessageQueueDataTransformWithParent    1422173662\par
+MessageQueueDataTransform    150358025\par
+SceneCreateObjectByName    527684865\par
+SceneCreateObjectByCrc    4270448106\par
+SceneDestroyObject    1296422148\par
+HyperspaceMessage    3422061698\par
+ShipUpdateTransformCollisionMessage    1983269072\par
+ShipUpdateTransformMessage    1979871161\par
+UpdateMissileMessage    304663809\par
+CreateMissileMessage    1914499211\par
+CreateProjectileMessage    3096115621\par
+RequestWatchObjectPath    3908993103\par
+RequestWatchPathMap    3637504168\par
+RequestUnstick    1420559875\par
+AINodeInfo    605435968\par
+AIPathInfo    3390941878\par
+DebugTransformMessage    3503139426\par
+ClientOpenContainerMessage    3701830665\par
+PlayMusicMessage    69668234\par
+UpdateTransformWithParentMessage    3362237274\par
+UpdateTransformMessage    455407624\par
+DeltasMessage    310780243\par
+BaselinesMessage    1755799308\par
+ServerTimeMessage    784088025\par
+UpdateCellPermissionMessage    4128393628\par
+UpdateContainmentMessage    1456201374\par
+PlayClientEffectObjectMessage    2287289162\par
+PlayClientEffectObjectTransformMessage    1331562934\par
+PlayClientEffectLocMessage    43294324\par
+PlayClientEventObjectMessage    2944648178\par
+PlayClientEventObjectTransformMessage    2419076985\par
+PlayClientEventLocMessage    172892716\par
+VerifyPlayerNameMessage    3146558789\par
+GetTicketsMessage    3383097741\par
+RequestCategoriesMessage    4170768991\par
+NewTicketActivityMessage    659508856\par
+ConnectPlayerMessage    775311896\par
+CreateTicketMessage    1088834988\par
+GetCommentsMessage    655007429\par
+CancelTicketMessage    1670313009\par
+AppendCommentMessage    180655684\par
+BeginTradeMessage    844706520\par
+AbortTradeMessage    2628259736\par
+AddItemMessage    512562006\par
+AddItemFailedMessage    1775493586\par
+RemoveItemMessage    1142402955\par
+GiveMoneyMessage    3511844584\par
+TradeCompleteMessage    3309437835\par
+AcceptTransactionMessage    2972830231\par
+UnAcceptTransactionMessage    3894297474\par
+VerifyTradeMessage    2598520814\par
+DenyTradeMessage    1858242160\par
+BeginVerificationMessage    3880328693\par
+MessageQueueTeleportAck    632824505\par
+MessageQueueCommandQueueRemove    2200409458\par
+MessageQueueCommandQueueEnqueue    3975898839\par
+ClientIdMsg    3582562854\par
+EnumerateCharacterId    1709852020\par
+SelectCharacter    3037302134\par
+ClientCreateCharacter    3112120436\par
+ClientCreateCharacterSuccess    498431436\par
+ClientCreateCharacterFailed    3744676974\par
+RefreshCharacterList    3069445575\par
+ClientRandomNameRequest    3604068049\par
+ClientRandomNameResponse    3898587240\par
+RetrieveAuctionItemResponseMessage    2493116300\par
+IsVendorOwnerResponseMessage    3456374590\par
+GetAuctionDetailsResponse    4262356043\par
+CreateAuctionResponseMessage    241290386\par
+CancelLiveAuctionResponseMessage    2107778156\par
+BidAuctionResponseMessage    2412506954\par
+AuctionQueryHeadersResponseMessage    4199550546\par
+AcceptAuctionResponseMessage    3314173038\par
+ClientPermissionsMessage    3758567653\par
+LoginClusterStatus    875998902\par
+LoginEnumCluster    3239863225\par
+ChatSystemMessage    1831494675\par
+ChatDeleteAllPersistentMessages    2334035570\par
+ChatOnSendPersistentMessage    2498209710\par
+ChatPersistentMessageToClient    138960407\par
+ChatOnDeleteAllPersistentMessages    1327732314\par
+ChatPersistentMessageToServer    631414694\par
+ChatDeletePersistentMessage    2401572417\par
+ChatRequestPersistentMessage    132339103\par
+ChatOnSendInstantMessage    2296099713\par
+ChatInstantMessageToClient    1012292845\par
+ChatInstantMessageToCharacter    2226856439\par
+IsVendorOwnerMessage    565533243\par
+ObjectMenuSelectMessage    2471730423\par
+PopulateMissionBrowserMessage    2295957596\par
+MessageQueueMissionListRequest    2701955461\par
+MessageQueueMissionDetailsRequest    1837884033\par
+MessageQueueMissionGenericRequest    641500961\par
+MessageQueueCraftEmptySlot    840289743\par
+MessageQueueResourceEmptyHopper    2395636021\par
+ConsentResponseMessage    1874946792\par
+NewTicketActivityResponseMessage    1856253312\par
+GetArticleResponseMessage    2471210720\par
+SearchKnowledgeBaseResponseMessage    2092732263\par
+GetCommentsResponseMessage    3940223178\par
+GetTicketsResponseMessage    3143008152\par
+CancelTicketResponseMessage    3606835992\par
+AppendCommentResponseMessage    2689220298\par
+CreateTicketResponseMessage    1426735226\par
+RequestCategoriesResponseMessage    1628737492\par
+ConnectPlayerResponseMessage    1631016303\par
+ChatEnterRoomById    3161185778\par
+ChatRequestRoomList    1279077626\par
+ChatSendToRoom    551869411\par
+ChatCreateRoom    892759021\par
+ChatDestroyRoom    155921015\par
+ChatQueryRoom    2633150866\par
+ChatUninviteFromRoom    4237099505\par
+ChatInviteAvatarToRoom    1920199891\par
+ChatUnbanAvatarFromRoom    1284478121\par
+ChatBanAvatarFromRoom    3657040276\par
+ChatRemoveModeratorFromRoom    2319420932\par
+ChatAddModeratorToRoom    2428364655\par
+ChatRemoveAvatarFromRoom    1228816378\par
+ChatQueryRoomResults    3302917710\par
+ChatAddFriend    1811950867\par
+SuiUpdatePageMessage    1597194998\par
+SuiCreatePageMessage    3561714265\par
+SUIMessage    165187679\par
+SuiCreatePage    1243889752\par
+SuiClosedOk    3758939578\par
+SuiForceClosePage    2567658976\par
+SuiSetProperty    3799349647\par
+VerifyPlayerNameResponseMessage    4106524925\par
+ChatOnUnbanAvatarFromRoom    3136927765\par
+ChatOnBanAvatarFromRoom    1513640845\par
+ChatFriendsListUpdate    1825766616\par
+ChatOnUninviteFromRoom    3191064552\par
+ChatOnInviteToRoom    1228924746\par
+ChatOnSendRoomMessage    3887470131\par
+ChatOnReceiveRoomInvitation    3246305389\par
+ChatOnRemoveModeratorFromRoom    323157063\par
+ChatOnAddModeratorToRoom    916469848\par
+ChatOnDestroyRoom    3907803255\par
+ChatOnCreateRoom    903335071\par
+ChatRoomMessage    3444368452\par
+ChatOnLeaveRoom    1622477195\par
+ChatOnEnteredRoom    3868974090\par
+ChatRoomList    1893642647\par
+ChatOnConnectAvatar    3610241470\par
+SuiEventNotification    153957732\par
+ImageDesignChangeMessage    2619555797\par
+DroidCommandProgrammingMessage    4069621029\par
+MessageQueueUpdateShipOnCollision    2074500897\par
+ImageDesignStartMessage    3405972898\par
+MessageQueueNetworkIdAndTransform    1423667283\par
+MessageQueueWeaponRanges    2243526649\par
+MessageQueuePosture    3030018168\par
+MessageQueueString    105261792\par
+MessageQueueShowFlyText    539445527\par
+MessageQueueOpponentInfo    294097489\par
+MessageQueueNetworkIdPair    4214886683\par
+MessageQueueMissionListResponse    3414925706\par
+MessageQueueMissionCreateRequest    2247117586\par
+MessageQueueGenericString    1296205625\par
+MessageQueueGeneric    576273633\par
+MessageQueueCraftSelectSchematic    2918935601\par
+MessageQueueCraftRequestSession    1197374790\par
+MessageQueueCraftIngredients    2158770441\par
+Container    1440503590\par
+CellProperty    2621308808\par
+PortalProperty    1665409967\par
+RotationDynamics    3662362563\par
+ContainedByProperty    3787690904\par
+SlottedContainer    2128027438\par
+SlottedContainmentProperty    2512162570\par
+DebugNotification    3235998996\par
+VolumeContainmentProperty    3136260185\par
+VolumeContainer    2769895203\par
+LayerProperty    1121314452\par
+MemoryBlockManagedObject    2334836122\par
+PulseDynamics    1783733834\par
+TrackingDynamics    3264244632\par
+SpringDynamics    3862336869\par
+SeesawDynamics    2020438803\par
+BasicRangedIntCustomizationVariable    3092871491\par
+DebugYawedFloorNotification    2096178012\par
+MovementTable    2124090245\par
+NoRenderAppearanceTemplate    1209063553\par
+NoRenderAppearance    3622827279\par
+SwitcherTemplate    2215267573\par
+DeltaRandomTimeSwitcherTemplate    377503390\par
+DeltaTimeSwitcherTemplate    524465306\par
+DeltaRandomFrameTimeSwitcherTemplate    3304696857\par
+DeltaFrameSwitcherTemplate    3113773045\par
+DeltaPingPongSwitcherTemplate    354072569\par
+DeltaRandomFrameSwitcherTemplate    1507562490\par
+Switcher    3760489810\par
+DeltaRandomTimeSwitcher    1866569183\par
+DeltaTimeSwitcher    633339612\par
+DeltaRandomFrameTimeSwitcher    471832890\par
+DeltaFrameSwitcher    2966357701\par
+DeltaPingPongSwitcher    3664368647\par
+DeltaRandomFrameSwitcher    1437115236\par
+AffectorBoundaryPoly    4284131178\par
+AffectorRiver    52228869\par
+BoundaryCircle    735818051\par
+BoundaryRectangle    1216872205\par
+BoundaryPoly    1780673724\par
+BoundaryPolygon    3227118775\par
+BoundaryPolyline    2478771032\par
+ServerSpaceTerrainAppearanceTemplate    1890616473\par
+ServerProceduralTerrainAppearanceTemplate    1202300023\par
+AffectorHeightConstant    2268599327\par
+AffectorHeightFractal    2176937456\par
+AffectorHeightTerrace    3828550437\par
+FilterHeight    1524934073\par
+FilterFractal    371788080\par
+FilterSlope    2676651926\par
+FilterDirection    3293974186\par
+FilterShader    3439162328\par
+FilterBitmap    1018100339\par
+ServerSpaceTerrainAppearance    2315421088\par
+ServerProceduralTerrainAppearance    628342150\par
+AffectorShaderConstant    2175040749\par
+AffectorShaderReplace    3662064392\par
+AffectorRoad    916397727\par
+AffectorPassable    1526665151\par
+AffectorFloraStatic    2030566199\par
+AffectorFloraStaticCollidableConstant    1227646109\par
+AffectorFloraStaticNonCollidableConstant    2189374101\par
+AffectorFloraDynamic    3038143483\par
+AffectorFloraDynamicNearConstant    1753597834\par
+AffectorFloraDynamicFarConstant    210770787\par
+AffectorEnvironment    1946111800\par
+AffectorExclude    4056139795\par
+AffectorColorConstant    299854480\par
+AffectorColorRampHeight    392514312\par
+AffectorColorRampFractal    2458668692\par
+MainThread    1917269842\par
+FuncPtrThreadZero    1559797360\par
+DataTable    1392259984\par
+DataTableCell    3177675461\par
+DataTableCellInt    1388587191\par
+DataTableCellFloat    1072609552\par
+DataTableCellString    2557193276\par
+SwgCuiLoadingGround    487117330\par
+SwgCuiLoadingSpace    774371271\par
+SwgCuiSceneSelection    4113319101\par
+CuiBackdrop    3922633953\par
+CuiColorPicker    4273644034\par
+CuiKeypad    3875194320\par
+CuiHueObject    2995867186\par
+CuiTransfer    595012279\par
+CuiBugSubmissionPage    2645723372\par
+CuiTransition    3042475149\par
+CuiInputBox    1452499456\par
+CuiSetName    4002360404\par
+CuiNotepad    1184134018\par
+CuiVehicleProto    30135975\par
+CuiShipTargetInfo    1391674935\par
+CuiShipSelfInfo    937644440\par
+SwgCuiBiographyEdit    477333763\par
+SwgCuiAvatarCreation    2512197087\par
+SwgCuiAvatarCustomize2    3347303118\par
+SwgCuiCredits    3025273254\par
+SwgCuiAuctionBid    2076679185\par
+SwgCuiAuctionBuy    3643160666\par
+SwgCuiAuctionDetails    2421504603\par
+SwgCuiAuctionList    1354757449\par
+SwgCuiAuctionSell    2360080476\par
+SwgCuiAvatarLocation2    1439191896\par
+SwgCuiAvatarSelection    3447411758\par
+SwgCuiAvatarSetupProf    394660389\par
+SwgCuiAvatarSummary    909383896\par
+SwgCuiClusterSelection    1004122579\par
+SwgCuiDebugInfoPage    4289543410\par
+SwgCuiGameMenu    4032237695\par
+SwgCuiHudGround    2856720859\par
+SwgCuiHudSpace    2670282396\par
+SwgCuiInventory    3580347538\par
+SwgCuiLocations    1265541252\par
+SwgCuiLoginScreen    830813106\par
+SwgCuiMissionBrowser    1471321251\par
+SwgCuiMissionDetails    1705022384\par
+SwgCuiNews    3089839805\par
+SwgCuiServerDisconnected    3843510411\par
+SwgCuiIMEInput    3585667346\par
+SwgCuiSplash    1229553837\par
+SwgCuiStructurePlacement    2888269075\par
+SwgCuiVendor    3538718779\par
+SwgCuiVendorSetPrice    3516926705\par
+SwgCuiChatRooms    3370225816\par
+SwgCuiCommandBrowser    877196234\par
+SwgCuiControlsMenu    3088157388\par
+SwgCuiCraftAssembly    1230075349\par
+SwgCuiCraftCustomize    3726772675\par
+SwgCuiCraftDraft    1573551746\par
+SwgCuiCraftExperiment    365992252\par
+SwgCuiCraftOption    1886020990\par
+SwgCuiCraftSummary    15504197\par
+SwgCuiDataStorage    3405154551\par
+SwgCuiExamine    2508147957\par
+SwgCuiExpMonitorBox    3684511569\par
+SwgCuiWaypointMonitorBox    4231922899\par
+SwgCuiHolocron    3229741532\par
+SwgCuiNetStatus    773546014\par
+SwgCuiOpt    2474230595\par
+SwgCuiPersistentMessageBrowser    3083781542\par
+SwgCuiPersistentMessageComposer    203659000\par
+SwgCuiPlanetMap    505746300\par
+SwgCuiResourceExtraction    722496408\par
+SwgCuiResourceExtraction_Hopper    1231409395\par
+SwgCuiResourceExtraction_Quantity    3050455994\par
+SwgCuiResourceExtraction_SetResource    1486108755\par
+SwgCuiSkills2    3217836875\par
+SwgCuiTicketPurchase    735325030\par
+SwgCuiTrade    1072161698\par
+SwgCuiImageDesignerDesigner    3748752938\par
+SwgCuiImageDesignerRecipient    2059796372\par
+SwgCuiQuestJournal    3502507847\par
+SwgCuiStatMigration    9432524\par
+SwgCuiSpaceConversation    777633010\par
+SwgCuiHyperspaceMap    3004113041\par
+SwgCuiShipComponentDetail    1156337966\par
+SwgCuiSpaceAssignPlayerFormation    462637499\par
+SwgCuiSpaceZoneMap    2082538766\par
+SwgCuiWeaponGroupAssignment    284707544\par
+SwgCuiShipComponentManagement    3651517891\par
+SwgCuiShipChoose    128726726\par
+SwgCuiShipView    455336754\par
+SwgCuiDroidCommand    3881076762\par
+SwgCuiSpaceGroupLaunch    4203401193\par
+SwgCuiResourceSplitter    691485623\par
+SwgCuiHarassmentReport    1349086628\par
+SwgCuiIMEIndicator    2572619378\par
+SwgCuiIMEIndicatorSpace    2851165369\par
+SwgCuiMfdStatus    910889361\par
+SwgCuiStatusGround    3715332498\par
+SwgCuiHud    1298055123\par
+SwgCuiAvatarCustomizationBase    3093921063\par
+SwgCuiAuctionListBase    878790750\par
+CuiIconManagerCallback    2215863018\par
+SwgCuiInventoryContainerFilter    1987001103\par
+UITableModel    2699849264\par
+UITableModelDefault    3775669924\par
+UIDataSourceContainer    4229632987\par
+UIDataSourceBase    802333224\par
+SwgCuiChatRoomsCreate    934808282\par
+SwgCuiContainerProviderFilter    3306619878\par
+UISliderbar    2807682369\par
+UIPopupMenu    2591800831\par
+SwgCuiMfdStatusBar    632439430\par
+SwgCuiHudAction    3177075155\par
+SwgCuiHudActionSpace    3216912727\par
+SwgCuiHudWindowManager    31178639\par
+SwgCuiHudWindowManagerSpace    1627111244\par
+SwgCuiHudActionGround    2769445947\par
+SwgCuiHudWindowManagerGround    3376974191\par
+SwgCuiSurvey    1266145345\par
+SwgCuiCommunity    930833814\par
+SwgCuiService    3884928508\par
+SwgCuiTicketSubmission    3172784999\par
+SwgCuiHarassmentMessage    2986787672\par
+SwgCuiCharacterSheet    3593021017\par
+SwgCuiPermissionList    2493062361\par
+SwgCuiNewMacro    2327354484\par
+SwgCuiAllTargets    3013995010\par
+SwgCuiInventoryInfo    1503864289\par
+SwgCuiInventoryContainer    466511241\par
+SwgCuiContainerProvider    3341525905\par
+SwgCuiContainerProviderDefault    3531547674\par
+SwgCuiDeleteAvatarConfirmation    3097725116\par
+SwgCuiInventoryEquipment    2659599933\par
+SwgCuiCraftAssemblyDialogOption    613701132\par
+SwgCuiContainerProviderDraft    3278332653\par
+SwgCuiContainerProviderPoi    1529759024\par
+SwgCuiExpMonitor    74774624\par
+SwgCuiWaypointMonitor    823145775\par
+SwgCuiOptBase    1206065775\par
+SwgCuiOptUi    1443253120\par
+SwgCuiOptTerrain    3433073739\par
+SwgCuiOptSound    3358055862\par
+SwgCuiOptMisc    3066582404\par
+SwgCuiOptGraphics    3942037550\par
+SwgCuiOptControls    3505131032\par
+SwgCuiOptCombat    943565214\par
+SwgCuiOptChatColors    3127936881\par
+SwgCuiOptChat    1826655164\par
+SwgCuiOptAlarm    1585765701\par
+SwgCuiOptAfk    4113329228\par
+SwgCuiSkills2Profession    3773642797\par
+SwgCuiSkills2MyStats    3560208161\par
+SwgCuiSkills2ProfessionList    4184102718\par
+SwgCuiSpaceMissileCount    2742601827\par
+SwgCuiSpaceGroup    3910490941\par
+SwgCuiSpaceFlyOutPage    1939248046\par
+SwgCuiShipReticle    588462216\par
+SwgCuiAllTargetsSpace    2026631692\par
+SwgCuiSpaceRadar    3288743575\par
+UIImage    2771253238\par
+SwgCuiGroup    4104659143\par
+SwgCuiAttributeModifiers    3129810162\par
+SwgCuiAllTargetsGround    2468151207\par
+SwgCuiGroundRadar    1056047611\par
+SwgCuiChatWindow    473773929\par
+SwgCuiIncap    695664234\par
+SwgCuiCombatQueue    3598498106\par
+SwgCuiButtonBar    1860580195\par
+SwgCuiToolbar    131386803\par
+SwgCuiTargets    815624007\par
+SwgCuiSystemMessage    3592581894\par
+SwgCuiChatRoomsWho    1101213696\par
+SwgCuiAuctionListPane    1917547792\par
+SwgCuiInventoryContainerDetails    26798586\par
+SwgCuiInventoryContainerIcons    2394245631\par
+SwgCuiSkills2ProfessionGraph    1528053987\par
+SwgCuiContainerProviderTrade    2828481577\par
+SwgCuiSpaceRadarPlanar    1185536163\par
+SwgCuiSpaceRadarSpherical2    1232736806\par
+SwgCuiSpaceRadarSpherical    3460577588\par
+SwgCuiStatusSpace    2894529207\par
+SwgCuiCommandParserDefault    3658439479\par
+SwgCuiCommandParserUI    84333813\par
+SwgCuiCommandParserChatRoom    696257822\par
+SwgCuiChatRoomsBan    100891090\par
+SwgCuiChatRoomsInvite    2747337366\par
+SwgCuiReticle    3099140776\par
+SwgCuiAuctionListView    22120811\par
+SwgCuiAuctionFilter    1021704826\par
+SwgCuiInventoryContainerDetailsTableModel    3056252041\par
+SwgCuiCommandParserNebula    1668337274\par
+SwgCuiCommandParserShip    2233773053\par
+SwgCuiAuctionPaneTableModel    2587188982\par
+SwgCuiCommandParserShipWeaponGroup    3190638365\par
+UITextStyleManager    2439580825\par
+UIManager    2122632191\par
+BaseUIWatcher    2786568612\par
+UIClock    3641682900\par
+UIStyle    3430133297\par
+UITextStyle    1277344630\par
+UIImageStyle    1731150448\par
+UIPalette    4229365099\par
+UIRectangleStyle    98190476\par
+UIWidgetRectangleStyles    2482143688\par
+UIRadialMenu    3801755073\par
+UICursorInterfaceDefault    16522158\par
+UICheckbox    4048548807\par
+UIEffector    2834170964\par
+UIOpacityEffector    459811308\par
+UIWidgetStyle    225740805\par
+UIDataSource    2213480652\par
+UIPie    1240441727\par
+UIListbox    391629611\par
+UIList    1009191185\par
+UIVolumePage    981600393\par
+UITable    1899636725\par
+UIComboBox    3464963759\par
+UITabbedPane    1529079301\par
+UITreeView    971938791\par
+UISliderbase    1848863584\par
+UIColorEffector    3303352895\par
+UISizeEffector    466997896\par
+UIGBuffer    3529444635\par
+UIEllipse    2010485876\par
+UINamespace    3156983249\par
+UITooltipStyle    3884287048\par
+UITemplate    3582061889\par
+UIUnknown    951954722\par
+UIImageFragment    1373223008\par
+UIImageFrame    2361237818\par
+UICursorSet    2245321973\par
+UIButtonStyle    1666455682\par
+UIBoundary    842970521\par
+UIBoundaryPolygon    3625799190\par
+UITextboxStyle    4196678475\par
+UIGridStyle    1925167702\par
+UICheckboxStyle    2695556137\par
+UIPieStyle    1945650835\par
+UITemplateCache    1015627277\par
+UIListboxStyle    283037173\par
+UITreeViewStyle    422046888\par
+UIListStyle    3325023210\par
+UIWatchable    3581614684\par
+UIDeformer    3792814647\par
+UIDeformerWave    4119011140\par
+UIDeformerRotate    1346437327\par
+UIDeformerHUD    3527707664\par
+UIRotationEffector    3432393761\par
+UIScrollLocationEffector    3816747425\par
+UILocationEffector    433876264\par
+UITabSet    2974065949\par
+UIGrid    3261523850\par
+UISliderplane    133556603\par
+UIProgressbar    727457007\par
+UIDropdownbox    696281934\par
+UIRadialMenuStyle    2954987095\par
+UIPopupMenuStyle    2557748883\par
+UITabbedPaneStyle    3141918141\par
+UITabSetStyle    2846766379\par
+UISliderbarStyle    4164679761\par
+UIProgressbarStyle    1828394095\par
+UIDropdownboxStyle    3734412854\par
+UIFontCharacter    2447797292\par
+UITableHeader    417990899\par
+LocalizedStringTable    3788403042\par
+SurveyMessage    2273278380\par
+ResourceListForSurveyMessage    2321854933\par
+ConsentRequestMessage    2581377172\par
+PermissionListCreateMessage    1391682744\par
+MessageQueueCombatDamage    1500496260\par
+MessageQueueCombatAction    3249075475\par
+ShipComponentDescriptor    4013902605\par
+SharedTerrainSurfaceObjectTemplate    187337997\par
+ShipChassis    3471564562\par
+ResourceClassObject    765524150\par
+ShipComponentDescriptorWritable    887070883\par
+ShipChassisWritable    273323233\par
+BaseExtent    2556644905\par
+DoorObject    1288720313\par
+BaseClass    735275866\par
+Footprint    1857184496\par
+FloorContactShape    83559313\par
+BarrierObject    3405177254\par
+SimpleExtent    3024559606\par
+CollisionSurface    2714061954\par
+FloorMesh    3610828284\par
+Floor    3247102537\par
+CollisionMesh    4104794394\par
+MeshExtent    3252772196\par
+DoorCollisionProperty    3214182307\par
+CollisionNotification    1069005488\par
+CompositeExtent    2716264834\par
+ComponentExtent    1040498163\par
+DetailExtent    3152346306\par
+CylinderExtent    318498024\par
+MultiListHandle    324511345\par
+MultiListNode    712242119\par
+NeighborObject    3373184078\par
+BarrierCollisionProperty    1454551128\par
+SimpleCollisionMesh    2380140719\par
+SkillManager    595764879\par
+SkillObject    105592941\par
+NetLogConnection    3575101251\par
+DeferredSend    3279903704\par
+DeferredSendArchive    1948889072\par
+DeferredSendLogicalPacket    3667962576\par
+NetworkSetupData    3906613179\par
+Sock    2895886302\par
+UdpSock    3165707090\par
+UdpManagerHandlerMT    2223094232\par
+ManagerHandler    587771130\par
+UdpManagerHandler    2553150738\par
+UdpManagerHandlerInternal    3852984095\par
+UdpConnectionHandler    3844008162\par
+UdpConnectionHandlerInternal    4178289890\par
+Service    3768364986\par
+UdpLibraryException    484177346\par
+UdpConnectionHandlerMT    616665295\par
+ConnectionHandler    11731616\par
+LogObserver    738011786\par
+NetLogObserver    1939675461\par
+FileLogObserver    4181866324\par
+SharedRemoteDebugServerConnection    260705197\par
+StdioFile    3736814746\par
+PathEdge    1724221572\par
+PathNode    2166320258\par
+PathGraph    1856991824\par
+SimplePathGraph    2815254002\par
+bad_cast    3743574705\par
+type_info    970458917\par
+bad_typeid    2782288768\par
+__non_rtti_object    2199234497\par
+Intro    2789532372\par
+SimplePolyPrimitive    4158158695\par
+VertexBufferVectorGraphicsData    1795062227\par
+ObjectWatcherListCamera    162408511\par
+CuiShipInfo    1583148772\par
+CuiConversationMenu    2731491566\par
+CuiTurntableAdapter    3758435170\par
+CuiCreatureSkillsList    1941836723\par
+CuiCreatureAttributeTable    2209365424\par
+CuiControlsMenuBindEntry    3484557578\par
+CuiMoney    4052117999\par
+CuiArcGuage    3050926798\par
+CuiFontSizer    526874534\par
+CuiChatParserStrategy    3066608582\par
+CuiCommandTableParser    1058851383\par
+RemoteDebug    952174318\par
+ClientMfdStatusUpdateMessage    757952225\par
+DeleteCharacterReplyMessage    2187892891\par
+DeleteCharacterMessage    3900362801\par
+RequestGalaxyLoopTimes    2105814376\par
+GalaxyLoopTimesResponse    1312981128\par
+PlanetTravelPointListResponse    1295143967\par
+PlanetTravelPointListRequest    2520800589\par
+StatMigrationTargetsMessage    4021041348\par
+NewbieTutorialEnableHudElement    3392622884\par
+EditStatsMessage    811502632\par
+EditAppearanceMessage    36905173\par
+CloseHolocronMessage    3230894749\par
+OpenHolocronToPageMessage    2092322849\par
+EnterTicketPurchaseModeMessage    2421009946\par
+EnterStructurePlacementModeMessage    3903147457\par
+ResourceHarvesterActivatePageMessage    3734512102\par
+BadgesResponseMessage    1837748827\par
+GuildResponseMessage    841367328\par
+GuildRequestMessage    2179682039\par
+ConGenericMessage    147192950\par
+ExecuteConsoleCommand    2983185948\par
+CharacterSheetResponseMessage    2604275652\par
+FactionResponseMessage    1574254935\par
+PlayerMoneyResponse    914256766\par
+FactionRequestMessage    3249552257\par
+PlayerMoneyRequest    2635094689\par
+StomachRequestMessage    3076380119\par
+GetArticleMessage    1585137734\par
+SearchKnowledgeBaseMessage    2519632795\par
+LogMessage    2942269346\par
+IntegerParam    4039827987\par
+FloatParam    467358156\par
+BoolParam    2458754482\par
+StringParam    2003782270\par
+VectorParam    3871890683\par
+StringIdParam    1671200146\par
+TriggerVolumeParam    2954993688\par
+DynamicVariableParamData    3432390802\par
+DynamicVariableParam    310686578\par
+\par
+\pard\page Packet opcode strings version 2. (Original source:  Ramsey provided to Meanmon13)\par
+\par
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656 AINodeInfo    605435968\par
+AIPathInfo    3390941878\par
+AbortTradeMessage    2628259736\par
+AbstractFile    1680939178\par
+AbstractFileFactory    3189322355\par
+AcceptAuctionResponseMessage    3314173038\par
+AcceptTransactionMessage    2972830231\par
+ActionGeneratorSkeletalAnimation    607690661\par
+ActionGeneratorSkeletalAnimationTemplate    2887809168\par
+AddItemFailedMessage    1775493586\par
+AddItemMessage    512562006\par
+AddMapLocationMessage    2871096502\par
+AffectorBoundaryPoly    4284131178\par
+AffectorColorConstant    299854480\par
+AffectorColorRampFractal    2458668692\par
+AffectorColorRampHeight    392514312\par
+AffectorEnvironment    1946111800\par
+AffectorExclude    4056139795\par
+AffectorFloraDynamic    3038143483\par
+AffectorFloraDynamicFarConstant    210770787\par
+AffectorFloraDynamicNearConstant    1753597834\par
+AffectorFloraStatic    2030566199\par
+AffectorFloraStaticCollidableConstant    1227646109\par
+AffectorFloraStaticNonCollidableConstant    2189374101\par
+AffectorHeightConstant    2268599327\par
+AffectorHeightFractal    2176937456\par
+AffectorHeightTerrace    3828550437\par
+AffectorPassable    1526665151\par
+AffectorRibbon    3013745416\par
+AffectorRiver    52228869\par
+AffectorRoad    916397727\par
+AffectorShaderConstant    2175040749\par
+AffectorShaderReplace    3662064392\par
+AlignToHardpointAction    4278050075\par
+AlignToHardpointActionTemplate    4071998252\par
+AlignmentTransformModifier    2183525787\par
+AnimationAction    348950621\par
+AnimationActionGroup    2576169681\par
+AnimationMessageAction    155331149\par
+AnimationMessageActionTemplate    81809658\par
+AnimationNotification    1468693071\par
+AnimationState    3866811580\par
+AnimationStateHierarchyTemplate    816529885\par
+AnimationStateLink    867640332\par
+Appearance    3256884407\par
+AppearanceTemplate    3850726572\par
+AppendCommentMessage    180655684\par
+AppendCommentResponseMessage    2689220298\par
+ArcTargetAction    2940240228\par
+ArcTargetActionTemplate    1393295015\par
+AsteroidDynamics    4059297941\par
+AttributeListMessage    4092669738\par
+AuctionQueryHeadersMessage    1738411264\par
+AuctionQueryHeadersResponseMessage    4199550546\par
+BadgesResponseMessage    1837748827\par
+BannerController    1153421068\par
+BarrierCollisionProperty    1454551128\par
+BarrierObject    3405177254\par
+BaseClass    735275866\par
+BaseExtent    2556644905\par
+BasePriorityBlendAnimation    3093347436\par
+BaseUIWatcher    2786568612\par
+BaseWatcher    840681348\par
+BaselinesMessage    1755799308\par
+BasicMeshGeneratorTemplate    2983854689\par
+BasicRangedIntCustomizationVariable    3092871491\par
+BasicSkeletonTemplate    1462793477\par
+BattlefieldMarkerObject    1198395282\par
+BeamAppearance    2325206831\par
+BeamAppearanceTemplate    718512393\par
+BeginTradeMessage    844706520\par
+BeginVerificationMessage    3880328693\par
+BidAuctionMessage    2433897555\par
+BidAuctionResponseMessage    2412506954\par
+BinkVideo    1610411510\par
+BitArray    2148255216\par
+BlueprintSharedTextureRenderer    2856739471\par
+BlueprintTextureRenderer    1008010382\par
+BlueprintTextureRendererTemplate    1720417500\par
+BoolParam    2458754482\par
+BoundaryCircle    735818051\par
+BoundaryPoly    1780673724\par
+BoundaryPolygon    3227118775\par
+BoundaryPolyline    2478771032\par
+BoundaryRectangle    1216872205\par
+BoxExtent    3899581653\par
+BuildingObject    3291165931\par
+CallbackAnimationNotification    2125689463\par
+CallbackReceiver    987893283\par
+Camera    620007738\par
+CameraController    21359434\par
+CancelLiveAuctionMessage    914859218\par
+CancelLiveAuctionResponseMessage    2107778156\par
+CancelTicketMessage    1670313009\par
+CancelTicketResponseMessage    3606835992\par
+CelestialAppearance    2247913753\par
+CelestialObject    1328751011\par
+CellObject    1920583358\par
+CellProperty    2621308808\par
+ChangePostureActionTemplate    3439397905\par
+ChangeScaleAction    1715070169\par
+ChangeScaleActionTemplate    4144671035\par
+CharacterSheetResponseMessage    2604275652\par
+ChatAddFriend    1811950867\par
+ChatAddModeratorToRoom    2428364655\par
+ChatBanAvatarFromRoom    3657040276\par
+ChatCreateRoom    892759021\par
+ChatDeleteAllPersistentMessages    2334035570\par
+ChatDeletePersistentMessage    2401572417\par
+ChatDestroyRoom    155921015\par
+ChatEnterRoomById    3161185778\par
+ChatFriendsListUpdate    1825766616\par
+ChatInstantMessageToCharacter    2226856439\par
+ChatInstantMessageToClient    1012292845\par
+ChatInviteAvatarToRoom    1920199891\par
+ChatInviteGroupToRoom    28689718\par
+ChatKickAvatarFromRoom    3770475099\par
+ChatOnAddModeratorToRoom    916469848\par
+ChatOnBanAvatarFromRoom    1513640845\par
+ChatOnConnectAvatar    3610241470\par
+ChatOnCreateRoom    903335071\par
+ChatOnDeleteAllPersistentMessages    1327732314\par
+ChatOnDestroyRoom    3907803255\par
+ChatOnEnteredRoom    3868974090\par
+ChatOnInviteGroupToRoom    2188875567\par
+ChatOnInviteToRoom    1228924746\par
+ChatOnKickAvatarFromRoom    1184972140\par
+ChatOnLeaveRoom    1622477195\par
+ChatOnReceiveRoomInvitation    3246305389\par
+ChatOnRemoveModeratorFromRoom    323157063\par
+ChatOnSendInstantMessage    2296099713\par
+ChatOnSendPersistentMessage    2498209710\par
+ChatOnSendRoomMessage    3887470131\par
+ChatOnUnbanAvatarFromRoom    3136927765\par
+ChatOnUninviteFromRoom    3191064552\par
+ChatPersistentMessageToClient    138960407\par
+ChatPersistentMessageToServer    631414694\par
+ChatQueryRoom    2633150866\par
+ChatQueryRoomResults    3302917710\par
+ChatRemoveAvatarFromRoom    1228816378\par
+ChatRemoveModeratorFromRoom    2319420932\par
+ChatRequestPersistentMessage    132339103\par
+ChatRequestRoomList    1279077626\par
+ChatRoomList    1893642647\par
+ChatRoomMessage    3444368452\par
+ChatSendToRoom    551869411\par
+ChatSystemMessage    1831494675\par
+ChatUnbanAvatarFromRoom    1284478121\par
+ChatUninviteFromRoom    4237099505\par
+ClearNonCollidableFloraNotification    2631316795\par
+ClientBattlefieldMarkerObjectTemplate    3403781837\par
+ClientBattlefieldMarkerOutlineObject    1829099829\par
+ClientBattlefieldMarkerOutlineObjectNotification    1361519442\par
+ClientBuildingObjectTemplate    2592065389\par
+ClientCellObjectTemplate    4151055663\par
+ClientClearCollidableFloraNotification    3960987185\par
+ClientCollisionProperty    1776314696\par
+ClientConstructionContractObjectTemplate    256189706\par
+ClientController    2735280162\par
+ClientCreateCharacter    3112120436\par
+ClientCreateCharacterFailed    3744676974\par
+ClientCreateCharacterSuccess    498431436\par
+ClientCreatureObjectTemplate    502488254\par
+ClientDataFile    3872981711\par
+ClientDynamicRadialFloraManager    1719796072\par
+ClientEffect    3313029782\par
+ClientEffectTemplate    3732150589\par
+ClientFactoryObjectTemplate    996191902\par
+ClientGlobalWaterManager2    3506662451\par
+ClientGroupObjectTemplate    3717171146\par
+ClientGuildObjectTemplate    443319527\par
+ClientIdMsg    3582562854\par
+ClientInstallationObjectTemplate    2478053396\par
+ClientInstallationSynchronizedUi    2238825483\par
+ClientIntangibleObjectTemplate    709427540\par
+ClientLocalWaterManager    1182316857\par
+ClientLotManagerNotification    1693204179\par
+ClientManufactureSchematicObjectTemplate    4117531031\par
+ClientManufactureSchematicSynchronizedUi    3819525512\par
+ClientMfdStatusUpdateMessage    757952225\par
+ClientMissionObject    1992566760\par
+ClientMissionObjectTemplate    1503847516\par
+ClientNoBuildNotification    3271785850\par
+ClientNotificationBoxMessage    2429517315\par
+ClientObject    2407789610\par
+ClientObjectTemplate    3893961532\par
+ClientObjectTerrainModificationNotification    2580756382\par
+ClientOpenContainerMessage    3701830665\par
+ClientPathObject    2818677898\par
+ClientPathObjectNotification    701441168\par
+ClientPermissionsMessage    3758567653\par
+ClientPlayerObjectTemplate    2759189443\par
+ClientProceduralTerrainAppearance    576664228\par
+ClientProceduralTerrainAppearanceTemplate    4020250178\par
+ClientRadialFloraManager    572027610\par
+ClientRandomNameRequest    3604068049\par
+ClientRandomNameResponse    3898587240\par
+ClientResourceContainerObjectTemplate    3517750755\par
+ClientSharedObjectTemplateInterface    1515917103\par
+ClientShipComponentData    2714999216\par
+ClientShipObjectInterface    2819489398\par
+ClientShipObjectTemplate    3401635348\par
+ClientSpaceTerrainAppearance    191602705\par
+ClientSpaceTerrainAppearanceTemplate    3912747650\par
+ClientStaticObjectTemplate    76456494\par
+ClientStaticRadialFloraManager    3687479379\par
+ClientStructureFootprintObject    3982198387\par
+ClientStructureFootprintObjectNotification    132704285\par
+ClientSynchronizedUi    4275896099\par
+ClientTangibleObjectTemplate    4282560109\par
+ClientUniverse    3710562554\par
+ClientUniverseObjectTemplate    1709144970\par
+ClientVehicleObjectTemplate    2405984891\par
+ClientVerifyAndLockNameRequest    2662353823\par
+ClientVerifyAndLockNameResponse    2603379623\par
+ClientWaypointObject    713236611\par
+ClientWaypointObjectTemplate    1446258517\par
+ClientWeaponObjectTemplate    2538656534\par
+CloneWeaponActionTemplate    3979943831\par
+CloseHolocronMessage    3230894749\par
+CloudLayerAppearance    1413968356\par
+CmdSceneReady    1140661282\par
+CmdStartScene    988209070\par
+CockpitCamera    2029851017\par
+CockpitLeaveStage    291307884\par
+CockpitStage    1489152900\par
+CollisionMesh    4104794394\par
+CollisionNotification    1069005488\par
+CollisionProperty    3438652739\par
+CollisionSurface    2714061954\par
+CommandParser    3319026196\par
+ComponentAppearance    4260495987\par
+ComponentAppearanceTemplate    2598008669\par
+ComponentExtent    1040498163\par
+CompositeExtent    2716264834\par
+CompressedKeyframeAnimation    25779508\par
+CompressedKeyframeAnimationTemplate    171132895\par
+Compressor    2122676596\par
+ConGenericMessage    147192950\par
+ConnectPlayerMessage    775311896\par
+ConnectPlayerResponseMessage    1631016303\par
+Connection    2416448046\par
+ConnectionHandler    11731616\par
+ConnectionServerConnection    2827870631\par
+ConsentRequestMessage    2581377172\par
+ConsentResponseMessage    1874946792\par
+ConstCharCrcLowerString    1196901541\par
+ConstCharCrcString    391632168\par
+ContainedByProperty    3787690904\par
+Container    1440503590\par
+ControlledBlendSkeletalAnimation    1248944558\par
+Controller    1451889799\par
+Countermeasure    2418093769\par
+CrcLowerString    2163474825\par
+CrcString    333028601\par
+CreateAuctionMessage    2907111965\par
+CreateAuctionResponseMessage    241290386\par
+CreateClientPathMessage    1905620520\par
+CreateImmediateAuctionMessage    513598216\par
+CreateMissileMessage    1914499211\par
+CreateNebulaLightningMessage    1710389639\par
+CreateProjectileMessage    3096115621\par
+CreateTicketMessage    1088834988\par
+CreateTicketResponseMessage    1426735226\par
+CreatureController    1499990732\par
+CreatureObject    29990564\par
+DebugNotification    3235998996\par
+DebugPortalCamera    1226505821\par
+DebugTransformMessage    3503139426\par
+DeferredSend    3279903704\par
+DeferredSendArchive    1948889072\par
+DeferredSendLogicalPacket    3667962576\par
+DeleteCharacterMessage    3900362801\par
+DeleteCharacterReplyMessage    2187892891\par
+DeltaFrameSwitcher    2966357701\par
+DeltaFrameSwitcherTemplate    3113773045\par
+DeltaPingPongSwitcher    3664368647\par
+DeltaPingPongSwitcherTemplate    354072569\par
+DeltaRandomFrameSwitcher    1437115236\par
+DeltaRandomFrameSwitcherTemplate    1507562490\par
+DeltaRandomFrameTimeSwitcher    471832890\par
+DeltaRandomFrameTimeSwitcherTemplate    3304696857\par
+DeltaRandomTimeSwitcher    1866569183\par
+DeltaRandomTimeSwitcherTemplate    377503390\par
+DeltaTimeSwitcher    633339612\par
+DeltaTimeSwitcherTemplate    524465306\par
+DeltasMessage    310780243\par
+DenyTradeMessage    1858242160\par
+DestroyClientPathMessage    2807989739\par
+DestroyShipComponentMessage    946984836\par
+DestroyShipMessage    1550321796\par
+DetailAppearance    424199883\par
+DetailAppearanceTemplate    1396303944\par
+DetailExtent    3152346306\par
+DirectionSkeletalAnimation    3580987184\par
+DirectionSkeletalAnimationTemplate    3801155478\par
+DoorCollisionProperty    3214182307\par
+DoorObject    1288720313\par
+DroidCommandProgrammingMessage    4069621029\par
+DustAppearance    1344696814\par
+DynamicColorPolyPrimitive    2286677054\par
+DynamicDebrisObject    2063775932\par
+DynamicIndexBuffer    3911484529\par
+DynamicIndexBufferGraphicsData    3943205368\par
+DynamicMeshAppearance    3542931616\par
+DynamicNormalMapTest    1103873009\par
+DynamicVariableParam    310686578\par
+DynamicVariableParamData    3432390802\par
+DynamicVertexBuffer    3017258628\par
+DynamicVertexBufferGraphicsData    4161529890\par
+Dynamics    1835664709\par
+EditAppearanceMessage    36905173\par
+EditStatsMessage    811502632\par
+EditableAnimationAction    507128861\par
+EditableAnimationActionGroup    1655828851\par
+EditableAnimationState    622912438\par
+EditableAnimationStateHierarchyTemplate    1297660056\par
+EditableAnimationStateLink    3760171367\par
+EditableBasicAnimationAction    3665946783\par
+EditableMovementAnimationAction    1433297181\par
+EnterStructurePlacementModeMessage    3903147457\par
+EnterTicketPurchaseModeMessage    2421009946\par
+EnumerateCharacterId    1709852020\par
+EnvironmentBlockManager    3929110961\par
+ErrorMessage    3047946522\par
+ExecuteConsoleCommand    2983185948\par
+ExpertiseRequestMessage    3247474133\par
+Extent    2739451456\par
+FaceTargetAction    1379251689\par
+FaceTargetActionTemplate    3625594629\par
+FactionRequestMessage    3249552257\par
+FactionResponseMessage    1574254935\par
+FactoryObject    2618463670\par
+FadingTextAppearance    1519281825\par
+FatalException    2268358801\par
+FileLogObserver    4181866324\par
+FileStreamerFile    2215435971\par
+FilterBitmap    1018100339\par
+FilterDirection    3293974186\par
+FilterFractal    371788080\par
+FilterHeight    1524934073\par
+FilterShader    3439162328\par
+FilterSlope    2676651926\par
+FireProjectileAction    442062533\par
+FireProjectileActionTemplate    4134775216\par
+FireSetupActionTemplate    422876763\par
+FireTurretActionTemplate    2703641680\par
+FlagController    2455319194\par
+FloatParam    467358156\par
+Floor    3247102537\par
+FloorContactShape    83559313\par
+FloorMesh    3610828284\par
+FloraManager    4190700327\par
+FlyByCamera    231571900\par
+Footprint    1857184496\par
+ForceFieldAppearance    2469473165\par
+FreeCamera    1850170273\par
+FreeChaseCamera    1957407439\par
+FuncPtrThreadZero    1559797360\par
+GalaxyLoopTimesResponse    1312981128\par
+GameCamera    819912248\par
+GameLight    3323947427\par
+GameNetworkConnection    1297731955\par
+GameNetworkMessage    3613824909\par
+GetArticleMessage    1585137734\par
+GetArticleResponseMessage    2471210720\par
+GetAuctionDetails    3547265764\par
+GetAuctionDetailsResponse    4262356043\par
+GetCommentsMessage    655007429\par
+GetCommentsResponseMessage    3940223178\par
+GetMapLocationsMessage    444250169\par
+GetMapLocationsResponseMessage    2675983948\par
+GetTicketsMessage    3383097741\par
+GetTicketsResponseMessage    3143008152\par
+GiveMoneyMessage    3511844584\par
+GlowAppearance    3422709010\par
+GradientSkyAppearance    1057170869\par
+GrenadeLobAction    2838371733\par
+GrenadeLobActionTemplate    1646786389\par
+GroundScene    1259779807\par
+GroupLogicalPacket    2767439164\par
+GroupObject    1552788934\par
+GuildObject    178765840\par
+GuildRequestMessage    2179682039\par
+GuildResponseMessage    841367328\par
+HardpointObject    564322160\par
+HardpointTargetAction    4159533970\par
+HardpointTargetActionTemplate    3500385529\par
+HardwareIndexBuffer    4103129750\par
+HardwareVertexBuffer    2051345447\par
+HomingTargetAction    4287010299\par
+HomingTargetActionTemplate    2968804358\par
+HyperspaceIoWin    2267327401\par
+HyperspaceMessage    3422061698\par
+ImageDesignChangeMessage    2619555797\par
+ImageDesignStartMessage    3405972898\par
+ImageFormat    1319371561\par
+InstallationObject    3858591664\par
+IntangibleObject    3178238000\par
+IntegerParam    4039827987\par
+IoWin    2942732079\par
+IsVendorOwnerMessage    565533243\par
+IsVendorOwnerResponseMessage    3456374590\par
+JgrillsTest    2624482906\par
+KeyframeSkeletalAnimation    1331999207\par
+KeyframeSkeletalAnimationTemplate    849608686\par
+LayerProperty    1121314452\par
+Light    2439877399\par
+LightningAppearance    2749026272\par
+LightningAppearanceTemplate    3047238966\par
+LightsaberAppearance    614456479\par
+LightsaberAppearanceTemplate    252224159\par
+LocalizedStringTable    3788403042\par
+LodMeshGeneratorTemplate    1005138787\par
+LodShaderTest    1293789161\par
+LodSkeletonTemplate    859146007\par
+LogMessage    2942269346\par
+LogObserver    738011786\par
+LogicalPacket    3226754604\par
+LoginClientId    1091772310\par
+LoginClientToken    2863830726\par
+LoginClusterStatus    875998902\par
+LoginClusterStatusEx    4200287066\par
+LoginConnection    2294802292\par
+LoginEnumCluster    3239863225\par
+LoginIncorrectClientId    552068368\par
+LookAtTransformModifier    2196903500\par
+LotManagerNotification    836037122\par
+MainThread    1917269842\par
+ManagerHandler    587771130\par
+ManufactureSchematicObject    2304620222\par
+MarkerAppearance    1631831852\par
+MarkerAppearanceTemplate    2177729834\par
+MaskedPrioritySkeletalAnimation    998703499\par
+MemoryBlockManagedObject    2334836122\par
+MemoryFile    459357750\par
+MeshAppearance    225683290\par
+MeshAppearanceTemplate    2090147588\par
+MeshExtent    3252772196\par
+MeshGenerator    3141731342\par
+MeshGeneratorTemplate    1098073958\par
+MessageQueueChangeRoleIconChoice    1909144416\par
+MessageQueueCombatAction    3249075475\par
+MessageQueueCombatDamage    1500496260\par
+MessageQueueCombatSpam    1269080413\par
+MessageQueueCommandQueueEnqueue    3975898839\par
+MessageQueueCommandQueueRemove    2200409458\par
+MessageQueueCommandTimer    229842890\par
+MessageQueueCraftCustomization    677240739\par
+MessageQueueCraftEmptySlot    840289743\par
+MessageQueueCraftExperiment    1083525521\par
+MessageQueueCraftFillSlot    3677571789\par
+MessageQueueCraftIngredients    2158770441\par
+MessageQueueCraftRequestSession    1197374790\par
+MessageQueueCraftSelectSchematic    2918935601\par
+MessageQueueCyberneticsChangeRequest    1607808580\par
+MessageQueueCyberneticsOpen    4044151960\par
+MessageQueueDataTransform    150358025\par
+MessageQueueDataTransformWithParent    1422173662\par
+MessageQueueDraftSchematics    834656099\par
+MessageQueueDraftSlots    3278498762\par
+MessageQueueDraftSlotsQueryResponse    903599514\par
+MessageQueueGeneric    576273633\par
+MessageQueueGenericIntResponse    4043525335\par
+MessageQueueGenericResponse    278093382\par
+MessageQueueGenericString    1296205625\par
+MessageQueueHarvesterResourceData    1043099458\par
+MessageQueueMissionCreateRequest    2247117586\par
+MessageQueueMissionDetailsRequest    1837884033\par
+MessageQueueMissionDetailsResponse    612281975\par
+MessageQueueMissionGenericRequest    641500961\par
+MessageQueueMissionGenericResponse    2362881377\par
+MessageQueueMissionListRequest    2701955461\par
+MessageQueueMissionListResponse    3414925706\par
+MessageQueueNetworkId    2200477005\par
+MessageQueueNetworkIdAndTransform    1423667283\par
+MessageQueueNetworkIdPair    4214886683\par
+MessageQueueNpcConversationMessage    4107377721\par
+MessageQueueObjectMenuRequest    378514195\par
+MessageQueueOpponentInfo    294097489\par
+MessageQueuePosture    3030018168\par
+MessageQueuePushCreature    2205906325\par
+MessageQueueQuestTaskCounterMessage    1539556086\par
+MessageQueueQuestTaskLocationMessage    539805668\par
+MessageQueueQuestTaskTimerMessage    2216476588\par
+MessageQueueResourceEmptyHopper    2395636021\par
+MessageQueueResourceWeights    2826284905\par
+MessageQueueSecureTrade    82346135\par
+MessageQueueSelectCurrentWorkingSkill    770648030\par
+MessageQueueSelectProfessionTemplate    2934787605\par
+MessageQueueShipHit    2259491664\par
+MessageQueueShowCombatText    375075818\par
+MessageQueueShowFlyText    539445527\par
+MessageQueueSitOnObject    693476418\par
+MessageQueueSlowDownEffect    4021597833\par
+MessageQueueSocial    2732575264\par
+MessageQueueSpaceMiningSellResource    3342459445\par
+MessageQueueSpatialChat    3824677583\par
+MessageQueueStartNpcConversation    2507923975\par
+MessageQueueStopNpcConversation    1243325355\par
+MessageQueueString    105261792\par
+MessageQueueStringList    2744945116\par
+MessageQueueTeleportAck    632824505\par
+MessageQueueUpdateShipOnCollision    2074500897\par
+MiningAsteroidController    314889606\par
+Missile    857185398\par
+MovementTable    2124090245\par
+MultiListHandle    324511345\par
+MultiListNode    712242119\par
+NebulaShellShaderPrimitive    3087719658\par
+NeighborObject    3373184078\par
+NetLogConnection    3575101251\par
+NetLogObserver    1939675461\par
+NetworkController    22899554\par
+NetworkHandler    1336419109\par
+NetworkScene    2284437457\par
+NetworkSetupData    3906613179\par
+NewTicketActivityMessage    659508856\par
+NewTicketActivityResponseMessage    1856253312\par
+NewbieTutorialEnableHudElement    3392622884\par
+NewbieTutorialHighlightUIElement    2555484916\par
+NewbieTutorialRequest    2430427567\par
+NewbieTutorialResponse    3397974957\par
+NewbieTutorialSetToolbarElement    2671978265\par
+NoBuildNotification    1775158186\par
+NoRenderAppearance    3622827279\par
+NoRenderAppearanceTemplate    1209063553\par
+NonTrackingProjectile    777788417\par
+ObjControllerMessage    2161008198\par
+Object    3474813746\par
+ObjectClientEffect    30278535\par
+ObjectListCamera    3386992115\par
+ObjectMenuSelectMessage    2471730423\par
+ObjectNotification    3232980169\par
+ObjectTemplate    1870174545\par
+ObjectWatcherListCamera    162408511\par
+OpenHolocronToPageMessage    2092322849\par
+OutOfBandBase    2098687333\par
+OverheadMap    442828103\par
+OwnerProxyShader    1762481479\par
+OwnerProxyShaderTemplate    2940858558\par
+PaletteColorCustomizationVariable    928172890\par
+ParametersMessage    1215714010\par
+Particle    1285874935\par
+ParticleAttachment    4106772577\par
+ParticleAttachmentDescription    2988990723\par
+ParticleDescription    1900209241\par
+ParticleDescriptionMesh    3957720954\par
+ParticleDescriptionQuad    29927646\par
+ParticleEffectAppearance    3616346480\par
+ParticleEffectAppearanceTemplate    3351885522\par
+ParticleEmitter    1587435402\par
+ParticleEmitterGroup    2911572180\par
+ParticleEmitterShape    2058805103\par
+ParticleEmitterShapeCircle    3797628730\par
+ParticleEmitterShapeCube    404020478\par
+ParticleEmitterShapeLine    641582640\par
+ParticleEmitterShapeRectangle    1440817206\par
+ParticleEmitterShapeSphere    383025679\par
+ParticleEmitterShapeX    2525602501\par
+ParticleGenerator    17102642\par
+ParticleMesh    3346255142\par
+ParticleQuad    761094786\par
+PassthroughPlaybackAction    941345063\par
+PathEdge    1724221572\par
+PathGraph    1856991824\par
+PathNode    2166320258\par
+PermissionListCreateMessage    1391682744\par
+PersistentCrcString    2921562283\par
+PlanetAppearance    3529139803\par
+PlanetAppearanceTemplate    2544123149\par
+PlanetTravelPointListRequest    2520800589\par
+PlanetTravelPointListResponse    1295143967\par
+PlayClientEffectLocMessage    43294324\par
+PlayClientEffectObjectMessage    2287289162\par
+PlayClientEffectObjectTransformMessage    1331562934\par
+PlayClientEventLocMessage    172892716\par
+PlayClientEventObjectMessage    2944648178\par
+PlayClientEventObjectTransformMessage    2419076985\par
+PlayCutSceneMessage    4081293302\par
+PlayMusicMessage    69668234\par
+PlayParticleSystemAction    765978853\par
+PlayParticleSystemActionTemplate    979857281\par
+PlaySkeletalAnimationAction    2634159989\par
+PlaySkeletalAnimationActionTemplate    2674077031\par
+PlaybackAction    596321956\par
+PlaybackActionTemplate    139876588\par
+PlayerCreatureController    674200725\par
+PlayerMoneyRequest    2635094689\par
+PlayerMoneyResponse    914256766\par
+PlayerObject    594400956\par
+PlayerShipController    2918802218\par
+PlayerShipTurretController    3719834903\par
+PooledLogicalPacket    3756257279\par
+PopulateMissionBrowserMessage    2295957596\par
+PortalBarrierAppearance    878976425\par
+PortalProperty    1665409967\par
+PositionClientEffect    3863890021\par
+PriorityBlendAnimation    2762665683\par
+PriorityBlendAnimationTemplate    2702309736\par
+ProceduralTerrainAppearance    2881412759\par
+ProceduralTerrainAppearanceTemplate    3572147867\par
+Projectile    2694958268\par
+ProjectileBeam    786573951\par
+ProjectileDynamics    3442052311\par
+Property    958110025\par
+ProxyLocalShaderPrimitive    1922555216\par
+ProxySkeletalAnimationTemplate    1100331027\par
+PulseDynamics    1783733834\par
+PushCreatureAction    958281815\par
+PushCreatureActionTemplate    505904119\par
+RangedIntCustomizationVariable    963439677\par
+RefreshCharacterList    3069445575\par
+RemoteCreatureController    3830678839\par
+RemoteDebug    952174318\par
+RemoteShipController    2765407559\par
+RemoveItemMessage    1142402955\par
+RenderWorldCamera    4107966096\par
+RenderWorldCommander    2641866784\par
+RenderWorldServices    1973083681\par
+RequestCategoriesMessage    4170768991\par
+RequestCategoriesResponseMessage    1628737492\par
+RequestGalaxyLoopTimes    2105814376\par
+RequestUnstick    1420559875\par
+RequestWatchObjectPath    3908993103\par
+RequestWatchPathMap    3637504168\par
+ResourceClassObject    765524150\par
+ResourceContainerObject    3204553555\par
+ResourceHarvesterActivatePageMessage    3734512102\par
+ResourceListForSurveyMessage    2321854933\par
+ReticleObject    767843434\par
+RetrieveAuctionItemMessage    313578569\par
+RetrieveAuctionItemResponseMessage    2493116300\par
+RibbonAppearance    2744121232\par
+RibbonTrailAppearance    489066307\par
+RiderSpineTransformModifier    3247732033\par
+RotationDynamics    3662362563\par
+SUIMessage    165187679\par
+Scene    1139941813\par
+SceneCreateObjectByCrc    4270448106\par
+SceneCreateObjectByName    527684865\par
+SceneDestroyObject    1296422148\par
+SceneEndBaselines    742613047\par
+SearchKnowledgeBaseMessage    2519632795\par
+SearchKnowledgeBaseResponseMessage    2092732263\par
+SeesawDynamics    2020438803\par
+SelectCharacter    3037302134\par
+ServerProceduralTerrainAppearance    628342150\par
+ServerProceduralTerrainAppearanceTemplate    1202300023\par
+ServerSpaceTerrainAppearance    2315421088\par
+ServerSpaceTerrainAppearanceTemplate    1890616473\par
+ServerTimeMessage    784088025\par
+ServerWeatherMessage    1214469866\par
+Service    3768364986\par
+SetTextureTest    1382945457\par
+Shader    2019187662\par
+SharedBattlefieldMarkerObjectTemplate    558969982\par
+SharedBuildingObjectTemplate    1643792076\par
+SharedCellObjectTemplate    2003275122\par
+SharedConstructionContractObjectTemplate    1532124886\par
+SharedCreatureObjectTemplate    3866549535\par
+SharedDraftSchematicObjectTemplate    3804534123\par
+SharedFactoryObjectTemplate    1904224185\par
+SharedGroupObjectTemplate    3206232612\par
+SharedGuildObjectTemplate    2029533449\par
+SharedInstallationObjectTemplate    800521100\par
+SharedIntangibleObjectTemplate    3736768433\par
+SharedManufactureSchematicObjectTemplate    2709254731\par
+SharedMissionObjectTemplate    323120507\par
+SharedObjectTemplate    1668953787\par
+SharedObjectTemplateClientData    669832051\par
+SharedObjectTemplateInterface    2916970231\par
+SharedPlayerObjectTemplate    2515529786\par
+SharedRemoteDebugServerConnection    260705197\par
+SharedResourceContainerObjectTemplate    974929744\par
+SharedShipObjectTemplate    1254837833\par
+SharedStaticObjectTemplate    890548695\par
+SharedTangibleObjectTemplate    80162764\par
+SharedTerrainSurfaceObjectTemplate    187337997\par
+SharedUniverseObjectTemplate    2656762411\par
+SharedVehicleObjectTemplate    3314082652\par
+SharedWaypointObjectTemplate    2914100980\par
+SharedWeaponObjectTemplate    2798305519\par
+ShipChassis    3471564562\par
+ShipChassisWritable    273323233\par
+ShipComponentData    80108987\par
+ShipComponentDataArmor    1227147534\par
+ShipComponentDataBooster    2519389458\par
+ShipComponentDataBridge    3797734037\par
+ShipComponentDataCapacitor    552052009\par
+ShipComponentDataCargoHold    2256179720\par
+ShipComponentDataDroidInterface    2268675684\par
+ShipComponentDataEngine    677412495\par
+ShipComponentDataHangar    4242684431\par
+ShipComponentDataModification    3648363183\par
+ShipComponentDataReactor    2984372367\par
+ShipComponentDataShield    3803086459\par
+ShipComponentDataTargetingStation    385047787\par
+ShipComponentDataWeapon    430272375\par
+ShipComponentDescriptor    4013902605\par
+ShipComponentDescriptorWritable    887070883\par
+ShipController    1978616160\par
+ShipObject    2034796776\par
+ShipObjectDestruction    2545602015\par
+ShipObjectInterface    46153894\par
+ShipProjectile    2210697563\par
+ShipTurretCamera    2052770892\par
+ShipUpdateTransformCollisionMessage    1983269072\par
+ShipUpdateTransformMessage    1979871161\par
+ShipWeaponBarrelDynamics    3689334577\par
+ShowAttachedObjectAction    1421180748\par
+ShowAttachedObjectActionTemplate    3583618343\par
+SkillManager    595764879\par
+SkillObject    105592941\par
+SlotCustomizationVariable    1787741266\par
+SlotRule    537187478\par
+SlottedContainer    2128027438\par
+SlottedContainmentProperty    2512162570\par
+SlowDownEffectMessage    700033236\par
+SlowDownProperty    969426065\par
+SpaceDeath    2249770526\par
+SpaceTerrainAppearance    1582527680\par
+SpaceTerrainAppearanceTemplate    4171874190\par
+SpatialSubdivisionHandle    1340820507\par
+SpeedSkeletalAnimation    2501017271\par
+SpeedSkeletalAnimationTemplate    1316368830\par
+SplitMeshTest    2485901590\par
+SpringDynamics    3862336869\par
+SpriteAppearance    3709342970\par
+SpriteAppearanceTemplate    2961238027\par
+StarAppearance    1796609457\par
+StartTrailsAction    350781712\par
+StartTrailsActionTemplate    3498643148\par
+StateDynamics    524553442\par
+StateHierarchyAnimationController    1104935121\par
+StaticIndexBuffer    2148618548\par
+StaticIndexBufferGraphicsData    388136767\par
+StaticObject    4097725936\par
+StaticShader    1132035340\par
+StaticShaderGraphicsData    3855341165\par
+StaticVertexBufferGraphicsData    1850296655\par
+StdioFile    3736814746\par
+StdioFileFactory    3811302231\par
+StopActionTemplate    145371025\par
+StopClientEffectObjectByLabelMessage    2909760294\par
+StopTrailsActionTemplate    2906908262\par
+StringIdParam    1671200146\par
+StringParam    2003782270\par
+StructurePlacementCamera    209769410\par
+SuiClosedOk    3758939578\par
+SuiCreatePage    1243889752\par
+SuiCreatePageMessage    3561714265\par
+SuiEventNotification    153957732\par
+SuiForceClosePage    2567658976\par
+SuiSetProperty    3799349647\par
+SuiUpdatePageMessage    1597194998\par
+SunTrackingObject    4241772427\par
+SurveyMessage    2273278380\par
+SwgCuiAllTargets    3013995010\par
+SwgCuiAllTargetsGround    2468151207\par
+SwgCuiAllTargetsSpace    2026631692\par
+SwgCuiAuctionBid    2076679185\par
+SwgCuiAuctionBuy    3643160666\par
+SwgCuiAuctionDetails    2421504603\par
+SwgCuiAuctionFilter    1021704826\par
+SwgCuiAuctionList    1354757449\par
+SwgCuiAuctionListBase    878790750\par
+SwgCuiAuctionListPane    1917547792\par
+SwgCuiAuctionListView    22120811\par
+SwgCuiAuctionPaneTableModel    2587188982\par
+SwgCuiAuctionSell    2360080476\par
+SwgCuiAvatarCreation    2512197087\par
+SwgCuiAvatarCustomizationBase    3093921063\par
+SwgCuiAvatarCustomize2    3347303118\par
+SwgCuiAvatarLocation2    1439191896\par
+SwgCuiAvatarProfessionTemplateSelect    2221923380\par
+SwgCuiAvatarSelection    3447411758\par
+SwgCuiAvatarSetupProf    394660389\par
+SwgCuiAvatarSimple    268425056\par
+SwgCuiAvatarSummary    909383896\par
+SwgCuiBiographyEdit    477333763\par
+SwgCuiButtonBar    1860580195\par
+SwgCuiCharacterSheet    3593021017\par
+SwgCuiChatRooms    3370225816\par
+SwgCuiChatRoomsBan    100891090\par
+SwgCuiChatRoomsCreate    934808282\par
+SwgCuiChatRoomsInvite    2747337366\par
+SwgCuiChatRoomsWho    1101213696\par
+SwgCuiChatWindow    473773929\par
+SwgCuiClusterSelection    1004122579\par
+SwgCuiCommandBrowser    877196234\par
+SwgCuiCommandParserChatRoom    696257822\par
+SwgCuiCommandParserDefault    3658439479\par
+SwgCuiCommandParserNebula    1668337274\par
+SwgCuiCommandParserShip    2233773053\par
+SwgCuiCommandParserShipWeaponGroup    3190638365\par
+SwgCuiCommandParserUI    84333813\par
+SwgCuiCommandParserVideo    1173893784\par
+SwgCuiCommunity    930833814\par
+SwgCuiContainerProvider    3341525905\par
+SwgCuiContainerProviderDefault    3531547674\par
+SwgCuiContainerProviderDraft    3278332653\par
+SwgCuiContainerProviderFilter    3306619878\par
+SwgCuiContainerProviderPoi    1529759024\par
+SwgCuiContainerProviderTrade    2828481577\par
+SwgCuiCraftAssembly    1230075349\par
+SwgCuiCraftAssemblyDialogOption    613701132\par
+SwgCuiCraftCustomize    3726772675\par
+SwgCuiCraftDraft    1573551746\par
+SwgCuiCraftExperiment    365992252\par
+SwgCuiCraftOption    1886020990\par
+SwgCuiCraftSummary    15504197\par
+SwgCuiCredits    3025273254\par
+SwgCuiCustomize    2582192925\par
+SwgCuiCybernetics    2423937005\par
+SwgCuiDataStorage    3405154551\par
+SwgCuiDebugInfoPage    4289543410\par
+SwgCuiDeleteAvatarConfirmation    3097725116\par
+SwgCuiDpsMeter    727225402\par
+SwgCuiDroidCommand    3881076762\par
+SwgCuiExamine    2508147957\par
+SwgCuiExpMonitor    74774624\par
+SwgCuiExpMonitorBox    3684511569\par
+SwgCuiExpertise    76789156\par
+SwgCuiGameMenu    4032237695\par
+SwgCuiGroundRadar    1056047611\par
+SwgCuiGroup    4104659143\par
+SwgCuiGroupLootLottery    2779971767\par
+SwgCuiHarassmentMessage    2986787672\par
+SwgCuiHarassmentReport    1349086628\par
+SwgCuiHighlight    2679218452\par
+SwgCuiHud    1298055123\par
+SwgCuiHudAction    3177075155\par
+SwgCuiHudActionGround    2769445947\par
+SwgCuiHudActionSpace    3216912727\par
+SwgCuiHudGround    2856720859\par
+SwgCuiHudSpace    2670282396\par
+SwgCuiHudWindowManager    31178639\par
+SwgCuiHudWindowManagerGround    3376974191\par
+SwgCuiHudWindowManagerSpace    1627111244\par
+SwgCuiHyperspaceMap    3004113041\par
+SwgCuiIMEIndicator    2572619378\par
+SwgCuiIMEIndicatorSpace    2851165369\par
+SwgCuiIMEInput    3585667346\par
+SwgCuiImageDesignerDesigner    3748752938\par
+SwgCuiImageDesignerRecipient    2059796372\par
+SwgCuiIncap    695664234\par
+SwgCuiInventory    3580347538\par
+SwgCuiInventoryContainer    466511241\par
+SwgCuiInventoryContainerDetails    26798586\par
+SwgCuiInventoryContainerDetailsTableModel    3056252041\par
+SwgCuiInventoryContainerFilter    1987001103\par
+SwgCuiInventoryContainerIcons    2394245631\par
+SwgCuiInventoryEquipment    2659599933\par
+SwgCuiInventoryInfo    1503864289\par
+SwgCuiKillMeter    2490815869\par
+SwgCuiLoadingGround    487117330\par
+SwgCuiLoadingSpace    774371271\par
+SwgCuiLocationDisplay    2829802926\par
+SwgCuiLocations    1265541252\par
+SwgCuiLoginScreen    830813106\par
+SwgCuiLootBox    3881848562\par
+SwgCuiMfdStatus    910889361\par
+SwgCuiMfdStatusBar    632439430\par
+SwgCuiMissionBrowser    1471321251\par
+SwgCuiMissionDetails    1705022384\par
+SwgCuiNetStatus    773546014\par
+SwgCuiNewMacro    2327354484\par
+SwgCuiNews    3089839805\par
+SwgCuiNotifications    6969576\par
+SwgCuiNpeContinuation    2537811611\par
+SwgCuiOpt    2474230595\par
+SwgCuiOptAfk    4113329228\par
+SwgCuiOptAlarm    1585765701\par
+SwgCuiOptBase    1206065775\par
+SwgCuiOptChat    1826655164\par
+SwgCuiOptChatColors    3127936881\par
+SwgCuiOptCombat    943565214\par
+SwgCuiOptControls    3505131032\par
+SwgCuiOptGraphics    3942037550\par
+SwgCuiOptKeymap    2711961237\par
+SwgCuiOptMisc    3066582404\par
+SwgCuiOptSound    3358055862\par
+SwgCuiOptTerrain    3433073739\par
+SwgCuiOptUi    1443253120\par
+SwgCuiPermissionList    2493062361\par
+SwgCuiPersistentMessageBrowser    3083781542\par
+SwgCuiPersistentMessageComposer    203659000\par
+SwgCuiPlanetMap    505746300\par
+SwgCuiProfessionTemplateSelect    1516013462\par
+SwgCuiQuestAcceptance    3725842407\par
+SwgCuiQuestHelper    377915710\par
+SwgCuiQuestJournal    3502507847\par
+SwgCuiResourceExtraction    722496408\par
+SwgCuiResourceExtraction_Hopper    1231409395\par
+SwgCuiResourceExtraction_Quantity    3050455994\par
+SwgCuiResourceExtraction_SetResource    1486108755\par
+SwgCuiResourceSplitter    691485623\par
+SwgCuiReticle    3099140776\par
+SwgCuiRoadmap    2823252788\par
+SwgCuiRoadmap_Profession    2496439839\par
+SwgCuiSceneSelection    4113319101\par
+SwgCuiServerDisconnected    3843510411\par
+SwgCuiService    3884928508\par
+SwgCuiShipChoose    128726726\par
+SwgCuiShipComponentDetail    1156337966\par
+SwgCuiShipComponentManagement    3651517891\par
+SwgCuiShipReticle    588462216\par
+SwgCuiShipView    455336754\par
+SwgCuiSpaceAssignPlayerFormation    462637499\par
+SwgCuiSpaceConversation    777633010\par
+SwgCuiSpaceFlyOutPage    1939248046\par
+SwgCuiSpaceGroup    3910490941\par
+SwgCuiSpaceGroupLaunch    4203401193\par
+SwgCuiSpaceMiningSale    270840716\par
+SwgCuiSpaceMissileCount    2742601827\par
+SwgCuiSpaceRadar    3288743575\par
+SwgCuiSpaceRadarPlanar    1185536163\par
+SwgCuiSpaceRadarSpherical2    1232736806\par
+SwgCuiSpaceRadarSpherical    3460577588\par
+SwgCuiSpaceZoneMap    2082538766\par
+SwgCuiSplash    1229553837\par
+SwgCuiStatusGround    3715332498\par
+SwgCuiStatusSpace    2894529207\par
+SwgCuiStructurePlacement    2888269075\par
+SwgCuiSurvey    1266145345\par
+SwgCuiSystemMessage    3592581894\par
+SwgCuiTargets    815624007\par
+SwgCuiTicketPurchase    735325030\par
+SwgCuiTicketSubmission    3172784999\par
+SwgCuiToolbar    131386803\par
+SwgCuiTrade    1072161698\par
+SwgCuiVendor    3538718779\par
+SwgCuiVendorSetPrice    3516926705\par
+SwgCuiWaypointMonitor    823145775\par
+SwgCuiWaypointMonitorBox    4231922899\par
+SwgCuiWeaponGroupAssignment    284707544\par
+SwitchShader    2613262866\par
+SwitchShaderTemplate    2360309397\par
+SwitchTextureShader    3396854534\par
+SwitchTextureShaderTemplate    1550710722\par
+Switcher    3760489810\par
+SwitcherTemplate    2215267573\par
+SwooshAppearance    1845297546\par
+SwooshAppearanceTemplate    2066450113\par
+TailFileLogObserver    2540604206\par
+TangibleObject    3335659148\par
+TargaFormat    33921963\par
+TargetPitchTransformModifier    2126598406\par
+TaskConnection    3809369056\par
+TemporaryAttachedObjectAction    1325066436\par
+TemporaryAttachedObjectActionTemplate    175454911\par
+TemporaryCrcString    2366040014\par
+TerrainAppearance    2647690207\par
+TerrainObject    2246239193\par
+TestIoWin    130534768\par
+TextAppearance    3174635074\par
+ThirdPersonStage    3013039880\par
+Thread    3163225479\par
+ThrowSwordAction    1597828105\par
+ThrowSwordActionTemplate    2911430889\par
+TimeOfDayTest    3136865979\par
+TimeScaleSkeletalAnimation    2528161983\par
+TimeScaleSkeletalAnimationTemplate    1859777087\par
+TimedBlendSkeletalAnimation    912822604\par
+TimerObject    2658903742\par
+TimerPlaybackAction    1216529927\par
+TimerPlaybackActionTemplate    623643172\par
+TrackAnimationController    3013158316\par
+TrackingDynamics    3264244632\par
+TrackingProjectile    2011575541\par
+TradeCompleteMessage    3309437835\par
+TrailAppearance    1112268031\par
+TransformAnimationController    1031869009\par
+TransformModifier    3217473203\par
+TransformNameMap    2163165914\par
+TriggerVolumeParam    2954993688\par
+TurretObject    628943437\par
+Tweakable    2851923169\par
+UnAcceptTransactionMessage    3894297474\par
+Universe    48711458\par
+UniverseObject    4288733515\par
+UpdateCellPermissionMessage    4128393628\par
+UpdateContainmentMessage    1456201374\par
+UpdateMissileMessage    304663809\par
+UpdatePvpStatusMessage    144818470\par
+UpdateTransformMessage    455407624\par
+UpdateTransformWithParentMessage    3362237274\par
+UseLightningAction    2354736098\par
+UseLightningActionTemplate    2786725501\par
+VectorParam    3871890683\par
+VehicleHoverDynamics    3699261360\par
+VehicleHoverDynamicsClient    3308362739\par
+VehicleObject    407091182\par
+VerifyPlayerNameMessage    3146558789\par
+VerifyPlayerNameResponseMessage    4106524925\par
+VerifyTradeMessage    2598520814\par
+VertexBuffer    1240287969\par
+VertexBufferBaseIterator    4146809550\par
+VertexBufferReadIterator    3142999832\par
+VertexBufferReadWriteIterator    4064735714\par
+VertexBufferVectorGraphicsData    1795062227\par
+VertexBufferWriteIterator    1789880168\par
+Video    3104445368\par
+VolumeContainer    2769895203\par
+VolumeContainmentProperty    3136260185\par
+WaitForBoltAction    3836172897\par
+WaitForBoltActionTemplate    307395062\par
+WanderController    2848134528\par
+WatcherAction    3679226022\par
+WatcherActionTemplate    1686940613\par
+WaterManager    1931663261\par
+WaterTest    3627690255\par
+WaterTestAppearance    926033302\par
+WaypointData    2096976613\par
+WaypointDataBase    2144272320\par
+WeaponObject    2910350101\par
+WingDynamics    155792569\par
+WrappedLogicalPacket    3154544503\par
+YawSkeletalAnimation    64373729\par
+YawSkeletalAnimationTemplate    2152918863\par
+ZeroTranslationTransformModifier    2576387167\par
+ZoneMapObject    840805598\par
+}
+ 

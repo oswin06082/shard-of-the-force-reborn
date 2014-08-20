@@ -1,0 +1,16 @@
+Max Mission level = 90
+Max Group Size = 20
+
+Max Player Value in group = 4.5
+
+250 skillpoints / 4.5 = 55.55
+
+So the player achieves 1 point of group value per every 55 skillpoints spent.
+
+So Mission level is calculated like this.
+
+Total Players Group Value = mission level + random Value Added 0 to Total Group Players
+
+
+1 Player at master = 4.5
+

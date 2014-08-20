@@ -1,0 +1,677 @@
+Packet: 134  Time: 13 s
+
+TransOp:[0]
+
+Data A
+SceneCreateObjectByCRC
+
+199.108.196.45:44463 -> 192.168.1.82:1453(Server -> Client)
+Enc: T   Comp: T    Seed: 0x37BB9B0B    Length: 266
+
+00 09 02 FF 00 19 2F 
+
+05 00 
+EA DD 89 FE //FE89DDEA//SceneCreateObjectByCrc
+AB 24 AF EB 34 00 00 00 
+00 00 00 00 //n
+00 00 00 00 //s
+00 00 00 00 //e
+00 00 80 3F //W
+5C 5F 82 C5 //x
+AB 9E F8 42 //y
+71 7D 98 44 //z
+B4 58 60 92 //crc
+00 //jtl bool
+
+7C 
+
+05 00 
+0C 5F A7 68 //68A75F0C BaselinesMessage
+AB 24 AF EB 34 00 00 00 //obj ID
+4F 53 4E 49 03 //OSNI - 03 INStallationObject 
+65 00 00 00 //byte count 101 // all bytes counted below this
+10 00 //update count 16
+00 00 80 3F //upd 0  west facing
+//upd 1 |
+//      V
+10 00 70 6C 61 79 65 72 5F 73 74 72 75 63 74 75 72 65 // player_structure //16
+00 00 00 00 
+13 00 74 65 6D 70 6F 72 61 72 79 5F 73 74 72 75 63 74 75 72 65 //temporary_structure //19
+00 00 00 00 
+01 00 //upd 2
+00 00 00 00 //upd 3
+00 00 00 00 //upd 4
+00 00 00 00 //upd 5
+00 00 00 00 //upd 6
+00 00 00 00 //upd 7
+00 01 00 00 //upd 8 
+00 00 00 00 //upd 9
+00 00 00 00 //upd 10
+64 00 00 00 //upd 11//condition
+01 //upd 12
+00 //upd 13
+00 00 00 00 //upd 14
+00 00 00 00 //upd 15
+
+2E 
+
+05 00 
+0C 5F A7 68 
+AB 24 AF EB 34 00 00 00 
+4F 53 4E 49 06 //INSO -- 6
+17 00 00 00 //byte count 23 //all bytes counted below this
+04 00 //upd count
+7D 00 00 00 //0
+00 00 //1
+00 00 00 00 
+00 00 //2
+00 00 00 00 
+00 00 00 00 
+00 //3
+
+16 
+
+04 00 
+26 C1 A1 08 //08A1C126 //UpdatePvpStatusMessage
+00 00 00 00 
+00 00 00 00 
+AB 24 AF EB 34 00 00 00 
+
+0E 
+
+02 00 
+37 60 43 2C //2C436037 //SceneEndBaselines
+AB 24 AF EB 34 00 00 00 
+E9 17                          .$..4.....
+
+-----------------------------------------
+
+Found CRCs:
+
+926058B4   object/building/player/construction/shared_construction_player_house_tatooine_small_style_01.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packet: 164  Time: 19 s
+
+TransOp:[0]
+
+Data A
+SceneCreateObjectByCRC
+
+199.108.196.45:44463 -> 192.168.1.82:1453(Server -> Client)
+Enc: T   Comp: T    Seed: 0x37BB9B0B    Length: 465
+
+00 09 03 05 00 19 2F 
+
+05 00 
+EA DD 89 FE //FE89DDEA//SceneCreateObjectByCrc
+EE 24 AF EB 34 00 00 00 
+00 00 00 00 //n
+00 00 00 00 //s
+00 00 00 00 //e
+00 00 80 3F //w
+5C 5F 82 C5 //x -4171.92
+A4 57 FB 42 //z 125.671
+71 7D 98 44 //y 1219.92
+45 7B F4 90 //90F47B45   object/building/player/shared_player_house_generic_small_style_01.iff
+00 
+
+7A 
+
+05 00 
+0C 5F A7 68 //baselines message
+EE 24 AF EB 34 00 00 00 
+4F 49 55 42 03 //OIUB -- 3 BUIO
+63 00 00 00 //byte count 99 // all bytes below this are counted
+0D 00 //13 updates
+00 00 80 3F //upd 0
+// UPD 1 |
+//       V
+0D 00 62 75 69 6C 64 69 6E 67 5F 6E 61 6D 65 //building_name
+00 00 00 00 
+1D 00 68 6F 75 73 69 6E 67 5F 67 65 6E 65 72 61 6C 5F 73 6D 61 6C 6C 5F 73 74 79 6C 65 5F 31 ////housing_general_small_style_1
+00 00 00 00 
+FF 00 //upd 2
+00 00 00 00 //upd 3
+00 00 00 00 //upd 4
+00 00 00 00 //upd 5
+00 00 00 00 //upd 6
+00 00 00 00 //upd 7
+00 01 00 00 //pvp status mask 00 00 01 00 //upd 8
+00 00 00 00 //upd 9
+00 00 00 00 //upd 10 
+E0 10 00 00 //CONDITION!!!!!! 4320 //11
+01 //upd 12
+
+5A 
+
+
+05 00 
+0C 5F A7 68 //baselines message
+EE 24 AF EB 34 00 00 00 //objid
+4F 49 55 42 06 //OIUB -- 6 BUIO
+43 00 00 00 //bytes count 67 all bytes below this are counted
+04 00 
+7D 00 00 00 
+0F 00 62 75 69 6C 64 69 6E 67 5F 64 65 74 61 69 6C //building_detail
+00 00 00 00 
+1D 00 68 6F 75 73 69 6E 67 5F 67 65 6E 65 72 61 6C 5F 73 6D 61 6C 6C 5F 73 74 79 6C 65 5F 31 //housing_general_small_style_1
+00 00 00 00 
+00 00 00 00 
+00 //
+
+2F 
+
+05 00 
+EA DD 89 FE //scenecreateobjectbycrc
+EF 24 AF EB 34 00 00 00 
+00 00 00 00 //n
+00 00 00 00 //s
+00 00 00 00 //e
+00 00 80 3F //w
+00 00 00 00 //x
+00 00 00 00 //y
+00 00 00 00 //z
+EE 01 54 0C //0C5401EE   object/cell/shared_cell.iff
+00 
+
+1A 
+
+04 00 
+9E DE CB 56 //56CBDE9E UpdateContainmentMessage
+EF 24 AF EB 34 00 00 00 
+EE 24 AF EB 34 00 00 00 
+FF FF FF FF //not equipped DUH!
+
+32 
+
+05 00 
+0C 5F A7 68 
+EF 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //TLCS -- 03 SCLT
+1B 00 00 00 //byte count 27 all bytes below this are counted
+06 00//6 operands
+//op0 
+00 00 00 00 //int
+//op1
+00 00 //utf 
+00 00 00 00 //int 
+00 00 //utf
+//op2 
+00 00 00 00  //utf16
+//op3
+00 00
+//op4 
+00 00 //int
+//op5
+01 //byte
+//op6
+01 00 00 00 //cell index
+
+25 
+
+05 00 
+0C 5F A7 68 //baselines
+EF 24 AF EB 34 00 00 00 
+54 4C 43 53 06 //TLCS 06 - SCLT
+0E 00 00 00 //byte count 14 all bytes below this are counted
+02 00 
+7D 00 00 00 
+00 00 00 00 
+00 00 00 00        ....}...........
+
+0F 
+
+03 00 
+9C 49 12 F6 //F612499C UpdateCellPermissionMessage
+01 
+EF 24 AF EB 34 00 00 00        ....I....$..4...
+
+0E 
+
+02 00 
+37 60 43 2C //2C436037 SceneEndBaselines
+EF 24 AF EB 34 00 00 00 
+
+
+A5 0C //pktcrc
+
+-----------------------------------------
+
+Found CRCs:
+
+90F47B45   object/building/player/shared_player_house_generic_small_style_01.iff
+0C5401EE   object/cell/shared_cell.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packet: 165  Time: 19 s
+
+TransOp:[0]
+
+Data A
+SceneCreateObjectByCRC
+
+199.108.196.45:44463 -> 192.168.1.82:1453(Server -> Client)
+Enc: T   Comp: T    Seed: 0x37BB9B0B    Length: 473
+
+00 09 03 06 00 19 2F 
+
+05 00 
+EA DD 89 FE 
+F0 24 AF EB 34 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 80 3F 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+EE 01 54 0C 
+00 
+
+1A 
+
+04 00 
+9E DE CB 56 
+F0 24 AF EB 34 00 00 00 
+EE 24 AF EB 34 00 00 00 
+FF FF FF FF 
+
+32 
+
+05 00 
+0C 5F A7 68 
+F0 24 AF EB 34 00 00 00        .2..._.h.$..4...
+54 4C 43 53 03 //TLCS SCLT 3
+1B 00 00 00 
+06 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+01 
+02 00 00 00 //cell index
+
+25 
+
+05 00 
+0C 5F A7 68 
+F0 24 AF EB 34 00 00 00 
+54 4C 43 53 06 
+0E 00 00 00 //TLCS SCLT 6
+02 00 
+7D 00 00 00 
+00 00 00 00 
+00 00 00 00 
+
+0F 
+
+03 00 
+9C 49 12 F6 
+01 
+F0 24 AF EB 34 00 00 00 
+
+
+0E 
+
+02 00 
+37 60 43 2C 
+F0 24 AF EB 34 00 00 00 
+
+2F 
+
+05 00 
+EA DD 89 FE        ,.$..4.../......
+F1 24 AF EB 34 00 00 00 
+00 00 00 00 
+00 00 00 00        .$..4...........
+00 00 00 00 
+00 00 80 3F 
+00 00 00 00 
+00 00 00 00        .......?........
+00 00 00 00 
+EE 01 54 0C 
+00 
+
+1A 
+
+04 00 
+9E DE CB 56        ......T........V
+F1 24 AF EB 34 00 00 00 
+EE 24 AF EB 34 00 00 00        .$..4....$..4...
+FF FF FF FF 
+
+32 
+
+05 00 
+0C 5F A7 68 
+F1 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //TLCS SCLT 3
+1B 00 00 00 
+06 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+01 
+03 00 00 00 //cell index
+
+25 
+
+05 00 
+0C 5F A7 68 
+F1 24 AF EB 34 00 00 00 
+54 4C 43 53 06 //TLCS SCLT 6
+0E 00 00 00 
+02 00 
+7D 00 00 00 
+00 00 00 00 
+00 00 00 00 
+
+
+0F 
+
+03 00        .}..............
+9C 49 12 F6 
+01 
+F1 24 AF EB 34 00 00 00 
+
+
+0E 
+
+02 00        .I....$..4......
+37 60 43 2C 
+F1 24 AF EB 34 00 00 00 
+
+2F 
+
+05 00 
+EA DD 89 FE 
+F2 24 AF EB 34 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 80 3F 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+EE 01 54 0C 
+00 
+
+
+1A 
+
+
+04 00 
+9E DE CB 56 
+F2 24 AF EB 34 00 00 00 
+EE 24 AF EB 34 00 00 00 
+FF FF FF FF 
+
+67 3B                             .......g;
+
+-----------------------------------------
+
+Found CRCs:
+
+0C5401EE   object/cell/shared_cell.iff
+0C5401EE   object/cell/shared_cell.iff
+0C5401EE   object/cell/shared_cell.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packet: 166  Time: 19 s
+
+TransOp:[0]
+
+Data A
+BaselinesMessage
+
+199.108.196.45:44463 -> 192.168.1.82:1453(Server -> Client)
+Enc: T   Comp: T    Seed: 0x37BB9B0B    Length: 319
+
+00 09 03 07 00 19 32 
+
+
+05 00 
+0C 5F A7 68 
+F2 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //TLCS SCLT 3
+1B 00 00 00 
+06 00        .4...TLCS.......
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00        ................
+00 00 00 00 
+01 
+04 00 00 00 //cell index
+
+25 
+
+05 00 
+0C 5F A7 68        .........%..._.h
+F2 24 AF EB 34 00 00 00 
+54 4C 43 53 06 //TLCS SCLT 6
+0E 00 00 00 
+02 00 
+7D 00 00 00 
+00 00 00 00 
+00 00 00 00 
+
+
+
+0F 
+
+
+03 00 
+9C 49 12 F6 
+01 
+F2 24 AF EB 34 00 00 00 
+
+
+
+0E 
+
+
+02 00 
+37 60 43 2C 
+F2 24 AF EB 34 00 00 00 
+
+
+0E 
+
+02 00 
+37 60 43 2C 
+EE 24 AF EB 34 00 00 00 
+
+0F 
+
+03 00        .7`C,.$..4......
+04 D5 45 4D //4D45D504 SceneDestroyObject //destroy the marker hehe
+AB 24 AF EB 34 00 00 00 
+00 
+
+1F 
+
+//Structure Condition!!!!
+05 00        ..EM.$..4.......
+53 21 86 12 //deltas!!!!!
+EE 24 AF EB 34 00 00 00 
+4F 49 55 42 03 //OIUB 3 delta
+08 00 00 00 
+01 00 //upd count
+0B 00 //update operand 11
+E0 10 00 00 // 
+
+
+1F 
+
+//cell permission update delta MUAHAHAHAHAHAHA
+
+05 00        ................
+53 21 86 12 //deltas
+EF 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //TCLS 3 DELTA
+08 00 00 00 //8bytes
+01 00 //operand count
+05 00 //WIT?
+01 00 00 00 
+
+1F 
+
+05 00        ................
+53 21 86 12 //DELTA
+F0 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //TLCS 3 DELTA
+08 00 00 00 
+01 00 
+05 00 
+02 00 00 00 
+
+1F 
+
+05 00        ................
+53 21 86 12 //delta
+F1 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //TLCS 3 DELTA
+08 00 00 00 
+01 00 
+05 00 
+03 00 00 00 
+
+
+1F 
+
+05 00        ................
+53 21 86 12 //delta
+F2 24 AF EB 34 00 00 00 
+54 4C 43 53 03 //tlcs 3 delta
+08 00 00 00 
+01 00 
+05 00 
+04 00 00 00 
+
+0B F4           ...............
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packet: 167  Time: 19 s
+
+TransOp:[0]
+
+Frag A
+
+199.108.196.45:44463 -> 192.168.1.82:1453(Server -> Client)
+Enc: T   Comp: T    Seed: 0x37BB9B0B    Length: 495
+
+00 0D 03 08 00 00 02 92 
+
+
+05 00 
+53 21 86 12 
+B0 FF 7C 4D 09 00 00 00 
+59 41 4C 50 08 //play 8 Waypoint delta
+7B 02 00 00 //byte count
+01 00 
+01 00 
+07 00 00 00 
+0F 00 00 00 
+00 
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5 //x
+A4 57 FB 42 //y       4.......\_...W.B
+71 7D 98 44 //z
+00 00 00 00 00 00 00 00 
+58 B5 D7 AF //
+13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00 //S.m.a.l.l...G.e.n.e.r.i.c...H.o.u.s.e
+F9 24 AF EB 34 00 00 00 
+01 
+01 
+02 
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5 
+A4 57 FB 42 
+71 7D 98 44 
+00 00 00 00 00 00 00 00 
+58 B5 D7 AF 
+13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00 /S.m.a.l.l...G.e.n.e.r.i.c...H.o.u.s.e
+F9 24 AF EB 34 00 00 00 
+01 
+01 
+02 
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5 
+A4 57 FB 42 
+71 7D 98 44 
+00 00 00 00 00 00 00 00 
+58 B5 D7 AF 
+13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00 //S.m.a.l.l...G.e.n.e.r.i.c..H.o.u.s.e..$..
+F9 24 AF EB 34 00 00 00 
+01 
+01 
+02 
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5 
+A4 57 FB 42 
+71 7D 98 44 
+00 00 00 00 00 00 00 00 
+58 B5 D7 AF 
+13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00 //.m.a.l.l...G.e.n.e.r.i.c...H.o.
+F9 24 AF EB 34 00 00 00 
+01
+01 
+02        .s.e..$..4......
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5        .$..4.......\_..
+A4 57 FB 42 
+71 7D 98 44 
+00 00 00 00 00 00 00 00        .W.Bq}.D........
+58 B5 D7 AF 
+13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00        c...H.o.u.s.e..$
+F9 24 AF EB 34 00 00 00 
+01 
+01 
+02 
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5        ....4.......\_..
+A4 57 FB 42 
+71 7D 98 44 
+00 00 00 00 00 00 00 00        .W.Bq}.D........
+58 B5 D7 AF 
+13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00 //S.m.a.l.l...G.e.n.e.r.i.
+F9 24 AF EB 34 00 00 00 
+01 
+01 
+02 
+F9 24 AF EB 34 00 00 00 
+00 00 00 00 
+5C 5F 82 C5 
+A4 57 FB 42 
+71 7D 98 44 
+00 00 00 00 00 00 00 00 
+58 B5 D7 AF 13 00 00 00 53 00 6D 00 61 00 6C 00 6C 00 20 00 47 00 65 00 6E 00 65 00 72 00 69 00 63 00 20 00 48 00 6F 00 75 00 73 00 65 00 
+F9 24 AF EB 34 00 00 00 
+01        .u.s.e..$..4....
+01 
+
+
+
+D4 24 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

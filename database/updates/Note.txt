@@ -1,0 +1,12 @@
+This folder is for storing updates that do not require a complete database drop.  Applying table changes in MySQL Query Browser should show you the necesary script for updates, you can than copy and paste it into a .sql file.
+
+Store each table change into a NEW FILE and name it in this fashion:
+
+r<revisionnumber> - <tablename>.sql
+
+IE:
+If you made a change to item_template in revision 900 it would be:
+
+r900 - item_template.sql
+
+In big emulator environments this is the easiest way to keeping the updates from becoming confusing.

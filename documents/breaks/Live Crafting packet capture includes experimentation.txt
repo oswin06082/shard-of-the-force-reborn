@@ -1,0 +1,3015 @@
+// Everything we need about crafting, plus some stuff I'm sure we don't.
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 194
+
+00 03
+04 
+00 15 
+09 E3 
+
+B8 
+00 09
+00 91 
+00 19 
+53
+05 00
+46 5E CE 80 
+23 00 00 00 
+46 01 00 00 // 0x0146 = ObjectMenuRequest
+17 46 ED 7F 11 00 00 00 // Player ID
+00 00 00 00 
+7B 37 2F AA 12 00 00 00 // Object ID
+17 46 ED 7F 11 00 00 00 // Player ID
+04 00 00 00 // Button count
+01 00 1F 00 01 00 00 00 00 // BUtton 1 data
+02 00 07 00 01 00 00 00 00 // Button 2 data
+03 00 0E 00 01 00 00 00 00 // Button 3 data
+04 00 0F 00 01 00 00 00 00 // Button 4 data
+03 // Request ID
+
+2E 
+05 00 
+46 5E CE 80 
+23 00 00 00 
+16 01 00 00 // Command queue enqueue
+17 46 ED 7F 11 00 00 00 // Object ID
+00 00 00 00 // Tick cont
+80 00 00 00 // Command ID
+B6 6A 99 F9 // COmmand CRC -- SynchronizedUIListen
+7B 37 2F AA 12 00 00 00 // Target ID -- We're expecting to open a window to be controlled by this item?
+00 00 00 00 // Paramaters length
+
+2E 
+05 00 
+46 5E CE 80 
+23 00 00 00 
+16 01 00 00 
+17 46 ED 7F 11 00 00 00 
+00 00 00 00 
+A0 00 00 00 // Command ID
+16 C5 4A 09 // Command CRC -- RequestCraftingSession
+7B 37 2F AA 12 00 00 00 // Crafting using this item. -- The crafting tool.
+00 00 00 00        ..J.{7/.........
+FC 3B                                                  .;
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+BaselinesMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 82
+
+00 09 
+09 E4 
+00 19 
+29 
+05 00 
+0C 5F A7 68 // Baselines message
+7B 37 2F AA 12 00 00 00 // The Crafting Tool
+4F 4E 41 54 07 // TANO7
+12 00 00 00 // Packet length -- 0x10 bytes left after num operands.
+02 00 // Num operands
+00 00 00 00 00 00 00 00 // Operand 1
+00 00 00 00 00 00 00 00 // Operand 2
+
+1F 
+05 00 
+53 21 86 12 // Deltas Message
+24 46 ED 7F 11 00 00 00 // The PlayerItem
+59 41 4C 50 09 // Play9
+08 00 00 00 // Packet size
+01 00 // Num updates
+01 00 // Update operand
+01 00 00 00 // New value -- true?  1?  First stage?  Or is this the experimentation flag?
+65 98                                                  e.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 167
+
+00 03 
+1C 
+0A 00 
+08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 F1 69 27 00 68 99 45 00 00 00 04 D1 00 00 // Position update packet
+
+85        ..i'.h.E........
+00 09 
+09 E5 
+00 19 
+53 
+05 00 
+46 5E CE 80 
+0B 00 00 00 
+47 01 00 00 // Object Menu Response
+17 46 ED 7F 11 00 00 00 00 00 00        .G....F........
+00 7B 37 2F AA 12 00 00 00 17 46 ED 7F 11 00 00        .{7/......F....
+00 04 00 00 00 01 00 1F 00 01 00 00 00 00 02 00        ................
+07 00 01 00 00 00 00 03 00 0E 00 01 00 00 00 00        ................
+04 00 0F 00 01 00 00 00 00 03
+
+2A 
+05 00 
+46 5E CE 80 
+0B 00 00 00 
+17 01 00 00 // CommandQueueDequeue
+17 46 ED 7F 11 00 00 00 00 
+00 00 00 80 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00
+00 00 
+
+00 AD AD                                   .......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Frag A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 495
+
+00 0D
+09 E6
+00 00 08 32 
+05 00 
+46 5E CE 80
+0B 00 00 00 
+02 01 00 00 // Crafting Response message
+17 46 ED 7F 11 00 00 00 // Player ID
+00 00 00 00 // Spacer
+7B 37 2F AA 12 00 00 00 // Target ID -- The Crafting tool
+
+6C F6 77 3B 05 00 00 00 // Crafting station to use.
+AB 00 00 00 // Schematic list size -- 171 schematics
+{
+D7 70 C3 02 // Schematic ID
+08 3D A4 1D // Schematic CRC
+00 00 08 00 // Subwindow ID
+
+96 4E 83 03 
+43 F1 09 05
+00 00 08 00
+ 
+B7 99 DA 04 
+27 90 E6 18 
+01 00 00 00 
+
+5C 94 89 05 
+86 11 04 3A 
+01 00 00 00 
+
+A9 F8 DF 07 
+39 F1 E3 1B 
+01 00 00 00 
+
+93 DF 74 0B 
+FA E6 51 91 
+00 00 08 00 
+
+66 8F F1 0B 
+FF 7E 20 D1 
+00 00 08 00
+
+4D 6F AB 0F 92 22        ...~......Mo..."
+CC 10 00 00 08 00 32 34 B8 10 76 8C 82 0B 01 00        ......24..v.....
+00 00 A7 94 A8 12 
+63 30 4A 0F // Draft ID
+00 00 08 00 3D 58        ......c0J.....=X
+D2 12 41 CE 82 24 01 00 00 00 EB 54 B1 14 C9 08        ..A..$.....T....
+93 8A 01 00 00 00 30 F7 ED 17 55 2D E6 CB 00 00        ......0...U-....
+08 00 D3 51 85 18 79 AC 67 35 00 00 08 00 B7 FE        ...Q..y.g5......
+72 19 95 A2 50 87 01 00 00 00 A2 60 DB 19 A8 9D        r...P......`....
+16 CD 00 00 08 00 45 AA D1 1A 99 DD 27 BC 01 00        ......E.....'...
+00 00 E1 47 74 1B 9D D1 24 2D 01 00 00 00 53 16        ...Gt...$-....S.
+E5 1B E4 8E 19 38 01 00 00 00 50 1F C4 1C C9 EE        .....8....P.....
+15 C6 00 00 08 00 55 8B D8 1F C1 32 17 24 01 00        ......U....2.$..
+00 00 4F B2 25 21 6C 97 EE 44 00 00 08 00 3E 80        ..O.%!l..D....>.
+7E 21 53 F2 14 09 00 00 08 00 9F C2 E6 23 C2 81        ~!S..........#..
+0E 2D 00 00 08 00 85 80 10 24 40 B5 8D A9 01 00        .-.......$@.....
+00 00 F7 3E 04 25 2D BB 89 1A 01 00 00 00 23 B7        ...>.%-.......#.
+6F 25 96 2D DF 7A 01 00 00 00 35 00 06 26 0A 04        o%.-.z....5..&..
+E6 C9 00 00 08 00 BF 29 18 27 2F B5 18 33 01 00        .......).'/..3..
+00 00 27 07 CD 27 B2 26 B7 7E 01 00 00 00 1F 09        ..'..'.&.~......
+0E 28 3B 11 FC 2F 00 00 08 00 33 B5 6C 2C F3 53        .(;../....3.l,.S
+1F CD 01 00 00 00 EC 80 17 2D 50 47 C9 30 01 00        .........-PG.0..
+00 00 2D 06 10 2F F2 4B 77 30 00 00 08 00 34 F4        ..-../.Kw0....4.
+41 32 A4 68 41 26 01 00 00 00 B4 6A 4E 32 FC 11        A2.hA&.....jN2..
+03 C1 01 00 00 00 44 14 3D 34 67 31 F6 00 F0           ......D.=4g1...
+
+-----------------------------------------
+
+Found CRCs:
+
+D1207EFF   object/draft_schematic/item/shared_item_battery_droid.iff
+0F4A3063   object/draft_schematic/item/shared_item_survey_tool_gas.iff
+CBE62D55   object/draft_schematic/item/shared_item_survey_tool_moisture.iff
+C615EEC9   object/draft_schematic/item/shared_item_firework_four.iff
+44EE976C   object/draft_schematic/item/shared_item_twenty_sided_dice.iff
+A98DB540   object/draft_schematic/weapon/component/shared_sword_core_geo.iff
+C9E6040A   object/draft_schematic/item/shared_item_ten_sided_dice.iff
+CD1F53F3   object/draft_schematic/weapon/shared_pistol_flechette_fwg5_quest.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Frag A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 495
+
+00 0D 09 E7 51 00 00 08 00 9E 7D AE 34 32 5E 6F        ....Q.....}.42^o
+E6 01 00 00 00 73 5C 01 35 62 08 E3 68 01 00 00        .....s\.5b..h...
+00 F3 25 36 35 79 56 75 9E 01 00 00 00 EF E8 BE        ..%65yVu........
+37 86 D1 9B AD 00 00 08 00 33 EA AE 3A 52 B1 29        7........3..:R.)
+FA 00 00 08 00 70 FA CE 3B 28 CC 97 EF 00 00 08        .....p..;(......
+00 25 C9 D6 3B 89 F4 5F 64 01 00 00 00 76 D2 E5        .%..;.._d....v..
+3B E6 1E 0E 30 00 00 08 00 01 65 37 3C 8C 84 A5        ;...0.....e7<...
+5E 01 00 00 00 BF 35 30 3D 8E 30 76 E1 01 00 00        ^.....50=.0v....
+00 E9 B1 D6 3D CA 94 1D 58 00 00 08 00 AF 70 79        ....=...X.....py
+3E 0E A9 A6 0E 00 00 08 00 6F D8 CD 3F C6 E8 26        >........o..?..&
+6D 00 00 08 00 B3 8A D4 3F B2 44 A8 31 00 00 08        m.......?.D.1...
+00 E3 4F DD 3F 40 D6 A5 A0 00 00 08 00 F1 C3 D9        ..O.?@..........
+40 61 CA E5 5C 01 00 00 00 2C 1D 8C 42 64 66 C1        @a..\....,..Bdf.
+B1 01 00 00 00 E4 7E 9D 44 2A 06 8E 3E 01 00 00        ......~.D*..>...
+00 09 DC 3E 45 AA 45 46 DA 00 00 08 00 55 BD CD        ...>E.EF.....U..
+47 AB 45 4A BA 01 00 00 00 B0 46 E2 49 AC 49 71        G.EJ......F.I.Iq
+7E 01 00 00 00 62 AD 85 4A 5B 8A 7D 23 01 00 00        ~....b..J[.}#...
+00 A5 26 25 4C 28 C7 B7 2E 01 00 00 00 77 FD B9        ..&%L(.......w..
+4E 16 18 B2 0D 01 00 00 00 81 65 62 56 17 D5 B2        N.........ebV...
+A9 01 00 00 00 07 50 36 58 9E A1 E7 82 00 00 08        ......P6X.......
+00 DC 19 20 59 EC 16 0A 26 01 00 00 00 48 4E 4D        ....Y...&....HNM
+59 5C 9E 59 1C 01 00 00 00 62 95 B5 59 03 CE 32        Y\.Y.....b..Y..2
+99 00 00 08 00 9B D7 DB 59 D3 53 75 76 00 00 08        ........Y.Suv...
+00 F3 5A 58 5A 65 EA 88 A5 01 00 00 00 08 67 6D        ..ZXZe........gm
+5C 40 E3 C3 73 00 00 08 00 B7 DC C4 5E 4B 52 81        \@..s.......^KR.
+2E 00 00 08 00 69 00 EF 5F 56 04 0F B0 00 00 08        .....i.._V......
+00 91 67 36 61 6D E9 73 11 00 00 08 00 AF B2 97        ..g6am.s........
+63 03 8F 1E 3C 01 00 00 00 AC DA D1 66 C3 93 89        c...<.......f...
+B2 01 00 00 00 FE 17 40 67 00 EF C7 9A 01 00 00        .......@g.......
+00 37 DD 42 67 FA 64 51 74 00 00 08 00 38 AF 0B        .7.Bg.dQt....8..
+68 EF 7C 86 8F 01 00 00 00 A8 07 8C 69 0B C4           h.|.........i..
+
+-----------------------------------------
+
+
+TransOp:[0]
+
+Frag A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 495
+
+00 0D 09 E8 E0 83 22 46 00 00 08 00 17 A6 72 6A        ......"F......rj
+1F 68 0D 4A 01 00 00 00 EF 5D FA 6B 7F C1 FA 7F        .h.J.....].k..
+01 00 00 00 74 59 61 6D 60 89 75 28 01 00 00 00        ....tYam`.u(....
+F9 EA 6E 72 E5 E5 FD 45 01 00 00 00 DC 3A 7C 72        ..nr...E.....:|r
+4A 8A AC 8D 01 00 00 00 2E A8 93 72 E4 A1 E1 F7        J..........r....
+01 00 00 00 36 D1 62 73 9A EC EB 2C 01 00 00 00        ....6.bs...,....
+96 47 72 74 9F 00 69 BF 01 00 00 00 EF AD D6 75        .Grt..i........u
+5E 9C 2E 5E 00 00 08 00 5F DA FA 75 F6 EA 11 27        ^..^...._..u...'
+00 00 08 00 D9 1F 74 76 53 6C 37 DD 01 00 00 00        ......tvSl7.....
+41 61 E5 79 63 3D C7 E7 01 00 00 00 E8 DE C2 7A        Aa.yc=.........z
+19 EC 02 4A 01 00 00 00 C9 86 B0 7B 6A 67 AB D8        ...J.......{jg..
+01 00 00 00 EF D5 55 7C 45 28 B7 51 00 00 08 00        ......U|E(.Q....
+68 07 D2 7C FE B7 02 83 01 00 00 00 4C 6C 70 7D        h..|........Llp}
+2E 9E 13 AE 01 00 00 00 DE 8E 60 81 E1 8A 80 6E        ..........`....n
+00 00 08 00 F8 ED F6 82 00 BF 70 EF 01 00 00 00        ..........p.....
+96 20 68 83 0F D1 B9 59 00 00 08 00 4B 34 1D 84        ..h....Y....K4..
+F1 8E F8 4D 01 00 00 00 1D 36 81 84 78 EC 8A 58        ...M.....6..x..X
+00 00 08 00 FC B8 7A 8E 68 01 B5 B5 01 00 00 00        ......z.h.......
+28 22 A9 90 49 79 2E 50 00 00 08 00 CA 17 48 93        ("..Iy.P......H.
+07 AE 5B 80 00 00 08 00 4D 5A F4 94 51 55 67 A3        ..[.....MZ..QUg.
+01 00 00 00 72 78 09 A0 5C 38 61 AB 01 00 00 00        ....rx..\8a.....
+1B 29 06 A7 FD 15 88 AE 01 00 00 00 73 13 79 A7        .)..........s.y.
+E3 8F 79 B3 01 00 00 00 F5 C7 79 A7 49 00 A7 BA        ..y.......y.I...
+01 00 00 00 AA 84 91 A9 3C 34 41 56 01 00 00 00        ........<4AV....
+EC 8B 7F AA A4 F0 32 59 01 00 00 00 68 AE 09 AB        .....2Y....h...
+A5 17 1A B8 00 00 08 00 02 9F D7 AD D2 0C 57 64        ..............Wd
+01 00 00 00 2A D1 E2 AD 3E 01 F6 E8 01 00 00 00        ....*...>.......
+F5 8C 04 B0 D4 C4 80 48 00 00 08 00 86 31 8D B2        .......H.....1..
+B9 35 6D 5D 00 00 08 00 D6 CA 2A B4 AA 5C 7A 82        .5m]......*..\z.
+01 00 00 00 FB 3A 06 B5 6B F6 ED BE 00 00 08 00        .....:..k.......
+C6 74 8E BA 48 A0 03 AE 01 00 00 00 E8 F0 9C           .t..H..........
+
+-----------------------------------------
+
+TransOp:[0]
+
+Frag A
+
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 495
+
+00 0D 09 E9 C5 DD BA 89 9E 5A 7A 00 00 08 00 0B        .........Zz.....
+DB F1 BB 2A 93 75 43 00 00 08 00 E1 81 26 BC 25        ...*.uC......&.%
+25 C4 A1 00 00 08 00 27 5B 9D BC C7 E5 70 5B 01        %......'[....p[.
+00 00 00 FB 0E CC BF 41 B4 29 76 01 00 00 00 83        .......A.)v.....
+F3 E5 BF A0 D6 2E DA 00 00 08 00 DA AC 18 C0 EA        ................
+A3 32 BF 01 00 00 00 3D FD 2F C1 32 EB DA 6D 01        .2.....=./.2..m.
+00 00 00 4F 5A 97 C1 B1 A2 10 3C 01 00 00 00 38        ...OZ.....<....8
+65 AA C1 EC 59 A4 6A 01 00 00 00 3A EF 22 C2 18        e...Y.j....:."..
+B3 00 5C 01 00 00 00 27 2A CE C2 F8 67 A9 DD 00        ..\....'*...g...
+00 08 00 C3 A6 60 C4 8B DD 2D 37 01 00 00 00 9A        .....`...-7.....
+BD D0 C5 E6 2B 80 F3 01 00 00 00 B7 97 DD CA 57        ....+..........W
+29 30 2D 01 00 00 00 FF ED 04 CB 6A 29 01 C7 01        )0-........j)...
+00 00 00 45 18 01 CC A5 A6 EC 2B 01 00 00 00 B9        ...E......+.....
+B0 53 CD D0 89 76 57 00 00 08 00 17 60 C3 CD D3        .S...vW.....`...
+DB 4A 82 01 00 00 00 B3 2C 15 CF 23 25 29 D3 01        .J......,..#%)..
+00 00 00 0E 4B 57 D3 DE D8 D7 1A 01 00 00 00 75        ....KW.........u
+AB 14 D5 E3 1B C4 2A 01 00 00 00 1D F2 C1 D5 2E        ......*.........
+68 D2 9E 00 00 08 00 1C CE F4 D5 A0 09 2A C8 01        h............*..
+00 00 00 EB ED 8C D6 8D B8 35 2C 00 00 08 00 B5        .........5,.....
+26 8D D6 C9 B0 DD E0 01 00 00 00 2E F5 A1 D9 9B        &...............
+6F 11 86 01 00 00 00 C2 0A 50 DA 33 38 90 EA 01        o........P.38...
+00 00 00 BE AC 6C DA B4 51 A1 0E 00 00 08 00 26        .....l..Q......&
+6C BC DC 32 BC A8 99 01 00 00 00 B8 05 46 E0 F0        l..2.........F..
+81 E8 CF 00 00 08 00 E4 F0 1A E1 1A 08 9D 1C 01        ................
+00 00 00 63 31 22 E2 B2 79 6D 63 01 00 00 00 D0        ...c1"..ymc.....
+A8 78 E2 6A 12 9D 2B 01 00 00 00 EA 3C 7A E3 13        .x.j..+.....<z..
+4C BC D4 01 00 00 00 48 07 13 E4 00 83 BD CB 00        L......H........
+00 08 00 92 85 31 E5 60 43 DD 5B 01 00 00 00 F7        .....1.`C.[.....
+8C DE E5 D4 A9 15 80 00 00 08 00 B9 83 0C E8 E4        ................
+C0 E4 E6 00 00 08 00 49 4C 28 E9 72 50 E2 3D 00        .......IL(.rP.=.
+00 08 00 AA 39 12 EB 9F 0E 70 24 00 00 73 09           ....9....p$..s.
+
+-----------------------------------------
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 202
+
+00 03 
+
+96 -- 150 bytes
+00 0D 09 EA 08 00 11 40 BF EE 88 B1 6E        ..........@....n
+34 00 00 08 00 F7 2E A6 EF 91 7B 1F 15 00 00 08        4.........{.....
+00 06 AA 23 F1 24 F6 01 6F 01 00 00 00 71 4C 2B        ...#.$..o....qL+
+F2 DD 71 A2 AD 01 00 00 00 A4 AE 56 F3 43 4F 6C        ..q........V.COl
+56 00 00 08 00 50 6C 28 F4 C6 DC F8 0B 01 00 00        V....Pl(........
+00 7D 3B 89 F4 ED A7 89 E0 01 00 00 00 9A 62 E3        .};...........b.
+FA B8 3E C1 64 01 00 00 00 88 99 D0 FD EC 87 9D        ..>.d...........
+08 01 00 00 00 BE 8E 8D FE 4F BC 4D CE 01 00 00        .........O.M....
+00 1F E6 9C FE 63 70 CC C8 01 00 00 00 13 70 F9        .....cp.......p.
+FE 83 EC F9 EA 01 00 00 00 
+
+2E 00 09 09 EB 05 00        ................
+46 5E CE 80 0B 00 00 00 17 01 00 00 17 46 ED 7F        F^...........F.
+11 00 00 00 00 00 00 00 A0 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 00 15 84                          ..........
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 38
+
+00 09 
+09 EE
+05 00 
+53 21 86 12 // Deltas Message
+24 46 ED 7F 11 00 00 00  // PlayerITem ID
+59 41 4C 50 03 // PLAY3
+08 00 00 00 // Packet size
+01 00 // Num updates
+09 00 // Update vID 9 = ?
+22 8C 15 00 // Int new value = 1412130, or 101011000110000100010 in binary
+
+00 02 9A                                      ......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 31
+// Attributes List
+00 09 0A 0B 05 00 2A 2F F1 F3 6A 01 00 00 00 00        ......*/..j.....
+00 40 00 00 00 00 00 00 2F 00 00 00 00 42 3C           .@....../....B<
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 30
+// Attributes list
+00 09 0A 10 05 00 2A 2F F1 F3 DC 00 00 00 00 00        ......*/........
+00 40 00 00 00 00 00 00 2F 00 00 00 13 AB              .@....../.....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 149
+
+00 09 
+0A 13 
+00 19 
+61 
+05 00
+46 5E CE 80 // ObjControllerMessage
+0B 00 00 00 // ???
+F4 00 00 00 // Command ID
+17 46 ED 7F 11 00 00 00 // Player ID
+00 00 00 00 // Spacer
+17 46 ED 7F 11 00 00 00 // Object ID to be acted upon
+00 00 00 00 00 00 00 00 // Unknown variable
+10 00 00 00 // UTF16 String length
+53 00 65 00 6C 00 65 00 63 00 74 00 20 00 73 00 
+63 00 68 00 65 00 6D 00 61 00 74 00 69 00 63 00 // "Select schematic"
+
+// Unknown data, belonging to select schematic packet.
+00 00 
+00 00 
+32 00 
+00 00 
+00 00
+01 
+00 00 00 00
+00 00 00 00 
+
+2A 
+// Command queue dequeue
+05 00 46 5E CE 80 0B        ........*..F^...
+00 00 00 17 01 00 00 17 46 ED 7F 11 00 00 00 00        ........F......
+00 00 00 A0 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 97 B8                                         .....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// SelectDraftSchematic
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 70
+
+00 03 
+36 
+00 09 
+00 9E 
+05 00 
+46 5E CE 80
+23 00 00 00 
+16 01 00 00
+17 46 ED 7F 11 00 00 00
+00 00 00 00 // tc
+C0 00 00 00 // Command ID
+02 2E 24 89 // Command CRC -- Select draft schematic
+00 00 00 00 00 00 00 00 // target ID
+02 00 00 00
+34 00 34 00 // Params -- 44???  Array index?  
+
+0A 
+
+00 09 
+00 9F 
+01 00  
+68 2D 84 7D // GalaxyLoopTimesRequest
+5B 97                                      h-.}[.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+GalaxyLoopTimesResponse
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 422
+
+00 09 
+0A 19 
+00 19 
+0E 
+03 00 
+88 80 42 4E // GalaxyLoopTimesResponse
+3A DF 04 00 
+3A DF 04 00 
+
+2F 
+05 00 
+EA DD 89 FE // SceneCreateObjectByCRC
+22 52 6E F9 34 00 00 00 // Object ID
+00 00 00 00 // oN
+00 00 00 00 // oS
+00 00 00 00 // oE
+00 00 80 3F // oW
+00 00 00 00 // X
+00 00 00 00 // Z
+00 00 00 00 // Y
+09 C4 19 38 // CRC -- object/manufacture_schematic/shared_generic_schematic.iff
+00 // False
+
+1A 
+04 00 
+9E DE CB 56 // UpdateContainmentMessage
+22 52 6E F9 34 00 00 00 // Object to update
+7B 37 2F AA 12 00 00 00 // Container ID -- The Crafting Tool
+04 00 00 00 // Equipped
+
+85
+05 00 
+0C 5F A7 68 // Baselines message
+22 52 6E F9 34 00 00 00 // Object ID
+4F 43 53 4D 03 // MSCO3
+6E 00 00 00 // Packet size
+09 00 // Num operands
+00 00 30 41 // Operand 0 -- floating point value ==11.0  Complexity?
+{ // Operand 1 -- STF Filename, STF File Identifier
+0F 00 // UTF String length for STF Filename
+73 74 72 69 6E 67 5F 69 64 5F 74 61 62 6C 65 // "string_id_table"
+00 00 00 00 // Spacer
+00 00 // UTF String length for STF File Identifier
+}
+00 00 00 00 // Operand 2 -- Customized item name.
+00 00 00 00 // Operand 3 -- Unknown null value
+
+0A 00 00 00 // Operand 4 -- Unknown value 10
+
+01 00 00 00 // Operand 5 -- List num items in list.  Format: 
+01 00 00 00 // List Update Count
+{ // List begins
+00 // Adding item to list
+08 00 // UTF String legnth
+63 72 61 66 74 69 6E 67 // "crafting"
+00 00 00 00 // Spacer Operand 7?
+0A 00 // UTF String length // Operand 8 -- schematic complexity?
+63 6F 6D 70 6C 65 78 69 74 79 // Complexity
+00 00 30 41 // Our 11.0 float again. -- Complexity = 11
+}
+
+// Operand 6 -- crafter name?
+09 00 00 00 // UTF16 String length
+4D 00 61 00 63 00 68 00 79 00 20 00 49 00 6E 00 65 00 // Machy Ine
+19 00 00 00 // Operand 7 -- Unknown value == 25 in decimal
+00 00 00 41 // Operand 8 -- Unknown value = 1090519040 in decimal, 8.0 in floating point.  Number of minutes to create an object from a factory schematic?
+
+2F 
+05 00
+0C 5F A7 68 // Baselines message
+22 52 6E F9 34 00 00 00 // Object ID
+4F 43 53 4D 06 // MSCO6
+18 00 00 00 // Packet size -- 24 bytes
+07 00 // 7 variables
+76 00 == 118 in decimal.  vID 0
+00 00 // vID 1
+00 00 00 00 // vID 2
+00 00 00 00 // vID 3
+00 00 00 00 // vID 4
+E6 1E 0E 30 // CRC of the specific item we are crafting.  vID 5
+01 00 // vID 6 -- short, == 1
+
+19 
+05 00 
+0C 5F A7 68 // Baselines message
+22 52 6E F9 34 00 00 00 // Object ID
+4F 43 53 4D 08 // MSCO8
+02 00 00 00 // Packet size
+00 00 // Num operands
+
+19 
+05 00 
+0C 5F A7 68 // Baselines message
+22 52 6E F9 34 00 00 00 // Object ID
+4F 43 53 4D 09 // MSCO9
+02 00 00 00 // Packet size
+00 00 // Num operands
+
+0E 
+02 00 
+37 60 43 2C // SceneEndBaselines
+
+22 52 6E F9 34 00 00 00 // Object ID
+
+2F 
+05 00 
+EA DD 89 FE // SceneCreateObjectByCRC
+23 52 6E F9 34 00 00 00  // Object ID
+00 00 00 00
+00 00 00 00
+00 00 00 00 
+00 00 80 3F 
+00 00 00 00 
+00 00 00 00 
+00 00 00 00 
+31 D0 F6 64 // CRC -- object/tangible/crafting/station/shared_weapon_tool.iff
+00 
+
+1A 
+04 00 
+9E DE CB 56 // UpdateContainmentMessage
+23 52 6E F9 34 00 00 00 // Object ID
+7B 37 2F AA 12 00 00 00 // Container ID
+00 00 00 00 // New contained state:  0
+
+B1 98                                      ......
+
+-----------------------------------------
+
+Found CRCs:
+
+3819C409   object/manufacture_schematic/shared_generic_schematic.iff
+300E1EE6   object/draft_schematic/item/shared_item_weapon_tool.iff
+64F6D031   object/tangible/crafting/station/shared_weapon_tool.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+BaselinesMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 328
+
+00 09 
+0A 1A 
+00 19 
+
+68 
+05 00 
+0C 5F A7 68 // Baselines message
+23 52 6E F9 34 00 00 00 // Object being crafted.
+4F 4E 41 54 03 // TANO3
+51 00 00 00 // Packet size
+0D 00 // Number of operands
+00 00 20 41 // Float 0x41200000 = 10.0
+// STF vars
+08 00 
+63 72 61 66 74 69 6E 67 // "crafting"
+00 00 00 00 
+10 00 
+77 65 61 70 6F 6E 5F 74 6F 6F 6C 5F 6E 61 6D 65 // "weapon_tool_name"
+00 00 00 00 // Customized name
+
+01 00 00 00 // Unknown int value
+00 00 // Customization data length
+
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 // 2 unknown longs -- bitmask data?
+00 21 00 00 00 00 00 00 // Spare NGE stuff
+00 00 00 00 // Condition damage
+64 00 00 00 // Total Condition
+01 // True
+
+4D 
+05 00 
+0C 5F A7 68 // Baselines message
+23 52 6E F9 34 00 00 00 // Object ID
+4F 4E 41 54 06 // TANO6
+36 00 00 00 // Packet size
+04 00 // Num operands
+76 00 00 00 // Unknown hardcoded int
+// STF Detail Vars
+0F 00 
+63 72 61 66 74 69 6E 67 5F 64 65 74 61 69 6C // "crafting_detail"
+00 00 00 00 
+10 00 
+77 65 61 70 6F 6E 5F 74 6F 6F 6C 5F 6E 61 6D 65 // "weapon_tool_name"
+
+// Extra NGE stuff
+00 00 00 00 
+00 00 00 00 00 
+
+19 
+05 00 
+0C 5F A7 68 // Baselines message
+23 52 6E F9 34 00 00 00 // Object ID 
+4F 4E 41 54 08 // TANO8
+02 00 00 00
+00 00 
+
+19 
+05 00 
+0C 5F A7 68
+23 52 6E F9 34 00 00 00 
+4F 4E 41 54 09 
+02 00 00 00
+00 00 
+
+0E 
+02 00 
+37 60 43 2C // SceneEndBaselines
+23 52 6E F9 34 00 00 00 // Object ID
+
+25 
+05 00 
+53 21 86 12 // DeltasMessage
+24 46 ED 7F 11 00 00 00 // PlayerID
+59 41 4C 50 09 // Play9
+0E 00 00 00 // Packet size
+02 00 // Num updates
+05 00 // Operand 5
+FF FF FF FF // New value = -1
+01 00 // Operand 1
+02 00 00 00 // Value = 2
+
+1F 
+05 00 
+53 21 86 12 // Deltas message
+23 52 6E F9 34 00 00 00 // ID of tool being crafted 
+4F 4E 41 54 03 // TANO3
+08 00 00 00 // Packet size
+01 00 // Num updates
+08 00 // vID 8
+00 21 00 00 //Bitmask value = 10000100000000 in binary, 8448 in decimal
+65 9F                                ...!..e.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 60
+
+00 03 04 00 15 0A 1A 
+
+32 
+00 09 
+00 A0 
+05 00 
+46 5E CE 80 
+23 00 00 00
+16 01 00 00
+17 46 ED 7F 11 00 00 00 
+00 00 00 00 
+C0 00 00 00
+B6 6A 99 F9 // Command CRC -- SynchronizedUIListen
+22 52 6E F9 34 00 00 00 // Object ID -- the manufacturing schematic.
+00 00 00 00 
+F6 0D                    n.4.........
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SubMultiPacket
+
+Ack A
+
+00 15 0A 1A                                            ....
+
+----------------------------
+[ACK]
+
+Sequence: 2586
+
+
+
+-----------------------------------------------------------------------
+
+SubMultiPacket
+
+Data A
+
+ObjControllerMessage
+
+00 09 00 A0 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 C0 00        ...F...........
+00 00 B6 6A 99 F9 22 52 6E F9 34 00 00 00 00 00        ...j.."Rn.4.....
+00 00                                                  ..
+
+-----------------------------------------
+
+Found CRCs:
+
+F9996AB6   synchronizeduilisten
+
+---------------------------------------------
+
+-----------------------------------------------------------------------
+
+// Schematic draft slots and resource weights packet. 
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2972 -> 199.108.196.48:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x6FEBE594    Length: 164
+
+00 09 00 39 00 19 58 05 00 46 5E CE 80 23 00 00        ...9..X..F^..#..
+00 16 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 00 00 00 00 B0 1E D2 5F 00 00 00 00 00 00 00        ........_.......
+00 15 00 00 00 32 00 30 00 30 00 33 00 38 00 30        .....2.0.0.3.8.0
+00 32 00 36 00 32 00 20 00 33 00 35 00 30 00 38        .2.6.2...3.5.0.8
+00 35 00 36 00 37 00 38 00 30 00 37 00 20 00 42        .5.6.7.8.0.7...B
+05 00 46 5E CE 80 23 00 00 00 16 01 00 00 17 46        ..F^..#........F
+ED 7F 11 00 00 00 00 00 00 00 00 00 00 00 5C 38        .............\8
+8B 9A 00 00 00 00 00 00 00 00 0A 00 00 00 32 00        ..............2.
+30 00 30 00 33 00 38 00 30 00 32 00 36 00 32 00        0.0.3.8.0.2.6.2.
+20 00 FC 35                                            ...5
+
+-----------------------------------------
+
+Found CRCs:
+
+5FD21EB0   requestdraftslotsbatch -- Sends as paramaters:  The object ID of the schematic, the decimal CRC of the schematic.
+9A8B385C   requestresourceweightsbatch -- Sends as paramaters:  The ID of the schematic.
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+
+199.108.196.48:44463 -> 192.168.2.4:2972(Server -> Client)
+Enc: T   Comp: T    Seed: 0x6FEBE594    Length: 470
+
+00 09 05 64 00 19 FF 01 97 05 00 46 5E CE 80 0B        ...d.......F^...
+00 00 00 BF 01 00 00 17 46 ED 7F 11 00 00 00 00        ........F......
+00 00 00 66 8F F1 0B FF 7E 20 D1 07 00 00 00 04        ...f....~.......
+00 00 00 01 03 00 00 00 18 00 63 72 61 66 74 5F        ..........craft_
+69 74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73        item_ingredients
+5F 6E 00 00 00 00 11 00 62 61 74 74 65 72 79 5F        _n......battery_
+65 6E 63 6C 6F 73 75 72 65 00 01 00 00 00 18 00        enclosure.......
+63 72 61 66 74 5F 69 74 65 6D 5F 69 6E 67 72 65        craft_item_ingre
+64 69 65 6E 74 73 5F 6E 00 00 00 00 11 00 62 61        dients_n......ba
+74 74 65 72 79 5F 65 6E 63 6C 6F 73 75 72 65 05        ttery_enclosure.
+00 00 00 6D 00 65 00 74 00 61 00 6C 00 04 08 00        ...m.e.t.a.l....
+00 00 18 00 63 72 61 66 74 5F 69 74 65 6D 5F 69        ....craft_item_i
+6E 67 72 65 64 69 65 6E 74 73 5F 6E 00 00 00 00        ngredients_n....
+10 00 63 68 61 72 67 65 5F 72 65 74 65 6E 74 69        ..charge_retenti
+6F 6E 00 01 00 00 00 18 00 63 72 61 66 74 5F 69        on.......craft_i
+74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F        tem_ingredients_
+6E 00 00 00 00 10 00 63 68 61 72 67 65 5F 72 65        n......charge_re
+74 65 6E 74 69 6F 6E 05 00 00 00 6D 00 65 00 74        tention....m.e.t
+00 61 00 6C 00 04 05 00 00 00 18 00 63 72 61 66        .a.l........craf
+74 5F 69 74 65 6D 5F 69 6E 67 72 65 64 69 65 6E        t_item_ingredien
+74 73 5F 6E 00 00 00 00 11 00 74 68 65 72 6D 61        ts_n......therma
+6C 5F 73 68 69 65 6C 64 69 6E 67 00 01 00 00 00        l_shielding.....
+18 00 63 72 61 66 74 5F 69 74 65 6D 5F 69 6E 67        ..craft_item_ing
+72 65 64 69 65 6E 74 73 5F 6E 00 00 00 00 11 00        redients_n......
+74 68 65 72 6D 61 6C 5F 73 68 69 65 6C 64 69 6E        thermal_shieldin
+67 03 00 00 00 6F 00 72 00 65 00 04 05 00 00 00        g....o.r.e......
+33 05 00 46 5E CE 80 0B 00 00 00 07 02 00 00 17        3..F^...........
+46 ED 7F 11 00 00 00 00 00 00 00 66 8F F1 0B FF        F.........f....
+7E 20 D1 02 02 FF 01 31 03 FF 01 21 02 FF 01 31        ~......1...!...1
+03 FF 01 21 A3 D7                                      ...!..
+
+-----------------------------------------
+
+Found CRCs:
+
+D1207EFF   object/draft_schematic/item/shared_item_battery_droid.iff
+D1207EFF   object/draft_schematic/item/shared_item_battery_droid.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 455
+
+00 09 
+0A 1B 
+05 00 
+46 5E CE 80 // ObjController Message
+0B 00 00 00 // Uhh...
+03 01 00 00 // CraftIngredientsMessage?
+17 46 ED 7F 11 00 00 00 // Object ID -- appears to be the Player ID?
+00 00 00 00 
+7B 37 2F AA 12 00 00 00 // Crafting tool ID.
+
+22 52 6E F9 34 00 00 00 // Manufacturing schematic ID
+23 52 6E F9 34 00 00 00 // Manufactured Item ID
+02 00 00 00 // This is not the list size... there's more than 2 items here.
+01 // Unknown
+
+03 00 00 00 // Ingredient list size -- 3 ingredients.
+{
+18 00 // UTF String length
+63 72 61 66 74 5F 69 74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F 6E // "craft_item_ingredients_n"
+00 00 00 00 // Spacer
+12 00 // UTF String length
+61 73 73 65 6D 62 6C 79 5F 65 6E 63 6C 6F 73 75 72 65 // "assembly_enclosure"
+00 // Unknown byte -- SWGEmu identifies as mandatory ingredient = 0, optional ingredient = 1;
+01 00 00 00 // Sublist size
+	{
+	18 00 // From here to X is a repeat of above.
+	63 72 61 66 74 5F 69 74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F 6E 
+	00 00 00 00 
+	12 00 
+	61 73 73 65 6D 62 6C 79 5F 65 6E 63 6C 6F 73 75 72 65 // X
+	05 00 00 00 // UTF16 string length
+	6D 00 65 00 74 00 61 00 6C 00 // "metal"
+	04 // Required ingredient.  
+	10 00 00 00 // Need 10 units.
+	}
+18 00 63 72 61        t.a.l........cra
+66 74 5F 69 74 65 6D 5F 69 6E 67 72 65 64 69 65        ft_item_ingredie
+6E 74 73 5F 6E 00 00 00 00 11 00 74 68 65 72 6D        nts_n......therm
+61 6C 5F 73 68 69 65 6C 64 69 6E 67 00 01 00 00        al_shielding....
+00 18 00 63 72 61 66 74 5F 69 74 65 6D 5F 69 6E        ...craft_item_in
+67 72 65 64 69 65 6E 74 73 5F 6E 00 00 00 00 11        gredients_n.....
+00 74 68 65 72 6D 61 6C 5F 73 68 69 65 6C 64 69        .thermal_shieldi
+6E 67 07 00 00 00 6D 00 69 00 6E 00 65 00 72 00        ng....m.i.n.e.r.
+61 00 6C 00 04 08 00 00 00 18 00 63 72 61 66 74        a.l........craft
+5F 69 74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74        _item_ingredient
+73 5F 6E 00 00 00 00 17 00 65 6C 65 63 74 72 6F        s_n......electro
+6E 69 63 5F 63 6F 6E 74 72 6F 6C 5F 75 6E 69 74        nic_control_unit
+00 01 00 00 00 18 00 63 72 61 66 74 5F 69 74 65        .......craft_ite
+6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F 6E 00        m_ingredients_n.
+00 00 00 17 00 65 6C 65 63 74 72 6F 6E 69 63 5F        .....electronic_
+63 6F 6E 74 72 6F 6C 5F 75 6E 69 74 08 00 00 00        control_unit....
+63 00 68 00 65 00 6D 00 69 00 63 00 61 00 6C 00        c.h.e.m.i.c.a.l.
+04 0A 00 00 00 48 77                                   .....Hw
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 56
+
+00 03 2E 00 09 0A 1C 05 00 46 5E CE 80 0B 00 00        .........F^.....
+00 17 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 04 00 15 00 A0 AC BF                                ........
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+BaselinesMessage
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 56
+
+00 03 2E 00 09 0A 1C 05 00 46 5E CE 80 0B 00 00        .........F^.....
+00 17 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 04 00 15 00 A0 AC BF                                ........
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 448
+
+00 09 0A 1D 05 00 0C 5F A7 68 22 52 6E F9 34 00        ......._.h"Rn.4.
+00 00 4F 43 53 4D 07 A3 01 00 00 15 00 03 00 00        ..OCSM..........
+00 03 00 00 00 18 00 63 72 61 66 74 5F 69 74 65        .......craft_ite
+6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F 6E 00        m_ingredients_n.
+00 00 00 12 00 61 73 73 65 6D 62 6C 79 5F 65 6E        .....assembly_en
+63 6C 6F 73 75 72 65 18 00 63 72 61 66 74 5F 69        closure..craft_i
+74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F        tem_ingredients_
+6E 00 00 00 00 11 00 74 68 65 72 6D 61 6C 5F 73        n......thermal_s
+68 69 65 6C 64 69 6E 67 18 00 63 72 61 66 74 5F        hielding..craft_
+69 74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73        item_ingredients
+5F 6E 00 00 00 00 17 00 65 6C 65 63 74 72 6F 6E        _n......electron
+69 63 5F 63 6F 6E 74 72 6F 6C 5F 75 6E 69 74 03        ic_control_unit.
+00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 03 00 00 00 03 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 03 00 00 00 03 00 00 00 00        ................
+00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 03        ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03        ................
+00 00 00 03 00 00 00 FF FF FF FF FF FF FF FF FF        ................
+FF FF FF 03 00 00 00 06 00 00 00 00 00 00 00 01        ................
+00 00 00 02 00 00 00 0C 01 00 00 00 01 00 00 00        ................
+08 00 63 72 61 66 74 69 6E 67 00 00 00 00 10 00        ..crafting......
+65 78 70 45 66 66 65 63 74 69 76 65 6E 65 73 73        expEffectiveness
+01 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00        ................
+01 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00        ................
+00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 01 23 2B        ..............#+
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 D3 69 1F 00 B3 99 58 00 00 00 04 FC 00 00 2E        ..i....X........
+00 09 0A 1E 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 C0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 EC        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// OpenContainer
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 64
+
+00 03 04 00 15 0A 1E 36 00 09 00 A1 05 00 46 5E        .......6......F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 C0 00 00 00 86 75 17 70 6D F6        ...........u.pm.
+77 3B 05 00 00 00 02 00 00 00 31 00 20 00 59 46        w;........1...YF
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 09 0A 38 00 19 2A 05 00 46 5E CE 80 0B 00 00        ...8..*..F^.....
+00 17 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00 00        ......$..Pn.4...
+B4 69 0A 00 1F 9A 6A 00 00 00 04 FC 00 00 AA 86        .i....j.........
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 49
+
+00 09 00 AE 05 00 46 5E CE 80 83 00 00 00 07 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 79 6C        ...F.........yl
+68 B2 20 00 00 00 00 00 00 00 00 00 00 00 01 16        h...............
+14                                                     .
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 69
+
+00 09 0A 4D 00 19 1F 05 00 53 21 86 12 79 6C 68        ...M.....S!..ylh
+B2 20 00 00 00 4F 4E 43 52 03 08 00 00 00 01 00        .....ONCR.......
+0D 00 91 0E 00 00 1C 05 00 53 21 86 12 22 52 6E        .........S!.."Rn
+F9 34 00 00 00 4F 43 53 4D 06 05 00 00 00 01 00        .4...OCSM.......
+06 00 01 C2 B9                                         .....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Frag A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 495
+
+00 0D 0A 4E 00 00 02 34 05 00 53 21 86 12 22 52        ...N...4..S!.."R
+6E F9 34 00 00 00 4F 43 53 4D 07 1D 02 00 00 0E        n.4...OCSM......
+00 00 00 03 00 00 00 03 00 00 00 01 00 00 18 00        ................
+63 72 61 66 74 5F 69 74 65 6D 5F 69 6E 67 72 65        craft_item_ingre
+64 69 65 6E 74 73 5F 6E 00 00 00 00 12 00 61 73        dients_n......as
+73 65 6D 62 6C 79 5F 65 6E 63 6C 6F 73 75 72 65        sembly_enclosure
+01 01 00 18 00 63 72 61 66 74 5F 69 74 65 6D 5F        .....craft_item_
+69 6E 67 72 65 64 69 65 6E 74 73 5F 6E 00 00 00        ingredients_n...
+00 11 00 74 68 65 72 6D 61 6C 5F 73 68 69 65 6C        ...thermal_shiel
+64 69 6E 67 01 02 00 18 00 63 72 61 66 74 5F 69        ding.....craft_i
+74 65 6D 5F 69 6E 67 72 65 64 69 65 6E 74 73 5F        tem_ingredients_
+6E 00 00 00 00 17 00 65 6C 65 63 74 72 6F 6E 69        n......electroni
+63 5F 63 6F 6E 74 72 6F 6C 5F 75 6E 69 74 01 00        c_control_unit..
+04 00 00 00 04 00 00 00 01 00 00 00 00 00 00 01        ................
+01 00 00 00 00 00 01 02 00 00 00 00 00 02 00 00        ................
+04 00 00 00 02 00 04 00 00 00 04 00 00 00 01 00        ................
+00 00 00 00 00 01 01 00 00 00 00 00 01 02 00 00        ................
+00 00 00 02 00 00 01 00 00 00 F7 92 CF 61 20 00        .............a..
+00 00 03 00 04 00 00 00 04 00 00 00 01 00 00 00        ................
+00 00 00 01 01 00 00 00 00 00 01 02 00 00 00 00        ................
+00 02 00 00 01 00 00 00 10 00 00 00 04 00 03 00        ................
+00 00 03 00 00 00 01 00 00 00 00 00 00 01 01 00        ................
+00 00 00 00 01 02 00 00 00 00 00 05 00 04 00 00        ................
+00 04 00 00 00 01 00 00 FF FF FF FF 01 01 00 FF        ................
+FF FF FF 01 02 00 FF FF FF FF 02 00 00 00 00 00        ................
+00 06 00 06 00 00 00 06 00 00 00 01 00 00 FF FF        ................
+FF FF 02 00 00 00 00 00 00 01 01 00 FF FF FF FF        ................
+02 01 00 01 00 00 00 01 02 00 FF FF FF FF 02 02        ................
+00 02 00 00 00 07 00 10 08 00 01 00 00 00 01 00        ................
+00 00 01 00 00 08 00 63 72 61 66 74 69 6E 67 00        .......crafting.
+00 00 00 10 00 65 78 70 45 66 66 65 63 A6 50           .....expEffec.P
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Frag A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 85
+
+00 0D 0A 4F 74 69 76 65 6E 65 73 73 09 00 01 00        ...Otiveness....
+00 00 01 00 00 00 01 00 00 00 00 00 00 0A 00 01        ................
+00 00 00 01 00 00 00 01 00 00 00 00 00 00 0B 00        ................
+01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 0C        ................
+00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00        ................
+14 00 01 CB 44                                         ....D
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 38
+
+00 09 0A 5C 05 00 53 21 86 12 24 46 ED 7F 11 00        ...\..S!..$F...
+00 00 59 41 4C 50 03 08 00 00 00 01 00 09 00 40        ..YALP.........@
+8C 15 00 00 17 2E                                      ......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0A 68 05 00 46 5E CE 80 0B 00 00 00 17 01        ...h..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 C0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 F5 95        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 109
+
+00 03 1C 0A 00 08 F8 24 1B D5 50 6E F9 34 00 00        .......$..Pn.4..
+00 4C 6A 20 00 0B 9A 7E 00 00 00 04 E2 00 00 1C        .Lj....~........
+0A 00 08 F8 24 1B DF 50 6E F9 34 00 00 00 AE 69        ....$..Pn.4....i
+08 00 33 9A 79 00 00 00 04 2D 00 00 2E 00 09 0A        ..3.y....-......
+79 05 00 46 5E CE 80 0B 00 00 00 17 01 00 00 17        y..F^...........
+46 ED 7F 11 00 00 00 00 00 00 00 C0 00 00 00 00        F..............
+00 00 00 00 00 00 00 00 00 00 00 7D 2B                 ...........}+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 49
+
+00 09 00 B7 05 00 46 5E CE 80 83 00 00 00 07 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 79 6C        ...F.........yl
+68 B2 20 00 00 00 01 00 00 00 00 00 00 00 02 4C        h..............L
+D9                                                     .
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 178
+
+00 09 0A 7B 00 19 1F 05 00 53 21 86 12 79 6C 68        ...{.....S!..ylh
+B2 20 00 00 00 4F 4E 43 52 03 08 00 00 00 01 00        .....ONCR.......
+0D 00 89 0E 00 00 1C 05 00 53 21 86 12 22 52 6E        .........S!.."Rn
+F9 34 00 00 00 4F 43 53 4D 06 05 00 00 00 01 00        .4...OCSM.......
+06 00 02 6C 05 00 53 21 86 12 22 52 6E F9 34 00        ...l..S!.."Rn.4.
+00 00 4F 43 53 4D 07 55 00 00 00 05 00 01 00 01        ..OCSM.U........
+00 00 00 05 00 00 00 02 01 00 04 00 00 00 02 00        ................
+01 00 00 00 05 00 00 00 02 01 00 01 00 00 00 F7        ................
+92 CF 61 20 00 00 00 03 00 01 00 00 00 05 00 00        ..a.............
+00 02 01 00 01 00 00 00 08 00 00 00 05 00 01 00        ................
+00 00 05 00 00 00 02 01 00 00 00 00 00 07 00 14        ................
+3F BB                                                  ?.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 BC 69 0C 00 02 9A 80 00 00 00 04 2D 00 00 2E        ..i.........-...
+00 09 0A 89 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 C0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 70 BC        ..............p.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 62
+
+00 03 1C 0A 00 08 F8 24 1B F7 50 6E F9 34 00 00        .......$..Pn.4..
+00 11 6A 31 00 23 9B 70 00 00 00 04 13 00 00 1C        ..j1.#.p........
+0A 00 08 F8 24 1B DF 50 6E F9 34 00 00 00 BE 69        ....$..Pn.4....i
+0C 00 FD 99 81 00 00 00 04 2D 00 00 93 C5              .........-....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 66
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 C0 69 0F 00 F5 99 83 00 00 00 02 2D 00 00 20        ..i.........-...
+00 09 0A 8B 0A 00 08 F8 24 1B F7 50 6E F9 34 00        ........$..Pn.4.
+00 00 1C 6A 32 00 27 9B 72 00 00 00 04 13 00 00        ...j2.'.r.......
+00 CA                                                  ..
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 C1 69 11 00 F1 99 84 00 00 00 02 2D 00 00 2E        ..i.........-...
+00 09 0A 90 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 C0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 7D C1        ..............}.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 194
+
+00 09 0A 95 00 19 63 05 00 46 5E CE 80 0B 00 00        ......c..F^.....
+00 F4 00 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 00 00        ..F............
+00 11 00 00 00 49 00 6E 00 73 00 65 00 72 00 74        .....I.n.s.e.r.t
+00 20 00 72 00 65 00 73 00 6F 00 75 00 72 00 63        ...r.e.s.o.u.r.c
+00 65 00 20 00 33 00 00 00 00 00 32 00 00 00 00        .e...3.....2....
+00 01 00 00 00 00 00 00 00 00 2A 05 00 46 5E CE        ..........*..F^.
+80 0B 00 00 00 17 01 00 00 17 46 ED 7F 11 00 00        ..........F....
+00 00 00 00 00 C0 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 2A 05 00 46 5E CE 80 0B 00 00 00        .....*..F^......
+17 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00 00        .....F.........
+C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+2C 2F                                                  ,/
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 266
+
+00 03 04 00 15 0A 99 2F 00 09 00 BD 05 00 46 5E        ......./......F^
+CE 80 83 00 00 00 07 01 00 00 17 46 ED 7F 11 00        ...........F...
+00 00 00 00 00 00 37 93 46 C2 20 00 00 00 02 00        ......7.F.......
+00 00 00 00 00 00 03 D0 00 09 00 BE 05 00 46 5E        ..............F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 C0 00 00 00 EF 50 45 16 00 00        ...........PE...
+00 00 00 00 00 00 4F 00 00 00 38 00 30 00 31 00        ......O...8.0.1.
+36 00 34 00 36 00 33 00 32 00 34 00 34 00 33 00        6.4.6.3.2.4.4.3.
+20 00 34 00 20 00 31 00 34 00 30 00 30 00 38 00        ..4...1.4.0.0.8.
+37 00 32 00 38 00 36 00 36 00 34 00 30 00 20 00        7.2.8.6.6.4.0...
+30 00 20 00 31 00 34 00 30 00 34 00 33 00 32 00        0...1.4.0.4.3.2.
+31 00 34 00 31 00 34 00 33 00 33 00 20 00 32 00        1.4.1.4.3.3...2.
+20 00 38 00 30 00 31 00 36 00 34 00 36 00 33 00        ..8.0.1.6.4.6.3.
+32 00 34 00 34 00 33 00 20 00 2D 00 32 00 35 00        2.4.4.3...-.2.5.
+35 00 20 00 31 00 34 00 30 00 36 00 39 00 38 00        5...1.4.0.6.9.8.
+33 00 35 00 38 00 35 00 38 00 33 00 20 00 2D 00        3.5.8.5.8.3...-.
+32 00 35 00 35 00 20 00 53 07                          2.5.5...S.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 396
+
+00 09 0A 9A 00 19 1F 05 00 53 21 86 12 37 93 46        .........S!..7.F
+C2 20 00 00 00 4F 4E 43 52 03 08 00 00 00 01 00        .....ONCR.......
+0D 00 63 7D 01 00 1C 05 00 53 21 86 12 22 52 6E        ..c}.....S!.."Rn
+F9 34 00 00 00 4F 43 53 4D 06 05 00 00 00 01 00        .4...OCSM.......
+06 00 03 6C 05 00 53 21 86 12 22 52 6E F9 34 00        ...l..S!.."Rn.4.
+00 00 4F 43 53 4D 07 55 00 00 00 05 00 01 00 01        ..OCSM.U........
+00 00 00 06 00 00 00 02 02 00 04 00 00 00 02 00        ................
+01 00 00 00 06 00 00 00 02 02 00 01 00 00 00 70        ...............p
+5B DA 9D 20 00 00 00 03 00 01 00 00 00 06 00 00        [...............
+00 02 02 00 01 00 00 00 0A 00 00 00 05 00 01 00        ................
+00 00 06 00 00 00 02 02 00 00 00 00 00 07 00 18        ................
+D9 05 00 2A 2F F1 F3 7B 37 2F AA 12 00 00 00 00        ...*/..{7/......
+00 05 00 00 00 06 00 76 6F 6C 75 6D 65 01 00 00        .......volume...
+00 31 00 18 00 63 72 61 66 74 5F 74 6F 6F 6C 5F        .1...craft_tool_
+65 66 66 65 63 74 69 76 65 6E 65 73 73 05 00 00        effectiveness...
+00 31 00 34 00 2E 00 35 00 35 00 11 00 63 72 61        .1.4...5.5...cra
+66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75 73 1B 00        ft_tool_status..
+00 00 40 00 63 00 72 00 61 00 66 00 74 00 69 00        ..@.c.r.a.f.t.i.
+6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C 00 5F 00        n.g.:.t.o.o.l._.
+73 00 74 00 61 00 74 00 75 00 73 00 5F 00 72 00        s.t.a.t.u.s._.r.
+65 00 61 00 64 00 79 00 07 00 63 72 61 66 74 65        e.a.d.y...crafte
+72 05 00 00 00 6D 00 61 00 63 00 68 00 79 00 0D        r....m.a.c.h.y..
+00 73 65 72 69 61 6C 5F 6E 75 6D 62 65 72 0A 00        .serial_number..
+00 00 28 00 35 00 39 00 6C 00 71 00 70 00 75 00        ..(.5.9.l.q.p.u.
+30 00 71 00 29 00 04 00 00 00 0C BA                    0.q.).......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 148
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 CB 69 1D 00 CF 99 8B 00 00 00 03 2D 00 00 72        ..i.........-..r
+00 09 0A 9E 00 19 23 05 00 46 5E CE 80 0B 00 00        ......#..F^.....
+00 0C 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 07 01 00 00 00 00 00 00 03 2A 05 00 46 5E CE        ..........*..F^.
+80 0B 00 00 00 17 01 00 00 17 46 ED 7F 11 00 00        ..........F....
+00 00 00 00 00 C0 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 1C 0A 00 08 F8 24 1B F7 50 6E F9        ..........$..Pn.
+34 00 00 00 56 6A 30 00 3A 9B 7A 00 00 00 04 13        4...Vj0.:.z.....
+00 00 D6 B5                                            ....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 53
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 D0 69 1C 00 BE 99 8E 00 00 00 04 2D 00 00 12        ..i.........-...
+00 09 0A 9F 03 00 88 80 42 4E 47 DF 04 00 47 DF        ........BNG...G.
+04 00 00 E3 9E                                         .....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0A AD 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 C0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 FF 19        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 133
+
+00 09 0A B4 00 19 51 05 00 46 5E CE 80 0B 00 00        ......Q..F^.....
+00 F4 00 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 00 00        ..F............
+00 08 00 00 00 41 00 73 00 73 00 65 00 6D 00 62        .....A.s.s.e.m.b
+00 6C 00 65 00 00 00 00 00 32 00 00 00 00 00 01        .l.e.....2......
+00 00 00 00 00 00 00 00 2A 05 00 46 5E CE 80 0B        ........*..F^...
+00 00 00 17 01 00 00 17 46 ED 7F 11 00 00 00 00        ........F......
+00 00 00 C0 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 49 FD                                         ...I.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 09 0A BC 00 19 2A 05 00 46 5E CE 80 0B 00 00        ......*..F^.....
+00 17 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 1C 0A 00 08 F8 24 1B D5 50 6E F9 34 00 00 00        ......$..Pn.4...
+42 6A 24 00 DD 99 8A 00 00 00 04 2F 00 00 7F 6C        Bj$......../..l
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 54
+
+00 09 00 C5 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 4D ED D8 6A 00 00 00 00 00 00 00 00 01 00        ..M..j..........
+00 00 31 00 8B E2                                      ..1...
+
+-----------------------------------------
+
+Found CRCs:
+
+6AD8ED4D   nextcraftingstage
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 288
+
+00 09 0A BD 00 19 25 05 00 53 21 86 12 24 46 ED        ......%..S!..$F.
+7F 11 00 00 00 59 41 4C 50 09 0E 00 00 00 02 00        ....YALP.......
+05 00 0B 00 00 00 01 00 03 00 00 00 78 05 00 53        ............x..S
+21 86 12 22 52 6E F9 34 00 00 00 4F 43 53 4D 03        !.."Rn.4...OCSM.
+61 00 00 00 01 00 05 00 03 00 00 00 04 00 00 00        a...............
+00 08 00 63 72 61 66 74 69 6E 67 00 00 00 00 02        ...crafting.....
+00 78 70 00 00 82 42 00 08 00 63 72 61 66 74 69        .xp...B...crafti
+6E 67 00 00 00 00 09 00 68 69 74 50 6F 69 6E 74        ng......hitPoint
+73 00 00 7A 44 00 08 00 63 72 61 66 74 69 6E 67        s..zD...crafting
+00 00 00 00 0B 00 75 73 65 4D 6F 64 69 66 69 65        ......useModifie
+72 E9 B3 E3 C0 52 05 00 53 21 86 12 22 52 6E F9        r....R..S!.."Rn.
+34 00 00 00 4F 43 53 4D 07 3B 00 00 00 04 00 09        4...OCSM.;......
+00 01 00 00 00 02 00 00 00 02 00 00 FB 8E 86 3E        ...............>
+0B 00 01 00 00 00 02 00 00 00 02 00 00 00 00 80        ................
+3F 0C 00 01 00 00 00 02 00 00 00 02 00 00 69 91        ?.............i.
+6D 3F 12 00 48 87 C8 42 25 05 00 53 21 86 12 23        m?..H..B%..S!..#
+52 6E F9 34 00 00 00 4F 4E 41 54 03 0E 00 00 00        Rn.4...ONAT.....
+02 00 00 00 00 00 30 41 0B 00 E8 03 00 00 80 26        ......0A.......&
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0A EC 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 BD 09        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 38
+
+00 09 0A EE 05 00 53 21 86 12 24 46 ED 7F 11 00        ......S!..$F...
+00 00 59 41 4C 50 03 08 00 00 00 01 00 09 00 5E        ..YALP.........^
+8C 15 00 00 AA C3                                      ......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 CD 69 0A 00 14 9A BD 00 00 00 04 FE 00 00 2E        ..i.............
+00 09 0B 21 05 00 46 5E CE 80 0B 00 00 00 17 01        ...!..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 A9 08        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B 27 05 00 46 5E CE 80 0B 00 00 00 17 01        ...'..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 70 FD        ..............p.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B 32 05 00 46 5E CE 80 0B 00 00 00 17 01        ...2..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 25 62        ..............%b
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B 3B 05 00 46 5E CE 80 0B 00 00 00 17 01        ...;..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 AC 76        ...............v
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 148
+
+00 09 00 DB 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 D4 63 8D 7C 00 00 00 00 00 00 00 00 30 00        ...c.|........0.
+00 00 30 00 20 00 30 00 20 00 30 00 20 00 30 00        ..0...0...0...0.
+20 00 31 00 20 00 45 00 78 00 70 00 65 00 72 00        ..1...E.x.p.e.r.
+69 00 6D 00 65 00 6E 00 74 00 20 00 70 00 6F 00        i.m.e.n.t...p.o.
+69 00 6E 00 74 00 73 00 20 00 73 00 65 00 74 00        i.n.t.s...s.e.t.
+20 00 2D 00 2D 00 20 00 64 00 6F 00 20 00 65 00        ..-.-...d.o...e.
+78 00 70 00 65 00 72 00 69 00 6D 00 65 00 6E 00        x.p.e.r.i.m.e.n.
+74 00 D4 19                                            t...
+
+-----------------------------------------
+
+Found CRCs:
+
+7C8D63D4   spatialchatinternal
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B 42 05 00 46 5E CE 80 0B 00 00 00 17 01        ...B..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 E0 00        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 2B CB        ..............+.
+                                                       
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 49
+
+00 09 00 DD 05 00 46 5E CE 80 83 00 00 00 06 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 01 01        ...F...........
+00 00 00 00 00 00 00 08 00 00 00 3E 00 00 00 F8        ...........>....
+97                                                     .
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 249
+
+00 09 0B 43 00 19 1F 05 00 53 21 86 12 24 46 ED        ...C.....S!..$F.
+7F 11 00 00 00 59 41 4C 50 09 08 00 00 00 01 00        ....YALP.......
+05 00 03 00 00 00 68 05 00 53 21 86 12 22 52 6E        ......h..S!.."Rn
+F9 34 00 00 00 4F 43 53 4D 03 51 00 00 00 02 00        .4...OCSM.Q.....
+00 00 00 00 40 41 05 00 02 00 00 00 06 00 00 00        ....@A..........
+02 08 00 63 72 61 66 74 69 6E 67 00 00 00 00 0A        ...crafting.....
+00 63 6F 6D 70 6C 65 78 69 74 79 00 00 40 41 02        .complexity..@A.
+08 00 63 72 61 66 74 69 6E 67 00 00 00 00 0B 00        ..crafting......
+75 73 65 4D 6F 64 69 66 69 65 72 C6 44 43 41 2A        useModifier.DCA*
+05 00 53 21 86 12 22 52 6E F9 34 00 00 00 4F 43        ..S!.."Rn.4...OC
+53 4D 07 13 00 00 00 01 00 09 00 01 00 00 00 03        SM..............
+00 00 00 02 00 00 AE 24 68 3F 1F 05 00 53 21 86        .......$h?...S!.
+12 23 52 6E F9 34 00 00 00 4F 4E 41 54 03 08 00        .#Rn.4...ONAT...
+00 00 01 00 00 00 00 00 40 41 1C 0A 00 08 F8 24        ........@A.....$
+1B F7 50 6E F9 34 00 00 00 7B 6A 55 00 BF 9B BA        ..Pn.4...{jU....
+00 00 00 03 F0 00 00 EB 5C                             ........\
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 49
+
+00 09 00 E6 05 00 46 5E CE 80 83 00 00 00 06 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 03 01        ...F...........
+00 00 00 00 00 00 00 01 00 00 00 3E 00 00 00 AF        ...........>....
+56                                                     V
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 252
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 D2 69 11 00 F5 99 CE 00 00 00 02 2F 00 00 DA        ..i........./...
+00 09 0B 6F 00 19 1F 05 00 53 21 86 12 24 46 ED        ...o.....S!..$F.
+7F 11 00 00 00 59 41 4C 50 09 08 00 00 00 01 00        ....YALP.......
+05 00 02 00 00 00 68 05 00 53 21 86 12 22 52 6E        ......h..S!.."Rn
+F9 34 00 00 00 4F 43 53 4D 03 51 00 00 00 02 00        .4...OCSM.Q.....
+00 00 00 00 50 41 05 00 02 00 00 00 08 00 00 00        ....PA..........
+02 08 00 63 72 61 66 74 69 6E 67 00 00 00 00 0A        ...crafting.....
+00 63 6F 6D 70 6C 65 78 69 74 79 00 00 50 41 02        .complexity..PA.
+08 00 63 72 61 66 74 69 6E 67 00 00 00 00 0B 00        ..crafting......
+75 73 65 4D 6F 64 69 66 69 65 72 A4 70 4D 41 2A        useModifier.pMA*
+05 00 53 21 86 12 22 52 6E F9 34 00 00 00 4F 43        ..S!.."Rn.4...OC
+53 4D 07 13 00 00 00 01 00 09 00 01 00 00 00 04        SM..............
+00 00 00 02 00 00 69 91 6D 3F 1F 05 00 53 21 86        ......i.m?...S!.
+12 23 52 6E F9 34 00 00 00 4F 4E 41 54 03 08 00        .#Rn.4...ONAT...
+00 00 01 00 00 00 00 00 50 41 F8 FF                    ........PA..
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 70
+
+00 09 0B 87 00 19 1F 05 00 53 21 86 12 24 46 ED        .........S!..$F.
+7F 11 00 00 00 59 41 4C 50 03 08 00 00 00 01 00        ....YALP.......
+09 00 7C 8C 15 00 1C 0A 00 08 F8 24 1B D5 50 6E        ..|........$..Pn
+F9 34 00 00 00 6A 6A 22 00 14 9A CA 00 00 00 04        .4...jj"........
+E2 00 00 00 0A 51                                      .....Q
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// NextCraftingStage
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 54
+
+00 09 00 EF 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 4D ED D8 6A 00 00 00 00 00 00 00 00 01 00        ..M..j..........
+00 00 31 00 B7 C5                                      ..1...
+
+-----------------------------------------
+
+Found CRCs:
+
+6AD8ED4D   nextcraftingstage
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 53
+
+00 03 04 00 15 00 F0 06 01 00 AF F9 6C A1 23 00        ............l.#.
+09 0B 9F 05 00 53 21 86 12 24 46 ED 7F 11 00 00        .....S!..$F....
+00 59 41 4C 50 09 08 00 00 00 01 00 01 00 04 00        .YALP...........
+00 00 00 16 FE                                         .....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 305
+
+00 09 0B A0 00 19 23 05 00 46 5E CE 80 0B 00 00        ......#..F^.....
+00 BE 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 09 01 00 00 04 00 00 00 01 2A 05 00 46 5E CE        ..........*..F^.
+80 0B 00 00 00 17 01 00 00 17 46 ED 7F 11 00 00        ..........F....
+00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 D9 05 00 2A 2F F1 F3 7B 37 2F AA        ........*/..{7/.
+12 00 00 00 00 00 05 00 00 00 06 00 76 6F 6C 75        ............volu
+6D 65 01 00 00 00 31 00 18 00 63 72 61 66 74 5F        me....1...craft_
+74 6F 6F 6C 5F 65 66 66 65 63 74 69 76 65 6E 65        tool_effectivene
+73 73 05 00 00 00 31 00 34 00 2E 00 35 00 35 00        ss....1.4...5.5.
+11 00 63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74 61        ..craft_tool_sta
+74 75 73 1B 00 00 00 40 00 63 00 72 00 61 00 66        tus....@.c.r.a.f
+00 74 00 69 00 6E 00 67 00 3A 00 74 00 6F 00 6F        .t.i.n.g.:.t.o.o
+00 6C 00 5F 00 73 00 74 00 61 00 74 00 75 00 73        .l._.s.t.a.t.u.s
+00 5F 00 72 00 65 00 61 00 64 00 79 00 07 00 63        ._.r.e.a.d.y...c
+72 61 66 74 65 72 05 00 00 00 6D 00 61 00 63 00        rafter....m.a.c.
+68 00 79 00 0D 00 73 65 72 69 61 6C 5F 6E 75 6D        h.y...serial_num
+62 65 72 0A 00 00 00 28 00 35 00 39 00 6C 00 71        ber....(.5.9.l.q
+00 70 00 75 00 30 00 71 00 29 00 04 00 00 00 ED        .p.u.0.q.)......
+AB                                                     .
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B B3 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 50 C4        ..............P.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B B9 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 0F E2        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+POS_UPDATE
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 80
+
+00 09 0B BE 00 19 1C 0A 00 08 F8 24 1B F7 50 6E        ...........$..Pn
+F9 34 00 00 00 C7 69 4B 00 9E 9B EA 00 00 00 04        .4....iK........
+D3 00 00 2A 05 00 46 5E CE 80 0B 00 00 00 17 01        ...*..F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 BA AC        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B C3 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 67 AF        ..............g.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 120
+
+00 03 68 00 09 00 F6 05 00 46 5E CE 80 23 00 00        ..h......F^..#..
+00 16 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 00 01 00 00 D4 63 8D 7C 00 00 00 00 00 00 00        ......c.|.......
+00 1B 00 00 00 30 00 20 00 30 00 20 00 30 00 20        .....0...0...0..
+00 30 00 20 00 31 00 20 00 43 00 72 00 65 00 61        .0...1...C.r.e.a
+00 74 00 65 00 20 00 70 00 72 00 6F 00 74 00 6F        .t.e...p.r.o.t.o
+00 74 00 79 00 70 00 65 00 2E 00 0A 00 09 00 F7        .t.y.p.e........
+01 00 68 2D 84 7D AD E7                                ..h-.}..
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B CC 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 A7 E0        ................
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 240
+
+00 09 00 F9 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 EF 50 45 16 00 00 00 00 00 00 00 00 5E 00        ...PE.........^.
+00 00 38 00 30 00 31 00 36 00 34 00 36 00 33 00        ..8.0.1.6.4.6.3.
+32 00 34 00 34 00 33 00 20 00 34 00 20 00 31 00        2.4.4.3...4...1.
+34 00 30 00 34 00 33 00 32 00 31 00 34 00 31 00        4.0.4.3.2.1.4.1.
+34 00 33 00 33 00 20 00 32 00 20 00 31 00 34 00        4.3.3...2...1.4.
+30 00 36 00 39 00 38 00 33 00 35 00 38 00 35 00        0.6.9.8.3.5.8.5.
+38 00 33 00 20 00 31 00 20 00 32 00 32 00 37 00        8.3...1...2.2.7.
+35 00 32 00 33 00 30 00 35 00 36 00 31 00 36 00        5.2.3.0.5.6.1.6.
+33 00 20 00 38 00 20 00 38 00 30 00 31 00 36 00        3...8...8.0.1.6.
+34 00 36 00 33 00 32 00 34 00 34 00 33 00 20 00        4.6.3.2.4.4.3...
+2D 00 32 00 35 00 35 00 20 00 32 00 32 00 37 00        -.2.5.5...2.2.7.
+35 00 32 00 33 00 30 00 35 00 36 00 31 00 36 00        5.2.3.0.5.6.1.6.
+33 00 20 00 2D 00 32 00 35 00 35 00 20 00 3C DA        3...-.2.5.5...<.
+                                                       
+
+-----------------------------------------
+
+Found CRCs:
+
+164550EF   getattributesbatch
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+POS_UPDATE
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 255
+
+00 09 0B CD 00 19 1C 0A 00 08 F8 24 1B D5 50 6E        ...........$..Pn
+F9 34 00 00 00 71 6A 24 00 10 9A DA 00 00 00 04        .4...qj$........
+16 00 00 D9 05 00 2A 2F F1 F3 7B 37 2F AA 12 00        ......*/..{7/...
+00 00 00 00 05 00 00 00 06 00 76 6F 6C 75 6D 65        ..........volume
+01 00 00 00 31 00 18 00 63 72 61 66 74 5F 74 6F        ....1...craft_to
+6F 6C 5F 65 66 66 65 63 74 69 76 65 6E 65 73 73        ol_effectiveness
+05 00 00 00 31 00 34 00 2E 00 35 00 35 00 11 00        ....1.4...5.5...
+63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75        craft_tool_statu
+73 1B 00 00 00 40 00 63 00 72 00 61 00 66 00 74        s....@.c.r.a.f.t
+00 69 00 6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C        .i.n.g.:.t.o.o.l
+00 5F 00 73 00 74 00 61 00 74 00 75 00 73 00 5F        ._.s.t.a.t.u.s._
+00 72 00 65 00 61 00 64 00 79 00 07 00 63 72 61        .r.e.a.d.y...cra
+66 74 65 72 05 00 00 00 6D 00 61 00 63 00 68 00        fter....m.a.c.h.
+79 00 0D 00 73 65 72 69 61 6C 5F 6E 75 6D 62 65        y...serial_numbe
+72 0A 00 00 00 28 00 35 00 39 00 6C 00 71 00 70        r....(.5.9.l.q.p
+00 75 00 30 00 71 00 29 00 04 00 00 00 43 D8           .u.0.q.).....C.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 477
+
+00 09 0B CE 05 00 2A 2F F1 F3 79 6C 68 B2 20 00        ......*/..ylh...
+00 00 00 00 0D 00 00 00 09 00 63 6F 6E 64 69 74        ..........condit
+69 6F 6E 07 00 00 00 31 00 30 00 30 00 2F 00 31        ion....1.0.0./.1
+00 30 00 30 00 06 00 76 6F 6C 75 6D 65 01 00 00        .0.0...volume...
+00 31 00 11 00 72 65 73 6F 75 72 63 65 5F 63 6F        .1...resource_co
+6E 74 65 6E 74 73 0C 00 00 00 33 00 37 00 32 00        ntents....3.7.2.
+31 00 2F 00 31 00 30 00 30 00 30 00 30 00 30 00        1./.1.0.0.0.0.0.
+30 00 0D 00 72 65 73 6F 75 72 63 65 5F 6E 61 6D        0...resource_nam
+65 07 00 00 00 4F 00 72 00 65 00 6B 00 61 00 70        e....O.r.e.k.a.p
+00 65 00 0E 00 72 65 73 6F 75 72 63 65 5F 63 6C        .e...resource_cl
+61 73 73 2B 00 00 00 40 00 72 00 65 00 73 00 6F        ass+...@.r.e.s.o
+00 75 00 72 00 63 00 65 00 2F 00 72 00 65 00 73        .u.r.c.e./.r.e.s
+00 6F 00 75 00 72 00 63 00 65 00 5F 00 6E 00 61        .o.u.r.c.e._.n.a
+00 6D 00 65 00 73 00 3A 00 73 00 74 00 65 00 65        .m.e.s.:.s.t.e.e
+00 6C 00 5F 00 62 00 69 00 63 00 6F 00 72 00 62        .l._.b.i.c.o.r.b
+00 61 00 6E 00 74 00 69 00 75 00 6D 00 0F 00 72        .a.n.t.i.u.m...r
+65 73 5F 63 6F 6C 64 5F 72 65 73 69 73 74 03 00        es_cold_resist..
+00 00 36 00 34 00 36 00 10 00 72 65 73 5F 63 6F        ..6.4.6...res_co
+6E 64 75 63 74 69 76 69 74 79 03 00 00 00 38 00        nductivity....8.
+38 00 38 00 10 00 72 65 73 5F 64 65 63 61 79 5F        8.8...res_decay_
+72 65 73 69 73 74 03 00 00 00 34 00 34 00 31 00        resist....4.4.1.
+0F 00 72 65 73 5F 68 65 61 74 5F 72 65 73 69 73        ..res_heat_resis
+74 03 00 00 00 37 00 37 00 39 00 10 00 72 65 73        t....7.7.9...res
+5F 6D 61 6C 6C 65 61 62 69 6C 69 74 79 03 00 00        _malleability...
+00 32 00 34 00 39 00 0B 00 72 65 73 5F 71 75 61        .2.4.9...res_qua
+6C 69 74 79 03 00 00 00 38 00 37 00 33 00 14 00        lity....8.7.3...
+72 65 73 5F 73 68 6F 63 6B 5F 72 65 73 69 73 74        res_shock_resist
+61 6E 63 65 03 00 00 00 39 00 38 00 38 00 0D 00        ance....9.8.8...
+72 65 73 5F 74 6F 75 67 68 6E 65 73 73 03 00 00        res_toughness...
+00 35 00 33 00 33 00 02 00 00 00 B2 68                 .5.3.3......h
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 397
+
+00 09 0B CF 05 00 2A 2F F1 F3 37 93 46 C2 20 00        ......*/..7.F...
+00 00 00 00 0A 00 00 00 09 00 63 6F 6E 64 69 74        ..........condit
+69 6F 6E 07 00 00 00 31 00 30 00 30 00 2F 00 31        ion....1.0.0./.1
+00 30 00 30 00 06 00 76 6F 6C 75 6D 65 01 00 00        .0.0...volume...
+00 31 00 11 00 72 65 73 6F 75 72 63 65 5F 63 6F        .1...resource_co
+6E 74 65 6E 74 73 0D 00 00 00 39 00 37 00 36 00        ntents....9.7.6.
+33 00 35 00 2F 00 31 00 30 00 30 00 30 00 30 00        3.5./.1.0.0.0.0.
+30 00 30 00 0D 00 72 65 73 6F 75 72 63 65 5F 6E        0.0...resource_n
+61 6D 65 04 00 00 00 49 00 6E 00 6F 00 61 00 0E        ame....I.n.o.a..
+00 72 65 73 6F 75 72 63 65 5F 63 6C 61 73 73 30        .resource_class0
+00 00 00 40 00 72 00 65 00 73 00 6F 00 75 00 72        ...@.r.e.s.o.u.r
+00 63 00 65 00 2F 00 72 00 65 00 73 00 6F 00 75        .c.e./.r.e.s.o.u
+00 72 00 63 00 65 00 5F 00 6E 00 61 00 6D 00 65        .r.c.e._.n.a.m.e
+00 73 00 3A 00 70 00 65 00 74 00 72 00 6F 00 63        .s.:.p.e.t.r.o.c
+00 68 00 65 00 6D 00 5F 00 69 00 6E 00 65 00 72        .h.e.m._.i.n.e.r
+00 74 00 5F 00 70 00 6F 00 6C 00 79 00 6D 00 65        .t._.p.o.l.y.m.e
+00 72 00 10 00 72 65 73 5F 64 65 63 61 79 5F 72        .r...res_decay_r
+65 73 69 73 74 03 00 00 00 34 00 35 00 31 00 10        esist....4.5.1..
+00 72 65 73 5F 6D 61 6C 6C 65 61 62 69 6C 69 74        .res_malleabilit
+79 01 00 00 00 35 00 0B 00 72 65 73 5F 71 75 61        y....5...res_qua
+6C 69 74 79 03 00 00 00 39 00 31 00 31 00 14 00        lity....9.1.1...
+72 65 73 5F 73 68 6F 63 6B 5F 72 65 73 69 73 74        res_shock_resist
+61 6E 63 65 03 00 00 00 39 00 33 00 34 00 0D 00        ance....9.3.4...
+72 65 73 5F 74 6F 75 67 68 6E 65 73 73 03 00 00        res_toughness...
+00 31 00 34 00 37 00 01 00 00 00 30 CC                 .1.4.7.....0.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 444
+
+00 09 0B D0 00 19 D9 05 00 2A 2F F1 F3 23 52 6E        .........*/..#Rn
+F9 34 00 00 00 00 00 05 00 00 00 06 00 76 6F 6C        .4...........vol
+75 6D 65 01 00 00 00 31 00 18 00 63 72 61 66 74        ume....1...craft
+5F 74 6F 6F 6C 5F 65 66 66 65 63 74 69 76 65 6E        _tool_effectiven
+65 73 73 05 00 00 00 31 00 32 00 2E 00 38 00 34        ess....1.2...8.4
+00 11 00 63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74        ...craft_tool_st
+61 74 75 73 1B 00 00 00 40 00 63 00 72 00 61 00        atus....@.c.r.a.
+66 00 74 00 69 00 6E 00 67 00 3A 00 74 00 6F 00        f.t.i.n.g.:.t.o.
+6F 00 6C 00 5F 00 73 00 74 00 61 00 74 00 75 00        o.l._.s.t.a.t.u.
+73 00 5F 00 72 00 65 00 61 00 64 00 79 00 07 00        s._.r.e.a.d.y...
+63 72 61 66 74 65 72 05 00 00 00 6D 00 61 00 63        crafter....m.a.c
+00 68 00 79 00 0D 00 73 65 72 69 61 6C 5F 6E 75        .h.y...serial_nu
+6D 62 65 72 0A 00 00 00 28 00 36 00 33 00 6A 00        mber....(.6.3.j.
+6D 00 61 00 64 00 64 00 72 00 29 00 08 00 00 00        m.a.d.d.r.).....
+D9 05 00 2A 2F F1 F3 7B 37 2F AA 12 00 00 00 00        ...*/..{7/......
+00 05 00 00 00 06 00 76 6F 6C 75 6D 65 01 00 00        .......volume...
+00 31 00 18 00 63 72 61 66 74 5F 74 6F 6F 6C 5F        .1...craft_tool_
+65 66 66 65 63 74 69 76 65 6E 65 73 73 05 00 00        effectiveness...
+00 31 00 34 00 2E 00 35 00 35 00 11 00 63 72 61        .1.4...5.5...cra
+66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75 73 1B 00        ft_tool_status..
+00 00 40 00 63 00 72 00 61 00 66 00 74 00 69 00        ..@.c.r.a.f.t.i.
+6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C 00 5F 00        n.g.:.t.o.o.l._.
+73 00 74 00 61 00 74 00 75 00 73 00 5F 00 72 00        s.t.a.t.u.s._.r.
+65 00 61 00 64 00 79 00 07 00 63 72 61 66 74 65        e.a.d.y...crafte
+72 05 00 00 00 6D 00 61 00 63 00 68 00 79 00 0D        r....m.a.c.h.y..
+00 73 65 72 69 61 6C 5F 6E 75 6D 62 65 72 0A 00        .serial_number..
+00 00 28 00 35 00 39 00 6C 00 71 00 70 00 75 00        ..(.5.9.l.q.p.u.
+30 00 71 00 29 00 04 00 00 00 8F 5B                    0.q.)......[
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 223
+
+00 09 0B D1 05 00 2A 2F F1 F3 23 52 6E F9 34 00        ......*/..#Rn.4.
+00 00 00 00 05 00 00 00 06 00 76 6F 6C 75 6D 65        ..........volume
+01 00 00 00 31 00 18 00 63 72 61 66 74 5F 74 6F        ....1...craft_to
+6F 6C 5F 65 66 66 65 63 74 69 76 65 6E 65 73 73        ol_effectiveness
+05 00 00 00 31 00 32 00 2E 00 38 00 34 00 11 00        ....1.2...8.4...
+63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75        craft_tool_statu
+73 1B 00 00 00 40 00 63 00 72 00 61 00 66 00 74        s....@.c.r.a.f.t
+00 69 00 6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C        .i.n.g.:.t.o.o.l
+00 5F 00 73 00 74 00 61 00 74 00 75 00 73 00 5F        ._.s.t.a.t.u.s._
+00 72 00 65 00 61 00 64 00 79 00 07 00 63 72 61        .r.e.a.d.y...cra
+66 74 65 72 05 00 00 00 6D 00 61 00 63 00 68 00        fter....m.a.c.h.
+79 00 0D 00 73 65 72 69 61 6C 5F 6E 75 6D 62 65        y...serial_numbe
+72 0A 00 00 00 28 00 36 00 33 00 6A 00 6D 00 61        r....(.6.3.j.m.a
+00 64 00 64 00 72 00 29 00 08 00 00 00 22 27           .d.d.r.)....."'
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0B D2 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 7A DD        ..............z.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 240
+
+00 09 00 FA 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01        ...F...........
+00 00 EF 50 45 16 00 00 00 00 00 00 00 00 5E 00        ...PE.........^.
+00 00 38 00 30 00 31 00 36 00 34 00 36 00 33 00        ..8.0.1.6.4.6.3.
+32 00 34 00 34 00 33 00 20 00 34 00 20 00 31 00        2.4.4.3...4...1.
+34 00 30 00 34 00 33 00 32 00 31 00 34 00 31 00        4.0.4.3.2.1.4.1.
+34 00 33 00 33 00 20 00 32 00 20 00 31 00 34 00        4.3.3...2...1.4.
+30 00 36 00 39 00 38 00 33 00 35 00 38 00 35 00        0.6.9.8.3.5.8.5.
+38 00 33 00 20 00 31 00 20 00 32 00 32 00 37 00        8.3...1...2.2.7.
+35 00 32 00 33 00 30 00 35 00 36 00 31 00 36 00        5.2.3.0.5.6.1.6.
+33 00 20 00 38 00 20 00 38 00 30 00 31 00 36 00        3...8...8.0.1.6.
+34 00 36 00 33 00 32 00 34 00 34 00 33 00 20 00        4.6.3.2.4.4.3...
+2D 00 32 00 35 00 35 00 20 00 32 00 32 00 37 00        -.2.5.5...2.2.7.
+35 00 32 00 33 00 30 00 35 00 36 00 31 00 36 00        5.2.3.0.5.6.1.6.
+33 00 20 00 2D 00 32 00 35 00 35 00 20 00 B4 C2        3...-.2.5.5.....
+                                                       
+
+-----------------------------------------
+
+Found CRCs:
+
+164550EF   getattributesbatch
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 223
+
+00 09 0B D4 05 00 2A 2F F1 F3 7B 37 2F AA 12 00        ......*/..{7/...
+00 00 00 00 05 00 00 00 06 00 76 6F 6C 75 6D 65        ..........volume
+01 00 00 00 31 00 18 00 63 72 61 66 74 5F 74 6F        ....1...craft_to
+6F 6C 5F 65 66 66 65 63 74 69 76 65 6E 65 73 73        ol_effectiveness
+05 00 00 00 31 00 34 00 2E 00 35 00 35 00 11 00        ....1.4...5.5...
+63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75        craft_tool_statu
+73 1B 00 00 00 40 00 63 00 72 00 61 00 66 00 74        s....@.c.r.a.f.t
+00 69 00 6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C        .i.n.g.:.t.o.o.l
+00 5F 00 73 00 74 00 61 00 74 00 75 00 73 00 5F        ._.s.t.a.t.u.s._
+00 72 00 65 00 61 00 64 00 79 00 07 00 63 72 61        .r.e.a.d.y...cra
+66 74 65 72 05 00 00 00 6D 00 61 00 63 00 68 00        fter....m.a.c.h.
+79 00 0D 00 73 65 72 69 61 6C 5F 6E 75 6D 62 65        y...serial_numbe
+72 0A 00 00 00 28 00 35 00 39 00 6C 00 71 00 70        r....(.5.9.l.q.p
+00 75 00 30 00 71 00 29 00 04 00 00 00 35 32           .u.0.q.).....52
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 477
+
+00 09 0B D5 05 00 2A 2F F1 F3 79 6C 68 B2 20 00        ......*/..ylh...
+00 00 00 00 0D 00 00 00 09 00 63 6F 6E 64 69 74        ..........condit
+69 6F 6E 07 00 00 00 31 00 30 00 30 00 2F 00 31        ion....1.0.0./.1
+00 30 00 30 00 06 00 76 6F 6C 75 6D 65 01 00 00        .0.0...volume...
+00 31 00 11 00 72 65 73 6F 75 72 63 65 5F 63 6F        .1...resource_co
+6E 74 65 6E 74 73 0C 00 00 00 33 00 37 00 32 00        ntents....3.7.2.
+31 00 2F 00 31 00 30 00 30 00 30 00 30 00 30 00        1./.1.0.0.0.0.0.
+30 00 0D 00 72 65 73 6F 75 72 63 65 5F 6E 61 6D        0...resource_nam
+65 07 00 00 00 4F 00 72 00 65 00 6B 00 61 00 70        e....O.r.e.k.a.p
+00 65 00 0E 00 72 65 73 6F 75 72 63 65 5F 63 6C        .e...resource_cl
+61 73 73 2B 00 00 00 40 00 72 00 65 00 73 00 6F        ass+...@.r.e.s.o
+00 75 00 72 00 63 00 65 00 2F 00 72 00 65 00 73        .u.r.c.e./.r.e.s
+00 6F 00 75 00 72 00 63 00 65 00 5F 00 6E 00 61        .o.u.r.c.e._.n.a
+00 6D 00 65 00 73 00 3A 00 73 00 74 00 65 00 65        .m.e.s.:.s.t.e.e
+00 6C 00 5F 00 62 00 69 00 63 00 6F 00 72 00 62        .l._.b.i.c.o.r.b
+00 61 00 6E 00 74 00 69 00 75 00 6D 00 0F 00 72        .a.n.t.i.u.m...r
+65 73 5F 63 6F 6C 64 5F 72 65 73 69 73 74 03 00        es_cold_resist..
+00 00 36 00 34 00 36 00 10 00 72 65 73 5F 63 6F        ..6.4.6...res_co
+6E 64 75 63 74 69 76 69 74 79 03 00 00 00 38 00        nductivity....8.
+38 00 38 00 10 00 72 65 73 5F 64 65 63 61 79 5F        8.8...res_decay_
+72 65 73 69 73 74 03 00 00 00 34 00 34 00 31 00        resist....4.4.1.
+0F 00 72 65 73 5F 68 65 61 74 5F 72 65 73 69 73        ..res_heat_resis
+74 03 00 00 00 37 00 37 00 39 00 10 00 72 65 73        t....7.7.9...res
+5F 6D 61 6C 6C 65 61 62 69 6C 69 74 79 03 00 00        _malleability...
+00 32 00 34 00 39 00 0B 00 72 65 73 5F 71 75 61        .2.4.9...res_qua
+6C 69 74 79 03 00 00 00 38 00 37 00 33 00 14 00        lity....8.7.3...
+72 65 73 5F 73 68 6F 63 6B 5F 72 65 73 69 73 74        res_shock_resist
+61 6E 63 65 03 00 00 00 39 00 38 00 38 00 0D 00        ance....9.8.8...
+72 65 73 5F 74 6F 75 67 68 6E 65 73 73 03 00 00        res_toughness...
+00 35 00 33 00 33 00 02 00 00 00 8B 62                 .5.3.3......b
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 397
+
+00 09 0B D6 05 00 2A 2F F1 F3 37 93 46 C2 20 00        ......*/..7.F...
+00 00 00 00 0A 00 00 00 09 00 63 6F 6E 64 69 74        ..........condit
+69 6F 6E 07 00 00 00 31 00 30 00 30 00 2F 00 31        ion....1.0.0./.1
+00 30 00 30 00 06 00 76 6F 6C 75 6D 65 01 00 00        .0.0...volume...
+00 31 00 11 00 72 65 73 6F 75 72 63 65 5F 63 6F        .1...resource_co
+6E 74 65 6E 74 73 0D 00 00 00 39 00 37 00 36 00        ntents....9.7.6.
+33 00 35 00 2F 00 31 00 30 00 30 00 30 00 30 00        3.5./.1.0.0.0.0.
+30 00 30 00 0D 00 72 65 73 6F 75 72 63 65 5F 6E        0.0...resource_n
+61 6D 65 04 00 00 00 49 00 6E 00 6F 00 61 00 0E        ame....I.n.o.a..
+00 72 65 73 6F 75 72 63 65 5F 63 6C 61 73 73 30        .resource_class0
+00 00 00 40 00 72 00 65 00 73 00 6F 00 75 00 72        ...@.r.e.s.o.u.r
+00 63 00 65 00 2F 00 72 00 65 00 73 00 6F 00 75        .c.e./.r.e.s.o.u
+00 72 00 63 00 65 00 5F 00 6E 00 61 00 6D 00 65        .r.c.e._.n.a.m.e
+00 73 00 3A 00 70 00 65 00 74 00 72 00 6F 00 63        .s.:.p.e.t.r.o.c
+00 68 00 65 00 6D 00 5F 00 69 00 6E 00 65 00 72        .h.e.m._.i.n.e.r
+00 74 00 5F 00 70 00 6F 00 6C 00 79 00 6D 00 65        .t._.p.o.l.y.m.e
+00 72 00 10 00 72 65 73 5F 64 65 63 61 79 5F 72        .r...res_decay_r
+65 73 69 73 74 03 00 00 00 34 00 35 00 31 00 10        esist....4.5.1..
+00 72 65 73 5F 6D 61 6C 6C 65 61 62 69 6C 69 74        .res_malleabilit
+79 01 00 00 00 35 00 0B 00 72 65 73 5F 71 75 61        y....5...res_qua
+6C 69 74 79 03 00 00 00 39 00 31 00 31 00 14 00        lity....9.1.1...
+72 65 73 5F 73 68 6F 63 6B 5F 72 65 73 69 73 74        res_shock_resist
+61 6E 63 65 03 00 00 00 39 00 33 00 34 00 0D 00        ance....9.3.4...
+72 65 73 5F 74 6F 75 67 68 6E 65 73 73 03 00 00        res_toughness...
+00 31 00 34 00 37 00 01 00 00 00 E9 A7                 .1.4.7.......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 444
+
+00 09 0B D7 00 19 D9 05 00 2A 2F F1 F3 23 52 6E        .........*/..#Rn
+F9 34 00 00 00 00 00 05 00 00 00 06 00 76 6F 6C        .4...........vol
+75 6D 65 01 00 00 00 31 00 18 00 63 72 61 66 74        ume....1...craft
+5F 74 6F 6F 6C 5F 65 66 66 65 63 74 69 76 65 6E        _tool_effectiven
+65 73 73 05 00 00 00 31 00 32 00 2E 00 38 00 34        ess....1.2...8.4
+00 11 00 63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74        ...craft_tool_st
+61 74 75 73 1B 00 00 00 40 00 63 00 72 00 61 00        atus....@.c.r.a.
+66 00 74 00 69 00 6E 00 67 00 3A 00 74 00 6F 00        f.t.i.n.g.:.t.o.
+6F 00 6C 00 5F 00 73 00 74 00 61 00 74 00 75 00        o.l._.s.t.a.t.u.
+73 00 5F 00 72 00 65 00 61 00 64 00 79 00 07 00        s._.r.e.a.d.y...
+63 72 61 66 74 65 72 05 00 00 00 6D 00 61 00 63        crafter....m.a.c
+00 68 00 79 00 0D 00 73 65 72 69 61 6C 5F 6E 75        .h.y...serial_nu
+6D 62 65 72 0A 00 00 00 28 00 36 00 33 00 6A 00        mber....(.6.3.j.
+6D 00 61 00 64 00 64 00 72 00 29 00 08 00 00 00        m.a.d.d.r.).....
+D9 05 00 2A 2F F1 F3 7B 37 2F AA 12 00 00 00 00        ...*/..{7/......
+00 05 00 00 00 06 00 76 6F 6C 75 6D 65 01 00 00        .......volume...
+00 31 00 18 00 63 72 61 66 74 5F 74 6F 6F 6C 5F        .1...craft_tool_
+65 66 66 65 63 74 69 76 65 6E 65 73 73 05 00 00        effectiveness...
+00 31 00 34 00 2E 00 35 00 35 00 11 00 63 72 61        .1.4...5.5...cra
+66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75 73 1B 00        ft_tool_status..
+00 00 40 00 63 00 72 00 61 00 66 00 74 00 69 00        ..@.c.r.a.f.t.i.
+6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C 00 5F 00        n.g.:.t.o.o.l._.
+73 00 74 00 61 00 74 00 75 00 73 00 5F 00 72 00        s.t.a.t.u.s._.r.
+65 00 61 00 64 00 79 00 07 00 63 72 61 66 74 65        e.a.d.y...crafte
+72 05 00 00 00 6D 00 61 00 63 00 68 00 79 00 0D        r....m.a.c.h.y..
+00 73 65 72 69 61 6C 5F 6E 75 6D 62 65 72 0A 00        .serial_number..
+00 00 28 00 35 00 39 00 6C 00 71 00 70 00 75 00        ..(.5.9.l.q.p.u.
+30 00 71 00 29 00 04 00 00 00 94 58                    0.q.)......X
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 140
+
+00 03 82 00 09 00 FB 05 00 46 5E CE 80 83 00 00        .........F^.....
+00 5A 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        .Z....F........
+00 2D 00 00 00 57 00 65 00 61 00 70 00 6F 00 6E        .-...W.e.a.p.o.n
+00 2C 00 20 00 44 00 72 00 6F 00 69 00 64 00 2C        .,...D.r.o.i.d.,
+00 20 00 61 00 6E 00 64 00 20 00 47 00 65 00 6E        ...a.n.d...G.e.n
+00 65 00 72 00 61 00 6C 00 20 00 49 00 74 00 65        .e.r.a.l...I.t.e
+00 6D 00 20 00 43 00 72 00 61 00 66 00 74 00 69        .m...C.r.a.f.t.i
+00 6E 00 67 00 20 00 54 00 6F 00 6F 00 6C 00 FF        .n.g...T.o.o.l..
+E8 03 00 00 00 04 00 15 0B D7 04 47                    ...........G
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 223
+
+00 09 0B D8 05 00 2A 2F F1 F3 23 52 6E F9 34 00        ......*/..#Rn.4.
+00 00 00 00 05 00 00 00 06 00 76 6F 6C 75 6D 65        ..........volume
+01 00 00 00 31 00 18 00 63 72 61 66 74 5F 74 6F        ....1...craft_to
+6F 6C 5F 65 66 66 65 63 74 69 76 65 6E 65 73 73        ol_effectiveness
+05 00 00 00 31 00 32 00 2E 00 38 00 34 00 11 00        ....1.2...8.4...
+63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75        craft_tool_statu
+73 1B 00 00 00 40 00 63 00 72 00 61 00 66 00 74        s....@.c.r.a.f.t
+00 69 00 6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C        .i.n.g.:.t.o.o.l
+00 5F 00 73 00 74 00 61 00 74 00 75 00 73 00 5F        ._.s.t.a.t.u.s._
+00 72 00 65 00 61 00 64 00 79 00 07 00 63 72 61        .r.e.a.d.y...cra
+66 74 65 72 05 00 00 00 6D 00 61 00 63 00 68 00        fter....m.a.c.h.
+79 00 0D 00 73 65 72 69 61 6C 5F 6E 75 6D 62 65        y...serial_numbe
+72 0A 00 00 00 28 00 36 00 33 00 6A 00 6D 00 61        r....(.6.3.j.m.a
+00 64 00 64 00 72 00 29 00 08 00 00 00 3D 37           .d.d.r.).....=7
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 63
+
+00 03 04 00 15 00 FB 06 01 00 AF F9 6C A1 2E 00        ............l...
+09 0B D9 05 00 46 5E CE 80 0B 00 00 00 17 01 00        .....F^.........
+00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 01 00        ..F............
+00 00 00 00 00 00 00 00 00 00 00 00 00 C0 DC           ...............
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// Deltas message -- MSCO -- Manufacturing Schematic Object?
+TransOp:[0]
+
+Data A
+DeltasMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 258
+
+00 09 0B DA 00 19 79 05 00 53 21 86 12 23 52 6E        ......y..S!..#Rn
+F9 34 00 00 00 4F 4E 41 54 03 62 00 00 00 01 00        .4...ONAT.b.....
+02 00 2D 00 00 00 57 00 65 00 61 00 70 00 6F 00        ..-...W.e.a.p.o.
+6E 00 2C 00 20 00 44 00 72 00 6F 00 69 00 64 00        n.,...D.r.o.i.d.
+2C 00 20 00 61 00 6E 00 64 00 20 00 47 00 65 00        ,...a.n.d...G.e.
+6E 00 65 00 72 00 61 00 6C 00 20 00 49 00 74 00        n.e.r.a.l...I.t.
+65 00 6D 00 20 00 43 00 72 00 61 00 66 00 74 00        e.m...C.r.a.f.t.
+69 00 6E 00 67 00 20 00 54 00 6F 00 6F 00 6C 00        i.n.g...T.o.o.l.
+7F 05 00 53 21 86 12 22 52 6E F9 34 00 00 00 4F        ..S!.."Rn.4...O
+43 53 4D 03 68 00 00 00 02 00 02 00 2D 00 00 00        CSM.h.......-...
+57 00 65 00 61 00 70 00 6F 00 6E 00 2C 00 20 00        W.e.a.p.o.n.,...
+44 00 72 00 6F 00 69 00 64 00 2C 00 20 00 61 00        D.r.o.i.d.,...a.
+6E 00 64 00 20 00 47 00 65 00 6E 00 65 00 72 00        n.d...G.e.n.e.r.
+61 00 6C 00 20 00 49 00 74 00 65 00 6D 00 20 00        a.l...I.t.e.m...
+43 00 72 00 61 00 66 00 74 00 69 00 6E 00 67 00        C.r.a.f.t.i.n.g.
+20 00 54 00 6F 00 6F 00 6C 00 04 00 E8 03 00 00        ..T.o.o.l.......
+B1 73                                                  .s
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 73
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 E0 69 25 00 88 99 F1 00 00 00 04 FC 00 00 27        ..i%...........'
+00 09 0B DB 05 00 46 5E CE 80 0B 00 00 00 0C 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 5A 01        ...F.........Z.
+00 00 00 00 00 00 00 DE 74                             ........t
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// NextCraftingStage
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 62
+
+00 03 04 00 15 0B DB 34 00 09 00 FC 05 00 46 5E        .......4......F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 20 01 00 00 4D ED D8 6A 00 00        ..........M..j..
+00 00 00 00 00 00 01 00 00 00 31 00 04 23              ..........1..#
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 70
+
+00 03 1C 0A 00 08 F8 24 1B F7 50 6E F9 34 00 00        .......$..Pn.4..
+00 A2 69 31 00 2E 9B FE 00 00 00 04 D3 00 00 23        ..i1...........#
+00 09 0B DC 05 00 53 21 86 12 24 46 ED 7F 11 00        ......S!..$F...
+00 00 59 41 4C 50 09 08 00 00 00 01 00 01 00 05        ..YALP..........
+00 00 00 00 D0 83                                      ......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 119
+
+00 03 1C 0A 00 08 F8 24 1B D5 50 6E F9 34 00 00        .......$..Pn.4..
+00 97 6A 1A 00 17 9A DF 00 00 00 04 16 00 00 55        ..j............U
+00 09 0B DD 00 19 23 05 00 46 5E CE 80 0B 00 00        ......#..F^.....
+00 BE 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 09 01 00 00 04 00 00 00 01 2A 05 00 46 5E CE        ..........*..F^.
+80 0B 00 00 00 17 01 00 00 17 46 ED 7F 11 00 00        ..........F....
+00 00 00 00 00 20 01 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 63 9F                                   .....c.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// CreatePrototype
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 66
+
+00 03 04 00 15 0B DD 38 00 09 00 FD 05 00 46 5E        .......8......F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 40 01 00 00 15 F4 1F D6 00 00        ......@.........
+00 00 00 00 00 00 03 00 00 00 30 00 20 00 31 00        ..........0...1.
+EA 1A                                                  ..
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 94
+
+00 03 1C 0A 00 08 F8 24 1B F7 50 6E F9 34 00 00        .......$..Pn.4..
+00 A0 69 2E 00 28 9B FF 00 00 00 04 D3 00 00 3C        ..i..(.........<
+00 09 0B DF 00 19 0F 03 00 04 D5 45 4D 23 52 6E        ...........EM#Rn
+F9 34 00 00 00 00 25 05 00 53 21 86 12 24 46 ED        .4....%..S!..$F.
+7F 11 00 00 00 59 41 4C 50 09 0E 00 00 00 02 00        ....YALP.......
+05 00 FF FF FF FF 01 00 00 00 00 00 FF 30              .............0
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Data A
+SceneDestroyObject
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 103
+
+00 09 0B E0 00 19 0F 03 00 04 D5 45 4D 22 52 6E        ...........EM"Rn
+F9 34 00 00 00 00 23 05 00 46 5E CE 80 0B 00 00        .4....#..F^.....
+00 0C 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 0A 01 00 00 01 00 00 00 00 2A 05 00 46 5E CE        ..........*..F^.
+80 0B 00 00 00 17 01 00 00 17 46 ED 7F 11 00 00        ..........F....
+00 00 00 00 00 40 01 00 00 00 00 00 00 00 00 00        .....@..........
+00 00 00 00 00 DC 95                                   .......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 60
+
+00 03 04 00 15 0B E0 32 00 09 00 FE 05 00 46 5E        .......2......F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 60 01 00 00 2A 0E 25 83 00 00        ......`...*.%...
+00 00 00 00 00 00 00 00 00 00 F9 B4                    ............
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 81
+
+00 03 1C 0A 00 08 F8 24 1B DF 50 6E F9 34 00 00        .......$..Pn.4..
+00 DB 69 24 00 99 99 F3 00 00 00 04 FC 00 00 23        ..i$...........#
+00 09 0B E1 05 00 46 5E CE 80 1B 00 00 00 F2 00        ......F^........
+00 00 D5 50 6E F9 34 00 00 00 00 00 00 00 03 00        ...Pn.4.........
+65 61 74 04 00 15 00 FE 06 01 00 AF F9 6C A1 F2        eat..........l..
+B8                                                     .
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 212
+
+00 03 04 00 15 0B E1 CA 00 09 00 FF 05 00 46 5E        ..............F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 60 01 00 00 EF 50 45 16 00 00        ......`....PE...
+00 00 00 00 00 00 4C 00 00 00 38 00 30 00 31 00        ......L...8.0.1.
+36 00 34 00 36 00 33 00 32 00 34 00 34 00 33 00        6.4.6.3.2.4.4.3.
+20 00 34 00 20 00 31 00 34 00 30 00 34 00 33 00        ..4...1.4.0.4.3.
+32 00 31 00 34 00 31 00 34 00 33 00 33 00 20 00        2.1.4.1.4.3.3...
+32 00 20 00 31 00 34 00 30 00 36 00 39 00 38 00        2...1.4.0.6.9.8.
+33 00 35 00 38 00 35 00 38 00 33 00 20 00 31 00        3.5.8.5.8.3...1.
+20 00 32 00 32 00 37 00 35 00 32 00 33 00 30 00        ..2.2.7.5.2.3.0.
+35 00 36 00 31 00 36 00 33 00 20 00 38 00 20 00        5.6.1.6.3...8...
+38 00 30 00 31 00 36 00 34 00 36 00 33 00 32 00        8.0.1.6.4.6.3.2.
+34 00 34 00 33 00 20 00 2D 00 32 00 35 00 35 00        4.4.3...-.2.5.5.
+20 00 61 A4                                            ..a.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+-----------------------------------------------------------------------
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 326
+
+00 09 0B E2 00 19 1B 05 00 46 5E CE 80 0B 00 00        .........F^.....
+00 C2 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 01 2A 05 00 46 5E CE 80 0B 00 00 00 17 01 00        ..*..F^.........
+00 17 46 ED 7F 11 00 00 00 00 00 00 00 60 01 00        ..F.........`..
+00 00 00 00 00 00 00 00 00 00 00 00 00 F6 05 00        ................
+2A 2F F1 F3 7B 37 2F AA 12 00 00 00 00 00 06 00        */..{7/.........
+00 00 06 00 76 6F 6C 75 6D 65 01 00 00 00 31 00        ....volume....1.
+18 00 63 72 61 66 74 5F 74 6F 6F 6C 5F 65 66 66        ..craft_tool_eff
+65 63 74 69 76 65 6E 65 73 73 05 00 00 00 31 00        ectiveness....1.
+34 00 2E 00 35 00 35 00 11 00 63 72 61 66 74 5F        4...5.5...craft_
+74 6F 6F 6C 5F 73 74 61 74 75 73 1D 00 00 00 40        tool_status....@
+00 63 00 72 00 61 00 66 00 74 00 69 00 6E 00 67        .c.r.a.f.t.i.n.g
+00 3A 00 74 00 6F 00 6F 00 6C 00 5F 00 73 00 74        .:.t.o.o.l._.s.t
+00 61 00 74 00 75 00 73 00 5F 00 77 00 6F 00 72        .a.t.u.s._.w.o.r
+00 6B 00 69 00 6E 00 67 00 0F 00 63 72 61 66 74        .k.i.n.g...craft
+5F 74 6F 6F 6C 5F 74 69 6D 65 02 00 00 00 32 00        _tool_time....2.
+36 00 07 00 63 72 61 66 74 65 72 05 00 00 00 6D        6...crafter....m
+00 61 00 63 00 68 00 79 00 0D 00 73 65 72 69 61        .a.c.h.y...seria
+6C 5F 6E 75 6D 62 65 72 0A 00 00 00 28 00 35 00        l_number....(.5.
+39 00 6C 00 71 00 70 00 75 00 30 00 71 00 29 00        9.l.q.p.u.0.q.).
+08 00 00 00 AC 56                                      .....V
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Server -> Client
+00 09 0B E4 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 60 01        ...F.........`.
+00 00 00 00 00 00 00 00 00 00 00 00 00 00              ..............
+
+-----------------------------------------------------------------------
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 125
+
+00 09 01 00 00 19 22 05 00 46 5E CE 80 83 00 00        ......"..F^.....
+00 26 01 00 00 17 46 ED 7F 11 00 00 00 00 00 00        .&....F........
+00 8A 69 34 BC 12 00 00 00 2E 05 00 46 5E CE 80        ..i4........F^..
+23 00 00 00 16 01 00 00 17 46 ED 7F 11 00 00 00        #........F.....
+00 00 00 00 60 01 00 00 02 B7 A8 D6 00 00 00 00        ....`...........
+00 00 00 00 00 00 00 00 22 05 00 46 5E CE 80 83        ........"..F^...
+00 00 00 26 01 00 00 17 46 ED 7F 11 00 00 00 00        ...&....F......
+00 00 00 00 00 00 00 00 00 00 00 12 A7                 .............
+
+-----------------------------------------
+
+Found CRCs:
+
+D6A8B702   target
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Multi Packet
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 53
+
+00 03 23 00 09 0B E6 05 00 53 21 86 12 7B 37 2F        ..#......S!..{7/
+AA 12 00 00 00 4F 4E 41 54 03 08 00 00 00 01 00        .....ONAT.......
+09 00 18 00 00 00 04 00 15 01 01 06 01 00 AF F9        ................
+6C A1 00 2D D2                                         l..-.
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0C 17 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 60 01        ...F.........`.
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 75 C1        ..............u.
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: F    Seed: 0x7FDBDBFD    Length: 38
+
+00 09 0C 19 05 00 46 5E CE 80 1B 00 00 00 F2 00        ......F^........
+00 00 DF 50 6E F9 34 00 00 00 00 00 00 00 03 00        ...Pn.4.........
+65 61 74 00 2B 3A                                      eat.+:
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 114
+
+00 09 01 12 05 00 46 5E CE 80 23 00 00 00 16 01        ......F^..#.....
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 60 01        ...F.........`.
+00 00 EF 50 45 16 00 00 00 00 00 00 00 00 1F 00        ...PE...........
+00 00 38 00 30 00 31 00 36 00 34 00 36 00 33 00        ..8.0.1.6.4.6.3.
+32 00 34 00 34 00 33 00 20 00 38 00 20 00 38 00        2.4.4.3...8...8.
+30 00 31 00 36 00 34 00 36 00 33 00 32 00 34 00        0.1.6.4.6.3.2.4.
+34 00 33 00 20 00 2D 00 32 00 35 00 35 00 20 00        4.3...-.2.5.5...
+67 AD                                                  g.
+
+-----------------------------------------
+
+Found CRCs:
+
+164550EF   getattributesbatch
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 250
+
+00 09 0C 1A 05 00 2A 2F F1 F3 7B 37 2F AA 12 00        ......*/..{7/...
+00 00 00 00 06 00 00 00 06 00 76 6F 6C 75 6D 65        ..........volume
+01 00 00 00 31 00 18 00 63 72 61 66 74 5F 74 6F        ....1...craft_to
+6F 6C 5F 65 66 66 65 63 74 69 76 65 6E 65 73 73        ol_effectiveness
+05 00 00 00 31 00 34 00 2E 00 35 00 35 00 11 00        ....1.4...5.5...
+63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75        craft_tool_statu
+73 1D 00 00 00 40 00 63 00 72 00 61 00 66 00 74        s....@.c.r.a.f.t
+00 69 00 6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C        .i.n.g.:.t.o.o.l
+00 5F 00 73 00 74 00 61 00 74 00 75 00 73 00 5F        ._.s.t.a.t.u.s._
+00 77 00 6F 00 72 00 6B 00 69 00 6E 00 67 00 0F        .w.o.r.k.i.n.g..
+00 63 72 61 66 74 5F 74 6F 6F 6C 5F 74 69 6D 65        .craft_tool_time
+01 00 00 00 32 00 07 00 63 72 61 66 74 65 72 05        ....2...crafter.
+00 00 00 6D 00 61 00 63 00 68 00 79 00 0D 00 73        ...m.a.c.h.y...s
+65 72 69 61 6C 5F 6E 75 6D 62 65 72 0A 00 00 00        erial_number....
+28 00 35 00 39 00 6C 00 71 00 70 00 75 00 30 00        (.5.9.l.q.p.u.0.
+71 00 29 00 08 00 00 00 4C 6C                          q.).....Ll
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 48
+
+00 09 0C 1B 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 60 01        ...F.........`.
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 4D 71        ..............Mq
+                                                       
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+ChatSystemMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 137
+
+00 09 0C 1D 04 00 13 64 2A 6D 00 00 00 00 00 3A        .......d*m.....:
+00 00 00 01 00 01 FF FF FF FF 0A 00 73 79 73 74        ............syst
+65 6D 5F 6D 73 67 00 00 00 00 15 00 70 72 6F 74        em_msg......prot
+6F 74 79 70 65 5F 74 72 61 6E 73 66 65 72 72 65        otype_transferre
+64 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        d...............
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 00 00 00 A0 11                             .........
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Data A
+SceneCreateObjectByCRC
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 455
+
+00 09 0C 1E 00 19 2F 05 00 EA DD 89 FE 23 52 6E        ....../......#Rn
+F9 34 00 00 00 00 00 00 00 00 00 00 00 00 00 00        .4..............
+00 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00        ....?...........
+00 31 D0 F6 64 00 1A 04 00 9E DE CB 56 23 52 6E        .1..d.......V#Rn
+F9 34 00 00 00 18 46 ED 7F 11 00 00 00 FF FF FF        .4....F........
+FF C2 05 00 0C 5F A7 68 23 52 6E F9 34 00 00 00        ....._.h#Rn.4...
+4F 4E 41 54 03 AB 00 00 00 0D 00 00 00 50 41 08        ONAT.........PA.
+00 63 72 61 66 74 69 6E 67 00 00 00 00 10 00 77        .crafting......w
+65 61 70 6F 6E 5F 74 6F 6F 6C 5F 6E 61 6D 65 2D        eapon_tool_name-
+00 00 00 57 00 65 00 61 00 70 00 6F 00 6E 00 2C        ...W.e.a.p.o.n.,
+00 20 00 44 00 72 00 6F 00 69 00 64 00 2C 00 20        ...D.r.o.i.d.,..
+00 61 00 6E 00 64 00 20 00 47 00 65 00 6E 00 65        .a.n.d...G.e.n.e
+00 72 00 61 00 6C 00 20 00 49 00 74 00 65 00 6D        .r.a.l...I.t.e.m
+00 20 00 43 00 72 00 61 00 66 00 74 00 69 00 6E        ...C.r.a.f.t.i.n
+00 67 00 20 00 54 00 6F 00 6F 00 6C 00 01 00 00        .g...T.o.o.l....
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ................
+00 00 00 00 21 00 00 00 00 00 00 00 00 00 00 E8        ....!...........
+03 00 00 01 4D 05 00 0C 5F A7 68 23 52 6E F9 34        ....M..._.h#Rn.4
+00 00 00 4F 4E 41 54 06 36 00 00 00 04 00 76 00        ...ONAT.6.....v.
+00 00 0F 00 63 72 61 66 74 69 6E 67 5F 64 65 74        ....crafting_det
+61 69 6C 00 00 00 00 10 00 77 65 61 70 6F 6E 5F        ail......weapon_
+74 6F 6F 6C 5F 6E 61 6D 65 00 00 00 00 00 00 00        tool_name.......
+00 00 19 05 00 0C 5F A7 68 23 52 6E F9 34 00 00        ......_.h#Rn.4..
+00 4F 4E 41 54 08 02 00 00 00 00 00 19 05 00 0C        .ONAT...........
+5F A7 68 23 52 6E F9 34 00 00 00 4F 4E 41 54 09        _.h#Rn.4...ONAT.
+02 00 00 00 00 00 0E 02 00 37 60 43 2C 23 52 6E        .........7`C,#Rn
+F9 34 00 00 00 1F 05 00 53 21 86 12 7B 37 2F AA        .4......S!..{7/.
+12 00 00 00 4F 4E 41 54 03 08 00 00 00 01 00 09        ....ONAT........
+00 00 00 00 00 BB 25                                   ......%
+
+-----------------------------------------
+
+Found CRCs:
+
+64F6D031   object/tangible/crafting/station/shared_weapon_tool.iff
+
+---------------------------------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+TransOp:[0]
+
+Multi Packet
+
+192.168.2.4:2097 -> 199.108.196.51:44463(Client -> Server)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 122
+
+00 03 04 00 15 0C 1E 70 00 09 01 14 05 00 46 5E        .......p......F^
+CE 80 23 00 00 00 16 01 00 00 17 46 ED 7F 11 00        ..#........F...
+00 00 00 00 00 00 60 01 00 00 EF 50 45 16 00 00        ......`....PE...
+00 00 00 00 00 00 1F 00 00 00 38 00 30 00 31 00        ..........8.0.1.
+36 00 34 00 36 00 33 00 32 00 34 00 34 00 33 00        6.4.6.3.2.4.4.3.
+20 00 38 00 20 00 38 00 30 00 31 00 36 00 34 00        ..8...8.0.1.6.4.
+36 00 33 00 32 00 34 00 34 00 33 00 20 00 2D 00        6.3.2.4.4.3...-.
+32 00 35 00 35 00 20 00 B0 CC                          2.5.5.....
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+TransOp:[0]
+
+Data A
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 444
+
+00 09 0C 1F 00 19 D9 05 00 2A 2F F1 F3 7B 37 2F        .........*/..{7/
+AA 12 00 00 00 00 00 05 00 00 00 06 00 76 6F 6C        .............vol
+75 6D 65 01 00 00 00 31 00 18 00 63 72 61 66 74        ume....1...craft
+5F 74 6F 6F 6C 5F 65 66 66 65 63 74 69 76 65 6E        _tool_effectiven
+65 73 73 05 00 00 00 31 00 34 00 2E 00 35 00 35        ess....1.4...5.5
+00 11 00 63 72 61 66 74 5F 74 6F 6F 6C 5F 73 74        ...craft_tool_st
+61 74 75 73 1B 00 00 00 40 00 63 00 72 00 61 00        atus....@.c.r.a.
+66 00 74 00 69 00 6E 00 67 00 3A 00 74 00 6F 00        f.t.i.n.g.:.t.o.
+6F 00 6C 00 5F 00 73 00 74 00 61 00 74 00 75 00        o.l._.s.t.a.t.u.
+73 00 5F 00 72 00 65 00 61 00 64 00 79 00 07 00        s._.r.e.a.d.y...
+63 72 61 66 74 65 72 05 00 00 00 6D 00 61 00 63        crafter....m.a.c
+00 68 00 79 00 0D 00 73 65 72 69 61 6C 5F 6E 75        .h.y...serial_nu
+6D 62 65 72 0A 00 00 00 28 00 35 00 39 00 6C 00        mber....(.5.9.l.
+71 00 70 00 75 00 30 00 71 00 29 00 0D 00 00 00        q.p.u.0.q.).....
+D9 05 00 2A 2F F1 F3 7B 37 2F AA 12 00 00 00 00        ...*/..{7/......
+00 05 00 00 00 06 00 76 6F 6C 75 6D 65 01 00 00        .......volume...
+00 31 00 18 00 63 72 61 66 74 5F 74 6F 6F 6C 5F        .1...craft_tool_
+65 66 66 65 63 74 69 76 65 6E 65 73 73 05 00 00        effectiveness...
+00 31 00 34 00 2E 00 35 00 35 00 11 00 63 72 61        .1.4...5.5...cra
+66 74 5F 74 6F 6F 6C 5F 73 74 61 74 75 73 1B 00        ft_tool_status..
+00 00 40 00 63 00 72 00 61 00 66 00 74 00 69 00        ..@.c.r.a.f.t.i.
+6E 00 67 00 3A 00 74 00 6F 00 6F 00 6C 00 5F 00        n.g.:.t.o.o.l._.
+73 00 74 00 61 00 74 00 75 00 73 00 5F 00 72 00        s.t.a.t.u.s._.r.
+65 00 61 00 64 00 79 00 07 00 63 72 61 66 74 65        e.a.d.y...crafte
+72 05 00 00 00 6D 00 61 00 63 00 68 00 79 00 0D        r....m.a.c.h.y..
+00 73 65 72 69 61 6C 5F 6E 75 6D 62 65 72 0A 00        .serial_number..
+00 00 28 00 35 00 39 00 6C 00 71 00 70 00 75 00        ..(.5.9.l.q.p.u.
+30 00 71 00 29 00 0D 00 00 00 C4 9B                    0.q.).......
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+00 09 0C 20 05 00 46 5E CE 80 0B 00 00 00 17 01        ......F^........
+00 00 17 46 ED 7F 11 00 00 00 00 00 00 00 60 01        ...F.........`.
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 C7 CC        ................
+
+
+
+TransOp:[0]
+
+Data A
+ObjControllerMessage
+
+199.108.196.51:44463 -> 192.168.2.4:2097(Server -> Client)
+Enc: T   Comp: T    Seed: 0x7FDBDBFD    Length: 169
+
+00 09 0C 22 00 19 75 05 00 46 5E CE 80 0B 00 00        ..."..u..F^.....
+00 F4 00 00 00 17 46 ED 7F 11 00 00 00 00 00 00        ......F........
+00 17 46 ED 7F 11 00 00 00 00 00 00 00 00 00 00        ..F............
+00 1A 00 00 00 49 00 74 00 65 00 6D 00 20 00 73        .....I.t.e.m...s
+00 70 00 61 00 77 00 6E 00 65 00 64 00 20 00 69        .p.a.w.n.e.d...i
+00 6E 00 20 00 69 00 6E 00 76 00 65 00 6E 00 74        .n...i.n.v.e.n.t
+00 6F 00 72 00 79 00 2E 00 00 00 00 00 32 00 00        .o.r.y.......2..
+00 00 00 01 00 00 00 00 00 00 00 00 2A 05 00 46        ............*..F
+5E CE 80 0B 00 00 00 17 01 00 00 17 46 ED 7F 11        ^...........F..
+00 00 00 00 00 00 00 60 01 00 00 00 00 00 00 00        .......`........
+00 00 00 00 00 00 00 D7 A3                             .........

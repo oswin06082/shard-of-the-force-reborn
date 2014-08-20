@@ -1,0 +1,12 @@
+Jedi Flag bitmask settings (in decimal and binary):
+
+0 : 00000000 -- No force sensitive skills visible.
+
+
+1 : 00000001 -- Force-Sensitive skills (IE the Village trees) plus Jedi Progression skill trees visible.
+2 : 00000010 -- Same as above, plus Jedi skills (Lightsaber, Force Powers, Force Healing, Force Enhancement, Force Defense)
+4 : 00000100 -- Same as 00000010, plus Light Jedi Enclave tree.
+8 : 00001000 -- Same as 00000010, plus Dark Jedi Enclave tree.
+
+
+Any number other than the 4 above is treated as a 0 value (no FS skills).  IE 00000011 is treated by the client as 00000000

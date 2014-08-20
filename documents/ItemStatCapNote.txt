@@ -1,0 +1,1 @@
+averageHealthCost = (healthCostMin + healthCostMax) / 2;

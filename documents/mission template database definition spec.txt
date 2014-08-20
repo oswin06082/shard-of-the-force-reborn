@@ -1,0 +1,10 @@
+Data base Definition for mission_template
+
+missionstfstring - varchar : mission/mission_deliver_neutral_easy
+numberofentries - int - as in mXd where x is the mission id
+mission type byte  - 1 deliver , 0 destory
+displaycrc - int signed (not unsigned) - this could be a template id too
+lair name varchar - as in "@lair_n:lairname"
+mission difficulty byte - values 0 - 3
+mission level int - 0 to 90
+planets allowed varchar - comma delimited list, 0,4,5,7 or -1 for all

@@ -1,0 +1,45 @@
+This file is a 'work in progress' version of the schematic table I'm using while I populate the new ingredient fields
+The old fields are still present
+The new fields are all varchar(255) or text (needed while I was populating some of the fields)
+All things will obviously be tidied up when it's got most records done
+
+The records which have the new fields populated have maybe=0
+
+Because it's large and mainly here for safety I've compressed it
+
+Field part?filler1 is populated with a copy of part?needed
+Field part?filler2 is populated with the STF name (or IFF name for components)
+
+The experimentation fields now have a SLOT number which shows which slot the information fits in.
+I some cases there can be many, many slots and only a handful are populated so it is done this way to avoid
+too many fields that are populated only 0.1% of the time.
+
+The different levels of maybe (exp=experimentation, ing=ingredients)
+0  = exp OK, ing OK
+1  = exp OK, ing incomplete maybe - checking these now
+2  = exp OK, ing OK - exp missed one or more intentionally (like ammunition efficiency on some weapons)
+3  = exp OK, ing incomplete - exp missed one or more intentionally (as above)
+5  = ing complete, exp incomplete
+8  = needs work on ing and exp
+55 = quest paintings - not a lot of information
+88 = should not be in the dataset - it's not a schematic or was not used
+99 = post CU
+
+the NewSchematic.sql has all the maybe=0 entries with all the non-used fields removed - to give an idea of real table size
+
+A lot of 2's I've now made 0 - i.e. usable as the experimentation unused in crazy (ammo used etc.)
+
+
+
+*****
+Current issues - main ones
+*****
+
+No ingredient info on 15 'bestine paintings' apart from knowing the highest quantity is Hide (presumably for the Canvas slot)
+
+RIS, Mando, BH Armour - no preCU ingredient data seen yet
+With armour the CU 'appearance' info matches pretty close but with a different 'armour segment loaded' - last resort...
+Because armour moved from "segment/type" to "type + appearance" (i.e. the appearance and type were not connected in CU)
+We have CU data for these (complete I think)
+
+
