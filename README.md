@@ -2,6 +2,8 @@ shard-of-the-force-reborn
 =========================
 The shard-of-the-force-reborn Open Source Project's aim is to create a server emulator for the sandbox MMO Star Wars Galaxies at its pre-cu publish 14.1 
 
+original owner https://www.assembla.com/user/popup_profile/aergad
+
 Requirements for Building the Core:
 =========================
 <ul>
