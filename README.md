@@ -4,16 +4,17 @@ The shard-of-the-force-reborn Open Source Project's aim is to create a server em
 
 Requirements for Building the Core:
 =========================
-A valid Star Wars Galaxies Installation 
-netbeans ide
-java programming
-javascript programming
-jdk 1.6 or higher
-MySQL Server 5.5
-TRE Explorer(http://forum.modsource.org/index.php?
-Github account
-(optional for windows) Github for Windows(http://windows.github.com/)
-
+<ul>
+<li>A valid Star Wars Galaxies Installation</li>
+<li>netbeans ide</li>
+<li>java programming</li>
+<lijavascript programming</li>
+<li>jdk 1.6 or higher</li>
+<li>MySQL Server 5.5</li>
+<li>TRE Explorer(http://forum.modsource.org/index.php?</li>
+<li>Github account</li>
+<li>(optional for windows) Github for Windows(http://windows.github.com/)</li>
+</ul>
 Once you have met the requirements, fork the project(click on the fork button) and then clone your forked repository. If you are using Windows then you can clone the repository with Github for Windows, otherwise you can use the following git command:
 
 git clone https://github.com/your_account_name/shard-of-the-force-reborn.git
