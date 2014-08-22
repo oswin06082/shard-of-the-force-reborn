@@ -26,7 +26,7 @@ Then you can import the project to Netbeans
 Contributing and Submitting patches
 =========================
 To contribute, simply commit your changes to your fork of the project and then submit a pull request here
-https://github.com/oswin06082/shar-of-the-force-reborn/copare/
+https://github.com/oswin06082/shar-of-the-force-reborn/compare/
 
 Now your changes will be reviewed by other developers and once the changes are approved your code will be merged into the main repository.
 
